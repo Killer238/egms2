@@ -1,0 +1,17 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'related_objects' => false,
+  'namespace' => 'seodomains',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'b071aa85a4655a1ff9049c52c08c01b2',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'a33ecd0fae3f8bbd369dcabed58f95a8',
+  'native_key' => 'seodomains_default_phone',
+  'object' => '{"key":"seodomains_default_phone","value":"","xtype":"textfield","namespace":"seodomains","area":"seodomains_main","editedon":null}',
+);

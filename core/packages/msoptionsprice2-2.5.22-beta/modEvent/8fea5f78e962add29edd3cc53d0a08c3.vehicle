@@ -1,0 +1,15 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'namespace' => 'msoptionsprice',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'b3ee7967973a76ed3025c7bd6d35aa37',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '8fea5f78e962add29edd3cc53d0a08c3',
+  'native_key' => 'msopOnBeforeGetMass',
+  'object' => '{"name":"msopOnBeforeGetMass","service":6,"groupname":"msOptionsPrice2"}',
+);

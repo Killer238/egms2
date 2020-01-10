@@ -1,0 +1,17 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'related_objects' => false,
+  'namespace' => 'seodomains',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '03bed1d6d14ee882b6fa41c71c762aab',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'ec8cea17754394a01bd20333ff8d2fa8',
+  'native_key' => 'seodomains_cyrillic_domain',
+  'object' => '{"key":"seodomains_cyrillic_domain","value":false,"xtype":"combo-boolean","namespace":"seodomains","area":"seodomains_main","editedon":null}',
+);

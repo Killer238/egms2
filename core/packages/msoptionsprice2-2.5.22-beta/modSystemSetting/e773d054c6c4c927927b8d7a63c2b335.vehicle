@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'msoptionsprice',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '2c3ca6bc890d29da341822d4239b0a5c',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'e773d054c6c4c927927b8d7a63c2b335',
+  'native_key' => 'msoptionsprice_grid_modification_fields',
+  'object' => '{"key":"msoptionsprice_grid_modification_fields","value":"id,type,price,old_price,article,weight,count,image","xtype":"textarea","namespace":"msoptionsprice","area":"msoptionsprice_main","editedon":null}',
+);

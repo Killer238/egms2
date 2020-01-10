@@ -1,0 +1,50 @@
+Changelog for SeoDomains.
+
+1.2.3-pl
+==============
+- Fix 500 error for PHP5.4+
+- Remove '//' in SeoDomains.City.tpl chunk
+
+1.2.2-pl
+==============
+- Fix resource schema, varchar(255) -> text
+
+1.2.1-pl
+==============
+- Fix 500 error in Resource
+
+1.2.0-pl
+==============
+- Added a new tab in the Resources for content changes
+- Added search in SeoDomainsList snippet
+- Added supports PHP5.4+
+- Fixed a bug idn_utf8()
+- Remove circular forwarding if there is no primary domain in the list of cities.
+- Made a list of fields in settings
+- Rewritten snippet on PdoTools
+- Rewritten plugin on PdoTools
+- Rewritten chunks on Fenom
+
+1.1.0-pl
+==============
+- Added ability to load additional fields from xlsx file
+- Added the ability to copy the City (domain) with all additional fields
+
+1.0.3-pl
+==============
+- [fix] Cyrillic domains now work
+
+1.0.2-pl
+==============
+- Added param active for css class in SeoDomainsList snippet
+- Bug fixes
+
+1.0.1-pl
+==============
+- Added EN lexicon
+- Added sorting (sortby, sortdir) in SeoDomainsList snippet
+- [fix] Placeholder domain is now available
+
+1.0.0-pl
+==============
+- First

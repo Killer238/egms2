@@ -1,0 +1,16 @@
+<?php return array (
+  'class' => 'xPDOScriptVehicle',
+  'object' => 
+  array (
+    'source' => 'msoptionsprice2-2.5.22-beta/xPDOScriptVehicle/6005adab69f0551716f758e1222f116a.resolve.encryption.script',
+  ),
+  'vehicle_class' => 'xPDOScriptVehicle',
+  'namespace' => 'msoptionsprice',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'guid' => '06536d8531cbfd6db32a9ec669aa98ff',
+  'package' => '',
+  'signature' => '6005adab69f0551716f758e1222f116a',
+  'native_key' => '06536d8531cbfd6db32a9ec669aa98ff',
+);

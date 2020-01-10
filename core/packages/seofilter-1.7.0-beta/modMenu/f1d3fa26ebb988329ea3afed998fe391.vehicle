@@ -1,0 +1,17 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'unique_key' => 'text',
+  'related_objects' => true,
+  'namespace' => 'seofilter',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'e5407d5791f8466f5c5b17e700db8a87',
+  'package' => 'modx',
+  'class' => 'modMenu',
+  'signature' => 'f1d3fa26ebb988329ea3afed998fe391',
+  'native_key' => 'seofilter',
+  'object' => '{"text":"seofilter","parent":"components","action":"home","description":"seofilter_menu_desc","icon":"SEO<i class=\\"icon-filter icon icon-large\\"><\\/i>","menuindex":0,"params":"","handler":"","permissions":"","namespace":"seofilter"}',
+);

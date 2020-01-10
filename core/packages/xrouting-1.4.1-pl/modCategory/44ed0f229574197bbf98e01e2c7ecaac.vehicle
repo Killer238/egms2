@@ -1,0 +1,33 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => true,
+  'related_object_attributes' => 
+  array (
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+  ),
+  'namespace' => 'xrouting',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"xrouting-1.4.1-pl\\/modCategory\\/44ed0f229574197bbf98e01e2c7ecaac\\/0\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"xrouting"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '8ad479382c545eb27099a9c4375d1490',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => '44ed0f229574197bbf98e01e2c7ecaac',
+  'native_key' => 1,
+  'object' => '{"id":1,"parent":0,"category":"XRouting"}',
+);

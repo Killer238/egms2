@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'cityselect',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'c9407166d8f9b4ceaae619bb19c952e8',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '302dcc349fb908bb7e5533fd60269fb2',
+  'native_key' => 'cityselect_default_settlement',
+  'object' => '{"key":"cityselect_default_settlement","value":"{\\"id\\":\\"7700000000000\\",\\"country\\":\\"\\u0420\\u043e\\u0441\\u0441\\u0438\\u044f\\",\\"region_kladr_id\\":\\"7700000000000\\",\\"region_with_type\\":\\"\\u0433 \\u041c\\u043e\\u0441\\u043a\\u0432\\u0430\\",\\"region_type\\":\\"\\u0433\\",\\"region_type_full\\":\\"\\u0433\\u043e\\u0440\\u043e\\u0434\\",\\"region\\":\\"\\u041c\\u043e\\u0441\\u043a\\u0432\\u0430\\",\\"city_kladr_id\\":\\"7700000000000\\",\\"city_with_type\\":\\"\\u0433 \\u041c\\u043e\\u0441\\u043a\\u0432\\u0430\\",\\"city_type\\":\\"\\u0433\\",\\"city_type_full\\":\\"\\u0433\\u043e\\u0440\\u043e\\u0434\\",\\"city\\":\\"\\u041c\\u043e\\u0441\\u043a\\u0432\\u0430\\",\\"kladr_id\\":\\"7700000000000\\",\\"okato\\":\\"45000000000\\",\\"ip\\":\\"62.105.128.0\\"}","xtype":"textarea","namespace":"cityselect","area":"cityselect_main","editedon":null}',
+);

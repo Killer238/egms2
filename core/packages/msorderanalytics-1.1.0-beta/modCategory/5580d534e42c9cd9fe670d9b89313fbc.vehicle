@@ -1,0 +1,94 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Plugins' => 
+    array (
+      '6977526538d673fcddb33a944e66a767' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modPlugin',
+        'object' => '{"id":null,"source":1,"property_preprocess":0,"name":"msoaSystem","description":"","editor_type":0,"category":0,"cache_type":0,"plugincode":"\\/** @var modX $modx *\\/\\n\\/** @var msOrderAnalytics $msoa *\\/\\n\\n$path = MODX_CORE_PATH . \'components\\/msorderanalytics\\/model\\/msorderanalytics\\/\';\\nif (!is_object($modx->msorderanalytics)) {\\n    $msoa = $modx->getService(\'msorderanalytics\', \'msorderanalytics\', $path);\\n} else {\\n    $msoa = $modx->msorderanalytics;\\n}\\n$className = \'msoa\' . $modx->event->name;\\n$modx->loadClass(\'msoaPlugin\', $msoa->config[\'pluginsPath\'], true, true);\\n$modx->loadClass($className, $msoa->config[\'pluginsPath\'], true, true);\\nif (class_exists($className)) {\\n    $handler = new $className($modx, $scriptProperties);\\n    $handler->run();\\n} else {\\n    \\/\\/ \\u0423\\u0434\\u0430\\u043b\\u044f\\u0435\\u043c \\u0441\\u043e\\u0431\\u044b\\u0442\\u0438\\u0435 \\u0443 \\u043f\\u043b\\u0430\\u0433\\u0438\\u043d\\u0430, \\u0435\\u0441\\u043b\\u0438 \\u0442\\u0430\\u043a\\u043e\\u0433\\u043e \\u043a\\u043b\\u0430\\u0441\\u0441\\u0430 \\u043d\\u0435 \\u0441\\u0443\\u0449\\u0435\\u0441\\u0442\\u0432\\u0443\\u0435\\u0442\\n    $event = $modx->getObject(\'modPluginEvent\', array(\\n        \'pluginid\' => $modx->event->plugin->get(\'id\'),\\n        \'event\' => $modx->event->name,\\n    ));\\n    if ($event instanceof modPluginEvent) {\\n        $event->remove();\\n    }\\n}\\nreturn;","locked":0,"properties":null,"disabled":0,"moduleguid":"","static":0,"static_file":"core\\/components\\/msorderanalytics\\/elements\\/plugins\\/plugin.system.php","content":"\\/** @var modX $modx *\\/\\n\\/** @var msOrderAnalytics $msoa *\\/\\n\\n$path = MODX_CORE_PATH . \'components\\/msorderanalytics\\/model\\/msorderanalytics\\/\';\\nif (!is_object($modx->msorderanalytics)) {\\n    $msoa = $modx->getService(\'msorderanalytics\', \'msorderanalytics\', $path);\\n} else {\\n    $msoa = $modx->msorderanalytics;\\n}\\n$className = \'msoa\' . $modx->event->name;\\n$modx->loadClass(\'msoaPlugin\', $msoa->config[\'pluginsPath\'], true, true);\\n$modx->loadClass($className, $msoa->config[\'pluginsPath\'], true, true);\\nif (class_exists($className)) {\\n    $handler = new $className($modx, $scriptProperties);\\n    $handler->run();\\n} else {\\n    \\/\\/ \\u0423\\u0434\\u0430\\u043b\\u044f\\u0435\\u043c \\u0441\\u043e\\u0431\\u044b\\u0442\\u0438\\u0435 \\u0443 \\u043f\\u043b\\u0430\\u0433\\u0438\\u043d\\u0430, \\u0435\\u0441\\u043b\\u0438 \\u0442\\u0430\\u043a\\u043e\\u0433\\u043e \\u043a\\u043b\\u0430\\u0441\\u0441\\u0430 \\u043d\\u0435 \\u0441\\u0443\\u0449\\u0435\\u0441\\u0442\\u0432\\u0443\\u0435\\u0442\\n    $event = $modx->getObject(\'modPluginEvent\', array(\\n        \'pluginid\' => $modx->event->plugin->get(\'id\'),\\n        \'event\' => $modx->event->name,\\n    ));\\n    if ($event instanceof modPluginEvent) {\\n        $event->remove();\\n    }\\n}\\nreturn;"}',
+        'guid' => 'd0282a834e14a1483a67af8225af99ba',
+        'native_key' => NULL,
+        'signature' => '0f68b0a1758651243835a249ab318617',
+        'related_objects' => 
+        array (
+          'PluginEvents' => 
+          array (
+            '34c71f5f49d5ae6b0e7c586a767de64c' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => true,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"msOnCreateOrder","priority":0,"propertyset":0}',
+              'guid' => 'da4175f2eee19bb23767a0677819d8ea',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'msOnCreateOrder',
+              ),
+              'signature' => '9e6192ae67f1efa0bcebfd1067e12406',
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Plugins' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'PluginEvents' => 
+    array (
+      'preserve_keys' => true,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'pluginid',
+        1 => 'event',
+      ),
+    ),
+  ),
+  'namespace' => 'msorderanalytics',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"msorderanalytics-1.1.0-beta\\/modCategory\\/5580d534e42c9cd9fe670d9b89313fbc.resolve.setup.resolver","type":"php","name":"resolve.setup"}',
+    ),
+    1 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"msorderanalytics-1.1.0-beta\\/modCategory\\/5580d534e42c9cd9fe670d9b89313fbc\\/1\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"msorderanalytics"}',
+    ),
+    2 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"msorderanalytics-1.1.0-beta\\/modCategory\\/5580d534e42c9cd9fe670d9b89313fbc.resolve.dev.resolver","type":"php","name":"resolve.dev"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '565803b9ddd0f87fabb02510a26fa1e9',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => '5580d534e42c9cd9fe670d9b89313fbc',
+  'native_key' => NULL,
+  'object' => '{"id":null,"parent":0,"category":"msOrderAnalytics","rank":0}',
+);

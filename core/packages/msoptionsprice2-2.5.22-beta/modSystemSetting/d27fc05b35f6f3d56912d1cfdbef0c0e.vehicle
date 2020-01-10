@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'msoptionsprice',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'd96a6291b0c39bacf564ccb8e2f87eca',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'd27fc05b35f6f3d56912d1cfdbef0c0e',
+  'native_key' => 'msoptionsprice_search_modification_strict',
+  'object' => '{"key":"msoptionsprice_search_modification_strict","value":false,"xtype":"combo-boolean","namespace":"msoptionsprice","area":"msoptionsprice_main","editedon":null}',
+);

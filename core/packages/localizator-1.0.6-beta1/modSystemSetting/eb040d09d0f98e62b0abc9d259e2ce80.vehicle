@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'localizator',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'a99144f0e271f9ab580685a1cca4bea0',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'eb040d09d0f98e62b0abc9d259e2ce80',
+  'native_key' => 'localizator_default_translator',
+  'object' => '{"key":"localizator_default_translator","value":"Yandex","xtype":"textfield","namespace":"localizator","area":"localizator_translator","editedon":null}',
+);

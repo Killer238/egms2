@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'msoptionsprice',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '19eeecda7e5080efa6888a3e5ebbdb85',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '43bc83242dca3971fc7b0a47c777bb22',
+  'native_key' => 'msoptionsprice_frontendCss',
+  'object' => '{"key":"msoptionsprice_frontendCss","value":"[[+assetsUrl]]css\\/web\\/default.css","xtype":"textfield","namespace":"msoptionsprice","area":"msoptionsprice_main","editedon":null}',
+);

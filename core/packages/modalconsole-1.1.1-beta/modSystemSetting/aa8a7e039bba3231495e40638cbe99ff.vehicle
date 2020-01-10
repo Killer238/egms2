@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'modalconsole',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'fabc2b08ed51c5bfdccffb6e462d5e33',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'aa8a7e039bba3231495e40638cbe99ff',
+  'native_key' => 'modalconsole_cssUrl',
+  'object' => '{"key":"modalconsole_cssUrl","value":"{assets_url}components\\/modalconsole\\/css\\/mgr\\/modalconsole.css","xtype":"textfield","namespace":"modalconsole","area":"modalconsole_main","editedon":null}',
+);

@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'msoptionsprice',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '083336355bc2604f06c96631a0628fac',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '83b3bb7a3333aaa2a414621792b7c2e7',
+  'native_key' => 'msoptionsprice_allow_zero_cost',
+  'object' => '{"key":"msoptionsprice_allow_zero_cost","value":false,"xtype":"combo-boolean","namespace":"msoptionsprice","area":"msoptionsprice_main","editedon":null}',
+);

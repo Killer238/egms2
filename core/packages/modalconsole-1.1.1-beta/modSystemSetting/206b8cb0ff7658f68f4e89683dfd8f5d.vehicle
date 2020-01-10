@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'modalconsole',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '5cb3893a55076c2b2349c43097cf4ee2',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '206b8cb0ff7658f68f4e89683dfd8f5d',
+  'native_key' => 'modalconsole_history_limit',
+  'object' => '{"key":"modalconsole_history_limit","value":20,"xtype":"numberfield","namespace":"modalconsole","area":"modalconsole_main","editedon":null}',
+);

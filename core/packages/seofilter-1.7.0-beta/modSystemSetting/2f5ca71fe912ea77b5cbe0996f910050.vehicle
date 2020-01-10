@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'seofilter',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '7424b3e3a12eff864d4da3d094c6f9a9',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '2f5ca71fe912ea77b5cbe0996f910050',
+  'native_key' => 'seofilter_link',
+  'object' => '{"key":"seofilter_link","value":"","xtype":"textfield","namespace":"seofilter","area":"seofilter_seo","editedon":null}',
+);

@@ -1,0 +1,17 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'related_objects' => false,
+  'namespace' => 'seodomains',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'c35c3d911f2b280573cf3217c1c4b207',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '761566d28bae7ab736a3eb5631e2e5ca',
+  'native_key' => 'seodomains_default_email',
+  'object' => '{"key":"seodomains_default_email","value":"","xtype":"textfield","namespace":"seodomains","area":"seodomains_main","editedon":null}',
+);

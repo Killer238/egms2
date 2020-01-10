@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'xrouting',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '21e249ee508d66f7953d09bbd6cac972',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'dde84997ed7e0e68152b9a86260f19ed',
+  'native_key' => 'xrouting.show_no_match_error',
+  'object' => '{"key":"xrouting.show_no_match_error","value":true,"xtype":"combo-boolean","namespace":"xrouting","area":"common","editedon":null}',
+);

@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'tagger',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '4b12fff81b77b214b1be850807d480e4',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '55d3a4b04c836c5172d2df73c797272e',
+  'native_key' => 'tagger.place_in_tab_label',
+  'object' => '{"key":"tagger.place_in_tab_label","value":"tagger.tab.label","xtype":"textfield","namespace":"tagger","area":"places","editedon":null}',
+);

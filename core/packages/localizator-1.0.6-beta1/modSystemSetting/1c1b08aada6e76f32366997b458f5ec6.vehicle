@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'localizator',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'aecd445bab1905f3b1877070940cc3f6',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '1c1b08aada6e76f32366997b458f5ec6',
+  'native_key' => 'localizator_tv_fields',
+  'object' => '{"key":"localizator_tv_fields","value":"","xtype":"textfield","namespace":"localizator","area":"localizator_translator","editedon":null}',
+);

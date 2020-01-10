@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'cityselect',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '98468a9faf4eccc236baddacbfdb8ebf',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '1bfc1654fee12f91132db806cb5eb80c',
+  'native_key' => 'cityselect_dadata_api_token',
+  'object' => '{"key":"cityselect_dadata_api_token","value":"","xtype":"textfield","namespace":"cityselect","area":"cityselect_dadata","editedon":null}',
+);

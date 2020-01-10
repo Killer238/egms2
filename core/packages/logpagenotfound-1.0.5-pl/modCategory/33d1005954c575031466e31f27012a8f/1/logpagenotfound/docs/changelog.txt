@@ -1,0 +1,26 @@
+Changelog for LogPageNotFound
+
+LogPageNotFound 1.0.5
+---------------------
+Fix bug with report page template in later versions of MODX
+
+LogPageNotFound 1.0.4
+---------------------
+Fixed potential XSS vulnerability
+
+LogPageNotFound 1.0.3
+---------------------
+Added button to clear log (Thanks to Susan Ottwell)
+
+LogPageNotFound 1.0.1
+---------------------
+Minor bug fixes
+Minor code improvements
+
+LogPageNotFound 1.0.1
+---------------------
+Improved compatibility with ReflectBlock
+
+LogPageNotFound 1.0.0
+---------------------
+Initial Version

@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'xrouting',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '5ed873376e2192e3d4c998a6e070611b',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'd8ac8a5c5ae5309b04f0b55a2107459c',
+  'native_key' => 'xrouting.include_www',
+  'object' => '{"key":"xrouting.include_www","value":true,"xtype":"combo-boolean","namespace":"xrouting","area":"common","editedon":null}',
+);

@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'contextrouter',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'd917167a629a5013f2a0cbbd4d0fbecf',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '08299cb2997a3ebfe3f8782f9d6645cb',
+  'native_key' => 'contextrouter.includeWww',
+  'object' => '{"key":"contextrouter.includeWww","value":true,"xtype":"combo-boolean","namespace":"contextrouter","area":"default","editedon":null}',
+);

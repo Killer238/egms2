@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'msorderanalytics',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'be10423d67c68a56f1c9f96476766457',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '540ca15aa9f88d6b92e407f3e5c228f1',
+  'native_key' => 'msoa_shop_name',
+  'object' => '{"key":"msoa_shop_name","value":"[[++site_name]]","xtype":"textfield","namespace":"msorderanalytics","area":"msoa_main","editedon":null}',
+);

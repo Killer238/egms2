@@ -1,0 +1,17 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'related_objects' => false,
+  'namespace' => 'seodomains',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'e17763bafc2116a7ae73927e0a1ff762',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '0367d77f1aa90d9ea148ebc9f807ca6f',
+  'native_key' => 'seodomains_city_fields',
+  'object' => '{"key":"seodomains_city_fields","value":"domain,city,phone,email","xtype":"textfield","namespace":"seodomains","area":"seodomains_manager","editedon":null}',
+);

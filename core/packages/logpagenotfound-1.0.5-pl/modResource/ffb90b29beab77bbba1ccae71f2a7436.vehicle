@@ -1,0 +1,26 @@
+<?php return array (
+  'preserve_keys' => false,
+  'update_object' => true,
+  'unique_key' => 'pagetitle',
+  'related_objects' => true,
+  'related_object_attributes' => 
+  array (
+    'ContentType' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+  ),
+  'namespace' => 'logpagenotfound',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '86f72b478e26d3dcd6e66c7cf1373a50',
+  'package' => 'modx',
+  'class' => 'modResource',
+  'signature' => 'ffb90b29beab77bbba1ccae71f2a7436',
+  'native_key' => 2,
+  'object' => '{"id":2,"type":"document","contentType":"text\\/html","pagetitle":"Page Not Found Log Report","longtitle":"Page Not Found Log Report","description":"Shows the formatted content of the Page Not Found Log","alias":"page-not-found-log-report","link_attributes":"","published":0,"pub_date":0,"unpub_date":0,"parent":0,"isfolder":0,"introtext":null,"content":"[[!PageNotFoundLogReport]]\\n<hr>\\n<form action=\\"[[~[[*id]]]]\\" method=\\"post\\">\\n    <input type=\\"submit\\" name=\\"clearlog\\" value=\\"Clear Log\\">\\n<\\/form>","richtext":0,"template":0,"menuindex":0,"searchable":0,"cacheable":1,"createdby":0,"createdon":0,"editedby":0,"editedon":0,"deleted":0,"deletedon":0,"deletedby":0,"publishedon":0,"publishedby":0,"menutitle":"Page Not Found Log Report","donthit":0,"privateweb":0,"privatemgr":0,"content_dispo":0,"hidemenu":1,"class_key":"modDocument","context_key":"web","content_type":1,"uri":null,"uri_override":0,"hide_children_in_tree":0,"show_in_tree":1,"properties":null}',
+);

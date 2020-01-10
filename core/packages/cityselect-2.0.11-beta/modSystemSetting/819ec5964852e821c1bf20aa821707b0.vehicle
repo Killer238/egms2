@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'cityselect',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '9ab909e8805a4442d1f90bbd9ada3b66',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '819ec5964852e821c1bf20aa821707b0',
+  'native_key' => 'cityselect_dadata_api_suggestions_url',
+  'object' => '{"key":"cityselect_dadata_api_suggestions_url","value":"https:\\/\\/suggestions.dadata.ru\\/suggestions\\/api\\/4_1\\/rs","xtype":"textfield","namespace":"cityselect","area":"cityselect_dadata","editedon":null}',
+);

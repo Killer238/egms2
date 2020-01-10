@@ -1,0 +1,15 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'namespace' => 'localizator',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '2fe481b7ab0893906c527629b33c0620',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '75a45618f8ff520757ee4d957f3cf19e',
+  'native_key' => 'OnFindLocalization',
+  'object' => '{"name":"OnFindLocalization","service":6,"groupname":"localizator"}',
+);

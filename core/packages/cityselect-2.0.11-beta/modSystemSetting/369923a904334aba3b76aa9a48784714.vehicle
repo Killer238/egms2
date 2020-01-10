@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'cityselect',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'f08fb8e6a2246592ad91419436e8e6a2',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '369923a904334aba3b76aa9a48784714',
+  'native_key' => 'cityselect_kladr_api_url',
+  'object' => '{"key":"cityselect_kladr_api_url","value":"http:\\/\\/kladr-api.ru\\/api.php","xtype":"textfield","namespace":"cityselect","area":"cityselect_kladr","editedon":null}',
+);

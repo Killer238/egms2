@@ -1,0 +1,168 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Chunks' => 
+    array (
+      '195c5a4983eb9225bed7fbac17ca2171' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modChunk',
+        'object' => '{"id":0,"source":1,"property_preprocess":0,"name":"SeoDomains.City.tpl","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"<!--noindex-->\\r\\n<div class=\\"modal fade\\" id=\\"Cities\\" role=\\"dialog\\">\\r\\n    <div class=\\"modal-dialog\\">\\r\\n          <div class=\\"modal-content\\">\\r\\n            <div class=\\"modal-header\\">\\r\\n                <button type=\\"button\\" class=\\"close\\" data-dismiss=\\"modal\\">&times;<\\/button>\\r\\n                <h4 class=\\"modal-title\\">\\u0412\\u044b\\u0431\\u0440\\u0430\\u0442\\u044c \\u0433\\u043e\\u0440\\u043e\\u0434<\\/h4>\\r\\n            <\\/div>\\r\\n            <div class=\\"modal-body\\">\\r\\n                <div>\\r\\n                    <input type=\\"text\\" placeholder=\\"\\u041f\\u043e\\u0438\\u0441\\u043a \\u043f\\u043e \\u0433\\u043e\\u0440\\u043e\\u0434\\u0443\\" class=\\"form-control sd-city-input\\">\\r\\n                <\\/div>\\r\\n                <br\\/>\\r\\n                <ul>\\r\\n                    {foreach $rows as $row}\\r\\n                        <li class=\\"sd-city-item\\">\\r\\n                            <a href=\\"{$row.link}\\" rel=\\"nofollow\\" class=\\"{$row.active}\\">{$row.city}<\\/a>\\r\\n                        <\\/li>\\r\\n                    {\\/foreach}\\r\\n                <\\/ul>\\r\\n            <\\/div>\\r\\n        <\\/div>\\r\\n    <\\/div>\\r\\n<\\/div>\\r\\n<!--\\/noindex-->","locked":0,"properties":null,"static":0,"static_file":"core\\/components\\/seodomains\\/elements\\/chunks\\/SeoDomains.City.tpl.tpl","content":"<!--noindex-->\\r\\n<div class=\\"modal fade\\" id=\\"Cities\\" role=\\"dialog\\">\\r\\n    <div class=\\"modal-dialog\\">\\r\\n          <div class=\\"modal-content\\">\\r\\n            <div class=\\"modal-header\\">\\r\\n                <button type=\\"button\\" class=\\"close\\" data-dismiss=\\"modal\\">&times;<\\/button>\\r\\n                <h4 class=\\"modal-title\\">\\u0412\\u044b\\u0431\\u0440\\u0430\\u0442\\u044c \\u0433\\u043e\\u0440\\u043e\\u0434<\\/h4>\\r\\n            <\\/div>\\r\\n            <div class=\\"modal-body\\">\\r\\n                <div>\\r\\n                    <input type=\\"text\\" placeholder=\\"\\u041f\\u043e\\u0438\\u0441\\u043a \\u043f\\u043e \\u0433\\u043e\\u0440\\u043e\\u0434\\u0443\\" class=\\"form-control sd-city-input\\">\\r\\n                <\\/div>\\r\\n                <br\\/>\\r\\n                <ul>\\r\\n                    {foreach $rows as $row}\\r\\n                        <li class=\\"sd-city-item\\">\\r\\n                            <a href=\\"{$row.link}\\" rel=\\"nofollow\\" class=\\"{$row.active}\\">{$row.city}<\\/a>\\r\\n                        <\\/li>\\r\\n                    {\\/foreach}\\r\\n                <\\/ul>\\r\\n            <\\/div>\\r\\n        <\\/div>\\r\\n    <\\/div>\\r\\n<\\/div>\\r\\n<!--\\/noindex-->","file":"SeoDomains.City.tpl"}',
+        'guid' => '4b4ed9c2ad97ac75cba8fddf78a5bdcf',
+        'native_key' => 0,
+        'signature' => '70e902d898de056853795cb1a5f497f9',
+      ),
+    ),
+    'Snippets' => 
+    array (
+      'd38b55c4f346ace8ca934bf096fd9723' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => false,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":0,"source":1,"property_preprocess":0,"name":"SeoDomainsList","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/* @var Seodomains $Seodomains *\\/\\r\\nif (!$Seodomains = $modx->getService(\'Seodomains\', \'Seodomains\', MODX_CORE_PATH . \'components\\/seodomains\\/model\\/\')) {\\r\\n    return \'Could not load Seodomains class!\';\\r\\n}\\r\\n\\r\\n\\/* @var pdoFetch $pdoFetch *\\/\\r\\nif (!$modx->loadClass(\'pdofetch\', MODX_CORE_PATH . \'components\\/pdotools\\/model\\/pdotools\\/\', false, true)) {return false;}\\r\\n$pdoFetch = new pdoFetch($modx, $scriptProperties);\\r\\n\\r\\n$config = $Seodomains->config;\\r\\n\\r\\n\\/\\/ Set default parameters\\r\\n$tpl = $modx->getOption(\'tpl\', $scriptProperties, \'SeoDomains.City.tpl\');\\r\\n$activeClass = $modx->getOption(\'activeClass\', $scriptProperties, \'active\');\\r\\n$sortby = $modx->getOption(\'sortby\', $scriptProperties, \'city\');\\r\\n$sortdir = $modx->getOption(\'sortdir\', $scriptProperties, \'ASC\');\\r\\n$limit = $modx->getOption(\'limit\', $scriptProperties, \'\');\\r\\n$showLog = $modx->getOption(\'showLog\', $scriptProperties, 0);\\r\\n$js = $modx->getOption(\'frontend_js\', $scriptProperties, $config[\'jsUrl\'] . \\"web\\/default.js\\");\\r\\n\\r\\nif (!empty($js) && preg_match(\'\\/\\\\.js\\/i\', $js)) {\\r\\n    $modx->regClientScript($js);\\r\\n}\\r\\n\\r\\n$default = array(\\r\\n    \'class\' => \'SeodomainsCity\',\\r\\n    \'sortby\' => $sortby,\\r\\n    \'sortdir\' => $sortdir,\\r\\n    \'limit\' => $limit,\\r\\n    \'fastMode\' => false,\\r\\n    \'return\' => \'data\',\\r\\n);\\r\\n\\r\\n$pdoFetch->setConfig(array_merge($default, $scriptProperties));\\r\\n$rows = $pdoFetch->run();\\r\\n\\r\\n\\/\\/ Processing data\\r\\n$pdoFetch->addTime(\'Parsing data\');\\r\\n$output = array();\\r\\n\\r\\nforeach ($rows as $row) {\\r\\n    $output[] = array_merge($row, array(\\r\\n        \'active\' => $row[\'domain\'] == $_SERVER[\'HTTP_HOST\'] ? $activeClass : \'\',\\r\\n        \'link\' => \\"\\/\\/{$row[\'domain\']}{$_SERVER[\'REQUEST_URI\']}\\"\\r\\n    ));\\r\\n}\\r\\n\\r\\n$pdoFetch->addTime(\'Returning parsed data\');\\r\\n\\r\\n\\/\\/ Return output\\r\\n$log = \'\';\\r\\nif ($modx->user->hasSessionContext(\'mgr\') && !empty($showLog)) {\\r\\n    $log .= \'<pre class=\\"SeodomainsLog\\">\' . print_r($pdoFetch->getTime(), 1) . \'<\\/pre>\';\\r\\n}\\r\\n\\r\\n$output = $pdoFetch->getChunk($tpl, array(\'rows\' => $output));\\r\\n\\r\\n$output .= $log;\\r\\n\\r\\nreturn $output;","locked":0,"properties":"a:6:{s:3:\\"tpl\\";a:7:{s:4:\\"name\\";s:3:\\"tpl\\";s:4:\\"desc\\";s:19:\\"seodomains_prop_tpl\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:19:\\"SeoDomains.City.tpl\\";s:7:\\"lexicon\\";s:21:\\"seodomains:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:11:\\"activeClass\\";a:7:{s:4:\\"name\\";s:11:\\"activeClass\\";s:4:\\"desc\\";s:27:\\"seodomains_prop_activeClass\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:6:\\"active\\";s:7:\\"lexicon\\";s:21:\\"seodomains:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:6:\\"sortby\\";a:7:{s:4:\\"name\\";s:6:\\"sortby\\";s:4:\\"desc\\";s:22:\\"seodomains_prop_sortby\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:4:\\"city\\";s:7:\\"lexicon\\";s:21:\\"seodomains:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:7:\\"sortdir\\";a:7:{s:4:\\"name\\";s:7:\\"sortdir\\";s:4:\\"desc\\";s:23:\\"seodomains_prop_sortdir\\";s:4:\\"type\\";s:4:\\"list\\";s:7:\\"options\\";a:2:{i:0;a:2:{s:4:\\"text\\";s:3:\\"ASC\\";s:5:\\"value\\";s:3:\\"ASC\\";}i:1;a:2:{s:4:\\"text\\";s:4:\\"DESC\\";s:5:\\"value\\";s:4:\\"DESC\\";}}s:5:\\"value\\";s:3:\\"ASC\\";s:7:\\"lexicon\\";s:21:\\"seodomains:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:5:\\"limit\\";a:7:{s:4:\\"name\\";s:5:\\"limit\\";s:4:\\"desc\\";s:21:\\"seodomains_prop_limit\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:0:\\"\\";s:7:\\"lexicon\\";s:21:\\"seodomains:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:7:\\"showLog\\";a:7:{s:4:\\"name\\";s:7:\\"showLog\\";s:4:\\"desc\\";s:23:\\"seodomains_prop_showLog\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:1:\\"0\\";s:7:\\"lexicon\\";s:21:\\"seodomains:properties\\";s:4:\\"area\\";s:0:\\"\\";}}","moduleguid":"","static":0,"static_file":"core\\/components\\/seodomains\\/elements\\/snippets\\/SeoDomainsList.php","content":"\\/* @var Seodomains $Seodomains *\\/\\r\\nif (!$Seodomains = $modx->getService(\'Seodomains\', \'Seodomains\', MODX_CORE_PATH . \'components\\/seodomains\\/model\\/\')) {\\r\\n    return \'Could not load Seodomains class!\';\\r\\n}\\r\\n\\r\\n\\/* @var pdoFetch $pdoFetch *\\/\\r\\nif (!$modx->loadClass(\'pdofetch\', MODX_CORE_PATH . \'components\\/pdotools\\/model\\/pdotools\\/\', false, true)) {return false;}\\r\\n$pdoFetch = new pdoFetch($modx, $scriptProperties);\\r\\n\\r\\n$config = $Seodomains->config;\\r\\n\\r\\n\\/\\/ Set default parameters\\r\\n$tpl = $modx->getOption(\'tpl\', $scriptProperties, \'SeoDomains.City.tpl\');\\r\\n$activeClass = $modx->getOption(\'activeClass\', $scriptProperties, \'active\');\\r\\n$sortby = $modx->getOption(\'sortby\', $scriptProperties, \'city\');\\r\\n$sortdir = $modx->getOption(\'sortdir\', $scriptProperties, \'ASC\');\\r\\n$limit = $modx->getOption(\'limit\', $scriptProperties, \'\');\\r\\n$showLog = $modx->getOption(\'showLog\', $scriptProperties, 0);\\r\\n$js = $modx->getOption(\'frontend_js\', $scriptProperties, $config[\'jsUrl\'] . \\"web\\/default.js\\");\\r\\n\\r\\nif (!empty($js) && preg_match(\'\\/\\\\.js\\/i\', $js)) {\\r\\n    $modx->regClientScript($js);\\r\\n}\\r\\n\\r\\n$default = array(\\r\\n    \'class\' => \'SeodomainsCity\',\\r\\n    \'sortby\' => $sortby,\\r\\n    \'sortdir\' => $sortdir,\\r\\n    \'limit\' => $limit,\\r\\n    \'fastMode\' => false,\\r\\n    \'return\' => \'data\',\\r\\n);\\r\\n\\r\\n$pdoFetch->setConfig(array_merge($default, $scriptProperties));\\r\\n$rows = $pdoFetch->run();\\r\\n\\r\\n\\/\\/ Processing data\\r\\n$pdoFetch->addTime(\'Parsing data\');\\r\\n$output = array();\\r\\n\\r\\nforeach ($rows as $row) {\\r\\n    $output[] = array_merge($row, array(\\r\\n        \'active\' => $row[\'domain\'] == $_SERVER[\'HTTP_HOST\'] ? $activeClass : \'\',\\r\\n        \'link\' => \\"\\/\\/{$row[\'domain\']}{$_SERVER[\'REQUEST_URI\']}\\"\\r\\n    ));\\r\\n}\\r\\n\\r\\n$pdoFetch->addTime(\'Returning parsed data\');\\r\\n\\r\\n\\/\\/ Return output\\r\\n$log = \'\';\\r\\nif ($modx->user->hasSessionContext(\'mgr\') && !empty($showLog)) {\\r\\n    $log .= \'<pre class=\\"SeodomainsLog\\">\' . print_r($pdoFetch->getTime(), 1) . \'<\\/pre>\';\\r\\n}\\r\\n\\r\\n$output = $pdoFetch->getChunk($tpl, array(\'rows\' => $output));\\r\\n\\r\\n$output .= $log;\\r\\n\\r\\nreturn $output;","file":"SeoDomainsList"}',
+        'guid' => '16845d29754f1cbedfe6aa8006e31008',
+        'native_key' => 0,
+        'signature' => 'e75597985fb884f15c9bd5d643d127ff',
+      ),
+    ),
+    'Plugins' => 
+    array (
+      '3fb7578df0b9ddad92088631ab53eeb6' => 
+      array (
+        'unique_key' => 'name',
+        'preserve_keys' => false,
+        'update_object' => false,
+        'related_objects' => 
+        array (
+          'PluginEvents' => 
+          array (
+            '2b74a00906c14ead1d3086829bc929c8' => 
+            array (
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnHandleRequest","priority":0,"propertyset":0}',
+              'guid' => 'ba1602faffed065756caae5cde53d337',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnHandleRequest',
+              ),
+              'signature' => '5dc594022f398c386d5acf1c324a7c53',
+            ),
+            '2db9a122d84e09745c85e5167b281e24' => 
+            array (
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnDocFormRender","priority":0,"propertyset":0}',
+              'guid' => '1eb14ec3ab412191f1d632b002cff1e4',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnDocFormRender',
+              ),
+              'signature' => '6b4c3456d69f815ad6bb0629e845dac2',
+            ),
+            '3fc2ea884f6f66a1289090bd59f21a54' => 
+            array (
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnLoadWebDocument","priority":0,"propertyset":0}',
+              'guid' => '1104f5138f9f112ce6f5f510666a8ec8',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnLoadWebDocument',
+              ),
+              'signature' => '728efe0d287aefcca1c10596b4c71ec6',
+            ),
+          ),
+        ),
+        'related_object_attributes' => 
+        array (
+          'PluginEvents' => 
+          array (
+            'preserve_keys' => true,
+            'update_object' => true,
+            'unique_key' => 
+            array (
+              0 => 'pluginid',
+              1 => 'event',
+            ),
+          ),
+        ),
+        'class' => 'modPlugin',
+        'object' => '{"id":null,"source":1,"property_preprocess":0,"name":"SeoDomains","description":"","editor_type":0,"category":0,"cache_type":0,"plugincode":"\\/* @var Seodomains $Seodomains *\\/\\r\\nif (!$Seodomains = $modx->getService(\'Seodomains\', \'Seodomains\', MODX_CORE_PATH . \'components\\/seodomains\\/model\\/\')) {\\r\\n    return \'Could not load Seodomains class!\';\\r\\n}\\r\\n\\r\\nswitch ($modx->event->name) {\\r\\n    case \'OnHandleRequest\':\\r\\n        \\/* @var pdoFetch $pdoFetch *\\/\\r\\n        if (!$pdo = $modx->getService(\'pdoFetch\')) {\\r\\n            return \'Could not load pdoFetch class!\';\\r\\n        }\\r\\n        \\r\\n        $host = $_SERVER[\'HTTP_HOST\'];\\r\\n\\r\\n        if ($modx->getOption(\'seodomains_cyrillic_domain\')) {\\r\\n            $host = idn_to_utf8($host);\\r\\n        }\\r\\n\\r\\n        $response = $pdo->getArray(\'SeodomainsCity\', array(\'domain\' => $host));\\r\\n\\r\\n        if (count($response)) {\\r\\n            $Morefields = $Seodomains->getMorefields($response[\'id\']);\\r\\n\\r\\n            $modx->setPlaceholders(array_merge($response, $Morefields), $modx->getOption(\'seodomains_phx_prefix\'));\\r\\n        } else {\\r\\n            if (!$modx->getOption(\'seodomains_main_host\')) return;\\r\\n\\r\\n            $modx->sendRedirect($modx->getOption(\'seodomains_main_host\'), array(\'responseCode\' => \'HTTP\\/1.1 301 Moved Permanently\'));\\r\\n        }\\r\\n    break;\\r\\n    \\r\\n    case \'OnDocFormRender\':\\r\\n        $controller->Seodomains = $Seodomains = $modx->getService(\'Seodomains\', \'Seodomains\', MODX_CORE_PATH . \'components\\/seodomains\\/model\\/\');\\r\\n\\r\\n        $controller->Seodomains->loadCustomJsCss();\\r\\n    break;\\r\\n\\r\\n    case \'OnLoadWebDocument\':\\r\\n        $content = $Seodomains->getContent($_SERVER[\'HTTP_HOST\'], $modx->resource->id);\\r\\n        \\r\\n        if (!$content) return ;\\r\\n        \\r\\n        $modx->resource->cacheable = 0;\\r\\n        $modx->resource->content = $content;\\r\\n    break;\\r\\n}","locked":0,"properties":null,"disabled":0,"moduleguid":"","static":0,"static_file":"core\\/components\\/seodomains\\/elements\\/plugins\\/SeoDomains.php","content":"\\/* @var Seodomains $Seodomains *\\/\\r\\nif (!$Seodomains = $modx->getService(\'Seodomains\', \'Seodomains\', MODX_CORE_PATH . \'components\\/seodomains\\/model\\/\')) {\\r\\n    return \'Could not load Seodomains class!\';\\r\\n}\\r\\n\\r\\nswitch ($modx->event->name) {\\r\\n    case \'OnHandleRequest\':\\r\\n        \\/* @var pdoFetch $pdoFetch *\\/\\r\\n        if (!$pdo = $modx->getService(\'pdoFetch\')) {\\r\\n            return \'Could not load pdoFetch class!\';\\r\\n        }\\r\\n        \\r\\n        $host = $_SERVER[\'HTTP_HOST\'];\\r\\n\\r\\n        if ($modx->getOption(\'seodomains_cyrillic_domain\')) {\\r\\n            $host = idn_to_utf8($host);\\r\\n        }\\r\\n\\r\\n        $response = $pdo->getArray(\'SeodomainsCity\', array(\'domain\' => $host));\\r\\n\\r\\n        if (count($response)) {\\r\\n            $Morefields = $Seodomains->getMorefields($response[\'id\']);\\r\\n\\r\\n            $modx->setPlaceholders(array_merge($response, $Morefields), $modx->getOption(\'seodomains_phx_prefix\'));\\r\\n        } else {\\r\\n            if (!$modx->getOption(\'seodomains_main_host\')) return;\\r\\n\\r\\n            $modx->sendRedirect($modx->getOption(\'seodomains_main_host\'), array(\'responseCode\' => \'HTTP\\/1.1 301 Moved Permanently\'));\\r\\n        }\\r\\n    break;\\r\\n    \\r\\n    case \'OnDocFormRender\':\\r\\n        $controller->Seodomains = $Seodomains = $modx->getService(\'Seodomains\', \'Seodomains\', MODX_CORE_PATH . \'components\\/seodomains\\/model\\/\');\\r\\n\\r\\n        $controller->Seodomains->loadCustomJsCss();\\r\\n    break;\\r\\n\\r\\n    case \'OnLoadWebDocument\':\\r\\n        $content = $Seodomains->getContent($_SERVER[\'HTTP_HOST\'], $modx->resource->id);\\r\\n        \\r\\n        if (!$content) return ;\\r\\n        \\r\\n        $modx->resource->cacheable = 0;\\r\\n        $modx->resource->content = $content;\\r\\n    break;\\r\\n}","file":"SeoDomains","events":{"OnHandleRequest":[],"OnDocFormRender":[],"OnLoadWebDocument":[]}}',
+        'guid' => '92174cdf3bc139071f6e558d0bb8daaa',
+        'native_key' => NULL,
+        'signature' => '1c6d5a25de2f0a90b2ea6088944aba7c',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Chunks' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Plugins' => 
+    array (
+      'unique_key' => 'name',
+      'preserve_keys' => false,
+      'update_object' => false,
+      'related_objects' => true,
+      'related_object_attributes' => 
+      array (
+        'PluginEvents' => 
+        array (
+          'preserve_keys' => true,
+          'update_object' => true,
+          'unique_key' => 
+          array (
+            0 => 'pluginid',
+            1 => 'event',
+          ),
+        ),
+      ),
+    ),
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => false,
+      'unique_key' => 'name',
+    ),
+  ),
+  'namespace' => 'seodomains',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"seodomains-1.2.3-pl\\/modCategory\\/997450f1639a77073221c0d7561e38e9\\/0\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"seodomains"}',
+    ),
+    1 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"seodomains-1.2.3-pl\\/modCategory\\/997450f1639a77073221c0d7561e38e9\\/1\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"seodomains"}',
+    ),
+    2 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"seodomains-1.2.3-pl\\/modCategory\\/997450f1639a77073221c0d7561e38e9.tables.resolver","type":"php","name":"tables"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '75a1dd22101400a6d41524b72ede21aa',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => '997450f1639a77073221c0d7561e38e9',
+  'native_key' => NULL,
+  'object' => '{"id":null,"parent":0,"category":"SeoDomains","rank":0}',
+);

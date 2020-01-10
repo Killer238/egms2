@@ -1,0 +1,111 @@
+<?php return array (
+  'unique_key' => 'name',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'PluginEvents' => 
+    array (
+      '5af477dfed70280e3a4c0bc8c9438835' => 
+      array (
+        'preserve_keys' => true,
+        'update_object' => false,
+        'unique_key' => 
+        array (
+          0 => 'pluginid',
+          1 => 'event',
+        ),
+        'class' => 'modPluginEvent',
+        'object' => '{"pluginid":0,"event":"OnHandleRequest","priority":0,"propertyset":0}',
+        'guid' => '0bc79b6413316dec0f843c0849045499',
+        'native_key' => 
+        array (
+          0 => 0,
+          1 => 'OnHandleRequest',
+        ),
+        'signature' => 'ac18e69e9d65de5119f13a54c3d72a38',
+      ),
+      'b7091e95ad5e54ff9ff164a3b4017e1f' => 
+      array (
+        'preserve_keys' => true,
+        'update_object' => false,
+        'unique_key' => 
+        array (
+          0 => 'pluginid',
+          1 => 'event',
+        ),
+        'class' => 'modPluginEvent',
+        'object' => '{"pluginid":0,"event":"OnContextSave","priority":0,"propertyset":0}',
+        'guid' => 'd15593bf4d931f1c614a93abc48ca1ed',
+        'native_key' => 
+        array (
+          0 => 0,
+          1 => 'OnContextSave',
+        ),
+        'signature' => '1f5039139374435da481184efe50400a',
+      ),
+      '2691a5a94fb79ed2ed847b27007d9482' => 
+      array (
+        'preserve_keys' => true,
+        'update_object' => false,
+        'unique_key' => 
+        array (
+          0 => 'pluginid',
+          1 => 'event',
+        ),
+        'class' => 'modPluginEvent',
+        'object' => '{"pluginid":0,"event":"OnContextRemove","priority":0,"propertyset":0}',
+        'guid' => 'c71e182d4d91f6857328055ef3ffb2cf',
+        'native_key' => 
+        array (
+          0 => 0,
+          1 => 'OnContextRemove',
+        ),
+        'signature' => '58b0a9839c9867e2575cfb697d7b3bd9',
+      ),
+      'a933ebcb70e81d1db610581cacbc74a0' => 
+      array (
+        'preserve_keys' => true,
+        'update_object' => false,
+        'unique_key' => 
+        array (
+          0 => 'pluginid',
+          1 => 'event',
+        ),
+        'class' => 'modPluginEvent',
+        'object' => '{"pluginid":0,"event":"OnSiteRefresh","priority":0,"propertyset":0}',
+        'guid' => 'efdc15366d51f84bb6bca1b851513f76',
+        'native_key' => 
+        array (
+          0 => 0,
+          1 => 'OnSiteRefresh',
+        ),
+        'signature' => '8957e1a877f6dca601212cfd5bb47832',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'PluginEvents' => 
+    array (
+      'preserve_keys' => true,
+      'update_object' => false,
+      'unique_key' => 
+      array (
+        0 => 'pluginid',
+        1 => 'event',
+      ),
+    ),
+  ),
+  'namespace' => 'xrouting',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'd0852b8646d08ff3b25f8864d6acd908',
+  'package' => 'modx',
+  'class' => 'modPlugin',
+  'signature' => '71c56107aa294e099ceb1c3ddc1dce44',
+  'native_key' => 1,
+  'object' => '{"id":1,"source":0,"property_preprocess":0,"name":"XRouting","description":"XRouting is a simple plugin that handles requests for different contexts. It automatically switches the context based on a (sub)domain AND\\/OR subfolder.","editor_type":0,"category":0,"cache_type":0,"plugincode":"switch ($modx->event->name) {\\n\\n    \\/\\/ \\"refresh cache\\" part\\n    case \'OnContextSave\':\\n    case \'OnContextRemove\':\\n    case \'OnSiteRefresh\':\\n        \\n        $contexts = array();\\n        $cacheKey = \'xrouting_contextmap\';\\n        $cacheOptions = array();\\n        \\n        \\/\\/ build context array\\n        $query = $modx->newQuery(\'modContext\');\\n        $query->where(array(\'modContext.key:NOT IN\' => array(\'mgr\')));\\n        $query->sortby($modx->escape(\'modContext\') . \'.\' . $modx->escape(\'key\'), \'DESC\');\\n        $contextsGraph = $modx->getCollectionGraph(\'modContext\', \'{\\"ContextSettings\\":{}}\', $query);\\n        \\n        foreach ($contextsGraph as $context) {\\n            $contextSettings = array();\\n            foreach ($context->ContextSettings as $cSetting) {\\n                $contextSettings[$cSetting->get(\'key\')] = $cSetting->get(\'value\');\\n            }\\n            \\n            if (!empty($contextSettings[\'http_host\']) && !empty($contextSettings[\'base_url\'])) {\\n                \\n                \\/\\/ add http_host to hosts list\\n                $contexts[\'_hosts\'][$contextSettings[\'http_host\']][] = $context->get(\'key\');\\n                \\n                \\/\\/ add alias hosts to host list\\n                if (!empty($contextSettings[\'http_host_aliases\'])) {\\n                    foreach (explode(\',\',$contextSettings[\'http_host_aliases\']) as $alias) {\\n                        $contexts[\'_hosts\'][$alias][] = $context->get(\'key\');\\n                    }\\n                }\\n                \\n                \\/\\/ add context settings\\n                $contexts[$context->get(\'key\')] = $contextSettings;\\n            }\\n        }\\n         \\n        unset($contextsGraph);\\n        $modx->cacheManager->set($cacheKey, $contexts, 0, $cacheOptions);\\n    break;\\n    \\n    \\n    \\/\\/ \\"routing\\" part\\n    default:\\n    case \'OnHandleRequest\':\\n        if ($modx->context->get(\'key\') == \'mgr\') return;\\n            \\n        $contexts = array();\\n        \\n        $cacheKey = \'xrouting_contextmap\';\\n        $cacheOptions = array();\\n        $contexts = $modx->cacheManager->get($cacheKey, $cacheOptions);\\n        \\n        if (empty($contexts)) {\\n        \\/\\/ build context array\\n            $query = $modx->newQuery(\'modContext\');\\n            $query->where(array(\'modContext.key:NOT IN\' => array(\'mgr\')));\\n            $query->sortby($modx->escape(\'modContext\') . \'.\' . $modx->escape(\'key\'), \'DESC\');\\n            $contextsGraph = $modx->getCollectionGraph(\'modContext\', \'{\\"ContextSettings\\":{}}\', $query);\\n            \\n            foreach ($contextsGraph as $context) {\\n                $contextSettings = array();\\n                foreach ($context->ContextSettings as $cSetting) {\\n                    $contextSettings[$cSetting->get(\'key\')] = $cSetting->get(\'value\');\\n                }\\n                \\n                if (!empty($contextSettings[\'http_host\']) && !empty($contextSettings[\'base_url\'])) {\\n                    \\n                    \\/\\/ add http_host to hosts list\\n                    $contexts[\'_hosts\'][$contextSettings[\'http_host\']][] = $context->get(\'key\');\\n                    \\n                    \\/\\/ add alias hosts to host list\\n                    if (!empty($contextSettings[\'http_host_aliases\'])) {\\n                        foreach (explode(\',\',$contextSettings[\'http_host_aliases\']) as $alias) {\\n                            $contexts[\'_hosts\'][$alias][] = $context->get(\'key\');\\n                        }\\n                    }\\n                    \\n                    \\/\\/ add context settings\\n                    $contexts[$context->get(\'key\')] = $contextSettings;\\n                }\\n            }\\n                         \\n            unset($contextsGraph);\\n            $modx->cacheManager->set($cacheKey, $contexts, 0, $cacheOptions);\\n        }\\n\\n\\n        if (!empty($contexts)) {\\n            $http_host = $_SERVER[\'HTTP_HOST\'];\\n            if ($modx->getOption(\'xrouting.include_www\', null, true)) {\\n                $http_host = str_replace(\'www.\',\'\',$http_host);\\n            }\\n            \\n            $modx_base_url = $modx->getOption(\'base_url\', null, MODX_BASE_URL);\\n            $requestUrl = str_replace(\'\\/\\/\',\'\\/\',$modx_base_url.$_REQUEST[$modx->getOption(\'request_param_alias\', null, \'q\')]);\\n            $matches = array();\\n            \\n            \\n        \\/\\/ find matching hosts\\n            $matched_contexts = $contexts[\'_hosts\'][$http_host];\\n            \\n            \\n            foreach ((array) $matched_contexts as $index => $ckey) {\\n                \\n                $context = $contexts[$ckey];\\n                $strpos = strpos($requestUrl, $contexts[$ckey][\'base_url\']);\\n                if ($strpos === 0) {\\n                    $matches[strlen($contexts[$ckey][\'base_url\'])] = $ckey;\\n                }\\n            }\\n\\n        \\/\\/ modify request for the matched context\\n            if (!empty($matches)) {\\n                \\n                $cSettings = $contexts[$matches[max(array_keys($matches))]];\\n                $cKey = $matches[max(array_keys($matches))];\\n                \\n                \\/\\/ do we need to switch the context?\\n                if ($modx->context->get(\'key\') != $cKey) {\\n                    $modx->switchContext($cKey);\\n                }\\n                \\n                \\/\\/ remove base_url from request query\\n                if ($cSettings[\'base_url\'] != $modx_base_url) {\\n                    $newRequestUrl = str_replace($cSettings[\'base_url\'],\'\',$requestUrl);\\n                    $_REQUEST[$modx->getOption(\'request_param_alias\', null, \'q\')] = $newRequestUrl;\\n                }\\n                \\n                \\n            } else if ($_REQUEST[\'xrouting-debug\'] != \'1\' || !$modx->getOption(\'xrouting.allow_debug_info\', null, false)) {\\n                \\/\\/ if no match found\\n                if ($modx->getOption(\'xrouting.show_no_match_error\', null, true)) {\\n                    $modx->sendErrorPage();\\n                } else {\\n                    $modx->switchContext($modx->getOption(\'xrouting.default_context\', null, \'web\'));\\n                }\\n                \\n            }\\n        \\n        \\/\\/ output debug info\\n            if ($_REQUEST[\'xrouting-debug\'] == \'1\' && $modx->getOption(\'xrouting.allow_debug_info\', null, false)) {\\n                $debuginfo = \'<pre>\';\\n                $debuginfo .= \\"## MODX context map:\\\\n\\\\n\\" . print_r($contexts,true) . \\"\\\\n\\\\n\\\\n\\";\\n                $debuginfo .= \\"## Requested URL: \\" . $_REQUEST[$modx->getOption(\'request_param_alias\', null, \'q\')] . \\"\\\\n\\\\n\\\\n\\";\\n                $debuginfo .= \\"## Requested URL with base_url: \\". $requestUrl .\\"\\\\n\\\\n\\\\n\\";\\n                $debuginfo .= \\"## Matched context(s) (Array key defines match quality):\\\\n\\\\n\\" . print_r($matches,true) . \\"\\\\n\\\\n\\\\n\\";\\n                $debuginfo .= \\"## Request will go to context: \\" . $matches[max(array_keys($matches))] . \\"\\\\n\\\\n\\\\n\\";\\n                $debuginfo .= \\"## Modified request URL: \\" . $newRequestUrl . \\"\\\\n\\\\n\\\\n\\";\\n                die($debuginfo);\\n            }\\n        }\\n    break;\\n}","locked":0,"properties":null,"disabled":0,"moduleguid":"","static":0,"static_file":"","content":"switch ($modx->event->name) {\\n\\n    \\/\\/ \\"refresh cache\\" part\\n    case \'OnContextSave\':\\n    case \'OnContextRemove\':\\n    case \'OnSiteRefresh\':\\n        \\n        $contexts = array();\\n        $cacheKey = \'xrouting_contextmap\';\\n        $cacheOptions = array();\\n        \\n        \\/\\/ build context array\\n        $query = $modx->newQuery(\'modContext\');\\n        $query->where(array(\'modContext.key:NOT IN\' => array(\'mgr\')));\\n        $query->sortby($modx->escape(\'modContext\') . \'.\' . $modx->escape(\'key\'), \'DESC\');\\n        $contextsGraph = $modx->getCollectionGraph(\'modContext\', \'{\\"ContextSettings\\":{}}\', $query);\\n        \\n        foreach ($contextsGraph as $context) {\\n            $contextSettings = array();\\n            foreach ($context->ContextSettings as $cSetting) {\\n                $contextSettings[$cSetting->get(\'key\')] = $cSetting->get(\'value\');\\n            }\\n            \\n            if (!empty($contextSettings[\'http_host\']) && !empty($contextSettings[\'base_url\'])) {\\n                \\n                \\/\\/ add http_host to hosts list\\n                $contexts[\'_hosts\'][$contextSettings[\'http_host\']][] = $context->get(\'key\');\\n                \\n                \\/\\/ add alias hosts to host list\\n                if (!empty($contextSettings[\'http_host_aliases\'])) {\\n                    foreach (explode(\',\',$contextSettings[\'http_host_aliases\']) as $alias) {\\n                        $contexts[\'_hosts\'][$alias][] = $context->get(\'key\');\\n                    }\\n                }\\n                \\n                \\/\\/ add context settings\\n                $contexts[$context->get(\'key\')] = $contextSettings;\\n            }\\n        }\\n         \\n        unset($contextsGraph);\\n        $modx->cacheManager->set($cacheKey, $contexts, 0, $cacheOptions);\\n    break;\\n    \\n    \\n    \\/\\/ \\"routing\\" part\\n    default:\\n    case \'OnHandleRequest\':\\n        if ($modx->context->get(\'key\') == \'mgr\') return;\\n            \\n        $contexts = array();\\n        \\n        $cacheKey = \'xrouting_contextmap\';\\n        $cacheOptions = array();\\n        $contexts = $modx->cacheManager->get($cacheKey, $cacheOptions);\\n        \\n        if (empty($contexts)) {\\n        \\/\\/ build context array\\n            $query = $modx->newQuery(\'modContext\');\\n            $query->where(array(\'modContext.key:NOT IN\' => array(\'mgr\')));\\n            $query->sortby($modx->escape(\'modContext\') . \'.\' . $modx->escape(\'key\'), \'DESC\');\\n            $contextsGraph = $modx->getCollectionGraph(\'modContext\', \'{\\"ContextSettings\\":{}}\', $query);\\n            \\n            foreach ($contextsGraph as $context) {\\n                $contextSettings = array();\\n                foreach ($context->ContextSettings as $cSetting) {\\n                    $contextSettings[$cSetting->get(\'key\')] = $cSetting->get(\'value\');\\n                }\\n                \\n                if (!empty($contextSettings[\'http_host\']) && !empty($contextSettings[\'base_url\'])) {\\n                    \\n                    \\/\\/ add http_host to hosts list\\n                    $contexts[\'_hosts\'][$contextSettings[\'http_host\']][] = $context->get(\'key\');\\n                    \\n                    \\/\\/ add alias hosts to host list\\n                    if (!empty($contextSettings[\'http_host_aliases\'])) {\\n                        foreach (explode(\',\',$contextSettings[\'http_host_aliases\']) as $alias) {\\n                            $contexts[\'_hosts\'][$alias][] = $context->get(\'key\');\\n                        }\\n                    }\\n                    \\n                    \\/\\/ add context settings\\n                    $contexts[$context->get(\'key\')] = $contextSettings;\\n                }\\n            }\\n                         \\n            unset($contextsGraph);\\n            $modx->cacheManager->set($cacheKey, $contexts, 0, $cacheOptions);\\n        }\\n\\n\\n        if (!empty($contexts)) {\\n            $http_host = $_SERVER[\'HTTP_HOST\'];\\n            if ($modx->getOption(\'xrouting.include_www\', null, true)) {\\n                $http_host = str_replace(\'www.\',\'\',$http_host);\\n            }\\n            \\n            $modx_base_url = $modx->getOption(\'base_url\', null, MODX_BASE_URL);\\n            $requestUrl = str_replace(\'\\/\\/\',\'\\/\',$modx_base_url.$_REQUEST[$modx->getOption(\'request_param_alias\', null, \'q\')]);\\n            $matches = array();\\n            \\n            \\n        \\/\\/ find matching hosts\\n            $matched_contexts = $contexts[\'_hosts\'][$http_host];\\n            \\n            \\n            foreach ((array) $matched_contexts as $index => $ckey) {\\n                \\n                $context = $contexts[$ckey];\\n                $strpos = strpos($requestUrl, $contexts[$ckey][\'base_url\']);\\n                if ($strpos === 0) {\\n                    $matches[strlen($contexts[$ckey][\'base_url\'])] = $ckey;\\n                }\\n            }\\n\\n        \\/\\/ modify request for the matched context\\n            if (!empty($matches)) {\\n                \\n                $cSettings = $contexts[$matches[max(array_keys($matches))]];\\n                $cKey = $matches[max(array_keys($matches))];\\n                \\n                \\/\\/ do we need to switch the context?\\n                if ($modx->context->get(\'key\') != $cKey) {\\n                    $modx->switchContext($cKey);\\n                }\\n                \\n                \\/\\/ remove base_url from request query\\n                if ($cSettings[\'base_url\'] != $modx_base_url) {\\n                    $newRequestUrl = str_replace($cSettings[\'base_url\'],\'\',$requestUrl);\\n                    $_REQUEST[$modx->getOption(\'request_param_alias\', null, \'q\')] = $newRequestUrl;\\n                }\\n                \\n                \\n            } else if ($_REQUEST[\'xrouting-debug\'] != \'1\' || !$modx->getOption(\'xrouting.allow_debug_info\', null, false)) {\\n                \\/\\/ if no match found\\n                if ($modx->getOption(\'xrouting.show_no_match_error\', null, true)) {\\n                    $modx->sendErrorPage();\\n                } else {\\n                    $modx->switchContext($modx->getOption(\'xrouting.default_context\', null, \'web\'));\\n                }\\n                \\n            }\\n        \\n        \\/\\/ output debug info\\n            if ($_REQUEST[\'xrouting-debug\'] == \'1\' && $modx->getOption(\'xrouting.allow_debug_info\', null, false)) {\\n                $debuginfo = \'<pre>\';\\n                $debuginfo .= \\"## MODX context map:\\\\n\\\\n\\" . print_r($contexts,true) . \\"\\\\n\\\\n\\\\n\\";\\n                $debuginfo .= \\"## Requested URL: \\" . $_REQUEST[$modx->getOption(\'request_param_alias\', null, \'q\')] . \\"\\\\n\\\\n\\\\n\\";\\n                $debuginfo .= \\"## Requested URL with base_url: \\". $requestUrl .\\"\\\\n\\\\n\\\\n\\";\\n                $debuginfo .= \\"## Matched context(s) (Array key defines match quality):\\\\n\\\\n\\" . print_r($matches,true) . \\"\\\\n\\\\n\\\\n\\";\\n                $debuginfo .= \\"## Request will go to context: \\" . $matches[max(array_keys($matches))] . \\"\\\\n\\\\n\\\\n\\";\\n                $debuginfo .= \\"## Modified request URL: \\" . $newRequestUrl . \\"\\\\n\\\\n\\\\n\\";\\n                die($debuginfo);\\n            }\\n        }\\n    break;\\n}"}',
+);

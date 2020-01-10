@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'cityselect',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'dd13da66ec5659f9e6dff1df24d3194b',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '01ba56c3aaf180a7c78d2503466b3a3a',
+  'native_key' => 'cityselect_front_js',
+  'object' => '{"key":"cityselect_front_js","value":"[[+assetsUrl]]js\\/web\\/default.min.js","xtype":"textfield","namespace":"cityselect","area":"cityselect_main","editedon":null}',
+);

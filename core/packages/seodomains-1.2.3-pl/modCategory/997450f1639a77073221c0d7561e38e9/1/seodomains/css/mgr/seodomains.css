@@ -1,0 +1,33 @@
+.seodomains-btn {
+    color: #555;
+    border-radius: 3px;
+    line-height: 1.3rem;
+    min-width: 26px;
+    cursor: pointer;
+}
+.seodomains-btn-default {
+    background: #fff;
+    border: 1px solid #d0d0d0;
+}
+.seodomains-btn-default:hover {
+    background: #ececec;
+}
+.seodomains-row-actions {
+    display: inline-block;
+}
+.seodomains-row-actions li {
+    display: inline-block;
+}
+.seodomains-btn-default.action-red {
+    color:red;
+}
+.x-menu-list-item .icon {
+    text-align: center;
+    left: 6px;
+}
+.hidden {
+    display:none;
+}
+.x-toolbar-right-row .x-toolbar-cell:last-child > input {
+    display: none;
+}

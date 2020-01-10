@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'localizator',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'e71f271c44340b1f691265be767846a8',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'fbab2c3cc8e9eb62e8cae2fde2ecac63',
+  'native_key' => 'localizator_check_permissions',
+  'object' => '{"key":"localizator_check_permissions","value":false,"xtype":"combo-boolean","namespace":"localizator","area":"localizator_main","editedon":null}',
+);

@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'cityselect',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '810987bb9e38dc34a4c0fc84a974fea0',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '189b2aeed3c84579dce1aec65618c91f',
+  'native_key' => 'cityselect_emulation_geolocation',
+  'object' => '{"key":"cityselect_emulation_geolocation","value":true,"xtype":"combo-boolean","namespace":"cityselect","area":"cityselect_main","editedon":null}',
+);

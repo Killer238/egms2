@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'name',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'namespace' => 'backupmodx',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '6c8d3b015e14f0a731a459d491f1d171',
+  'package' => 'modx',
+  'class' => 'modDashboardWidget',
+  'signature' => 'c62c591551197127a27709584bd5bed6',
+  'native_key' => NULL,
+  'object' => '{"id":null,"name":"backupmodx.widget","description":"backupmodx.widget_desc","type":"file","content":"[[++core_path]]components\\/backupmodx\\/elements\\/widgets\\/backupmodx.widget.php","namespace":"backupmodx","lexicon":"backupmodx:default","size":"half","name_trans":"BackupMODX","description_trans":"Backup dashboard widget"}',
+);

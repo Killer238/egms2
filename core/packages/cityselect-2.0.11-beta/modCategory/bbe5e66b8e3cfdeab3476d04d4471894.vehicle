@@ -1,0 +1,153 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Chunks' => 
+    array (
+      '71f8ed2ac7b2d3ad5a2755cb94d67430' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => false,
+        'unique_key' => 'name',
+        'class' => 'modChunk',
+        'object' => '{"id":0,"source":1,"property_preprocess":0,"name":"citySelect.Settlement.popover","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"<a class=\\"cityselect\\"\\r\\n   data-click\\r\\n   data-popover-placement=\\"bottom bottom-left\\"\\r\\n   data-popover-title=\\"&nbsp;\\"\\r\\n   data-popover-buttons=\'[{ \\"action\\":\\"save\\",\\"label\\":\\"\\u0412\\u0435\\u0440\\u043d\\u043e\\" }]\'\\r\\n   data-cityselect-params=\'{ \\"limit\\":50 }\'\\r\\n>{$city}<\\/a>","locked":0,"properties":null,"static":0,"static_file":"core\\/components\\/cityselect\\/elements\\/chunks\\/chunk.settlement.popover.tpl","content":"<a class=\\"cityselect\\"\\r\\n   data-click\\r\\n   data-popover-placement=\\"bottom bottom-left\\"\\r\\n   data-popover-title=\\"&nbsp;\\"\\r\\n   data-popover-buttons=\'[{ \\"action\\":\\"save\\",\\"label\\":\\"\\u0412\\u0435\\u0440\\u043d\\u043e\\" }]\'\\r\\n   data-cityselect-params=\'{ \\"limit\\":50 }\'\\r\\n>{$city}<\\/a>"}',
+        'guid' => 'be79cc46c829fde1dd8c1572a85eb919',
+        'native_key' => 0,
+        'signature' => '722bd10749f8fd88d4825950badbc25e',
+      ),
+    ),
+    'Snippets' => 
+    array (
+      'a4a4be8dc075873654db111ed9fe4ddf' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":0,"source":1,"property_preprocess":0,"name":"citySelect.Settlement","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/** @var array $scriptProperties *\\/\\r\\n\\/** @var citySelect $citySelect *\\/\\r\\nif (!$citySelect = $modx->getService(\'cityselect\', \'citySelect\',\\r\\n    $modx->getOption(\'cityselect_core_path\', null, $modx->getOption(\'core_path\') . \'components\\/cityselect\\/\') . \'model\\/cityselect\\/\', $scriptProperties)\\r\\n) {\\r\\n    return \'Could not load citySelect class!\';\\r\\n}\\r\\n$citySelect->initialize($modx->context->key, $scriptProperties);\\r\\n\\r\\n$tpl = $modx->getOption(\'tpl\', $scriptProperties, \'tpl\');\\r\\n$settlement = $citySelect->getSettlement();\\r\\n\\r\\nreturn $citySelect->pdoTools->getChunk($tpl, $settlement);","locked":0,"properties":"a:13:{s:3:\\"tpl\\";a:7:{s:4:\\"name\\";s:3:\\"tpl\\";s:4:\\"desc\\";s:19:\\"cityselect_prop_tpl\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:29:\\"citySelect.Settlement.popover\\";s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:8:\\"frontCss\\";a:7:{s:4:\\"name\\";s:8:\\"frontCss\\";s:4:\\"desc\\";s:24:\\"cityselect_prop_frontCss\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:0:\\"\\";s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:7:\\"frontJs\\";a:7:{s:4:\\"name\\";s:7:\\"frontJs\\";s:4:\\"desc\\";s:23:\\"cityselect_prop_frontJs\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:0:\\"\\";s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:19:\\"bootstrapModalJsCss\\";a:7:{s:4:\\"name\\";s:19:\\"bootstrapModalJsCss\\";s:4:\\"desc\\";s:35:\\"cityselect_prop_bootstrapModalJsCss\\";s:4:\\"type\\";s:13:\\"combo-boolean\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";b:0;s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:21:\\"bootstrapPopoverJsCss\\";a:7:{s:4:\\"name\\";s:21:\\"bootstrapPopoverJsCss\\";s:4:\\"desc\\";s:37:\\"cityselect_prop_bootstrapPopoverJsCss\\";s:4:\\"type\\";s:13:\\"combo-boolean\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";b:1;s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:14:\\"selectizeJsCss\\";a:7:{s:4:\\"name\\";s:14:\\"selectizeJsCss\\";s:4:\\"desc\\";s:30:\\"cityselect_prop_selectizeJsCss\\";s:4:\\"type\\";s:13:\\"combo-boolean\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";b:1;s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:16:\\"bootstrapModalJs\\";a:7:{s:4:\\"name\\";s:16:\\"bootstrapModalJs\\";s:4:\\"desc\\";s:32:\\"cityselect_prop_bootstrapModalJs\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:58:\\"[[+assetsUrl]]vendor\\/bootstrap-modal\\/js\\/bootstrap-modal.js\\";s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:17:\\"bootstrapModalCss\\";a:7:{s:4:\\"name\\";s:17:\\"bootstrapModalCss\\";s:4:\\"desc\\";s:33:\\"cityselect_prop_bootstrapModalCss\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:60:\\"[[+assetsUrl]]vendor\\/bootstrap-modal\\/css\\/bootstrap-modal.css\\";s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:18:\\"bootstrapPopoverJs\\";a:7:{s:4:\\"name\\";s:18:\\"bootstrapPopoverJs\\";s:4:\\"desc\\";s:34:\\"cityselect_prop_bootstrapPopoverJs\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:64:\\"[[+assetsUrl]]vendor\\/bootstrap-popover\\/js\\/bootstrap-popover-x.js\\";s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:19:\\"bootstrapPopoverCss\\";a:7:{s:4:\\"name\\";s:19:\\"bootstrapPopoverCss\\";s:4:\\"desc\\";s:35:\\"cityselect_prop_bootstrapPopoverCss\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:70:\\"[[+assetsUrl]]vendor\\/bootstrap-popover\\/css\\/bootstrap-popover-x.min.css\\";s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:11:\\"selectizeJs\\";a:7:{s:4:\\"name\\";s:11:\\"selectizeJs\\";s:4:\\"desc\\";s:27:\\"cityselect_prop_selectizeJs\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:61:\\"[[+assetsUrl]]vendor\\/selectize\\/js\\/standalone\\/selectize.min.js\\";s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:12:\\"selectizeCss\\";a:7:{s:4:\\"name\\";s:12:\\"selectizeCss\\";s:4:\\"desc\\";s:28:\\"cityselect_prop_selectizeCss\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:59:\\"[[+assetsUrl]]vendor\\/selectize\\/css\\/selectize.bootstrap3.css\\";s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:9:\\"actionUrl\\";a:7:{s:4:\\"name\\";s:9:\\"actionUrl\\";s:4:\\"desc\\";s:25:\\"cityselect_prop_actionUrl\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:24:\\"[[+assetsUrl]]action.php\\";s:7:\\"lexicon\\";s:21:\\"cityselect:properties\\";s:4:\\"area\\";s:0:\\"\\";}}","moduleguid":"","static":0,"static_file":"core\\/components\\/cityselect\\/elements\\/snippets\\/snippet.settlement.php","content":"\\/** @var array $scriptProperties *\\/\\r\\n\\/** @var citySelect $citySelect *\\/\\r\\nif (!$citySelect = $modx->getService(\'cityselect\', \'citySelect\',\\r\\n    $modx->getOption(\'cityselect_core_path\', null, $modx->getOption(\'core_path\') . \'components\\/cityselect\\/\') . \'model\\/cityselect\\/\', $scriptProperties)\\r\\n) {\\r\\n    return \'Could not load citySelect class!\';\\r\\n}\\r\\n$citySelect->initialize($modx->context->key, $scriptProperties);\\r\\n\\r\\n$tpl = $modx->getOption(\'tpl\', $scriptProperties, \'tpl\');\\r\\n$settlement = $citySelect->getSettlement();\\r\\n\\r\\nreturn $citySelect->pdoTools->getChunk($tpl, $settlement);"}',
+        'guid' => 'a989e1d8c7bd01192ba9f0231cce7235',
+        'native_key' => 0,
+        'signature' => 'b33900d323b2429d864830875fa579bf',
+      ),
+    ),
+    'Plugins' => 
+    array (
+      '97b2306d9604219f496620b4586072c7' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modPlugin',
+        'object' => '{"id":null,"source":1,"property_preprocess":0,"name":"citySelect","description":"","editor_type":0,"category":0,"cache_type":0,"plugincode":"\\/** @var modX $modx *\\/\\r\\n\\/** @var array $scriptProperties *\\/\\r\\n\\r\\n\\/** @var citySelect $citySelect *\\/\\r\\nif (!$citySelect = $modx->getService(\'cityselect\', \'citySelect\',\\r\\n    $modx->getOption(\'cityselect_core_path\', null, $modx->getOption(\'core_path\') . \'components\\/cityselect\\/\') . \'model\\/cityselect\\/\')\\r\\n) {\\r\\n    return;\\r\\n}\\r\\n\\r\\nswitch ($modx->event->name) {\\r\\n    case \'OnHandleRequest\':\\r\\n        \\/* check context *\\/\\r\\n        if ($modx->context->key == \'mgr\') {\\r\\n            return;\\r\\n        }\\r\\n\\r\\n        \\/* check user location *\\/\\r\\n        if (!$modx->getOption(\'cityselect_check_user_location\', null, true)) {\\r\\n            return;\\r\\n        }\\r\\n\\r\\n        if (!$data = $citySelect->getSettlement() AND $data = $citySelect->getUserAddressByIp()) {\\r\\n            $citySelect->setSettlement($data);\\r\\n        }\\r\\n        break;\\r\\n\\r\\n    case \'pdoToolsOnFenomInit\':\\r\\n        if (!$fenom = $modx->getOption(\'fenom\', $scriptProperties)) {\\r\\n            return;\\r\\n        }\\r\\n\\r\\n        if (!isset($fenom->location)) {\\r\\n            $fenom->addAccessorSmart(\'settlement\', \'settlement\', Fenom::ACCESSOR_PROPERTY);\\r\\n            $fenom->settlement = $citySelect->getSettlement();\\r\\n        }\\r\\n\\r\\n        break;\\r\\n}","locked":0,"properties":null,"disabled":0,"moduleguid":"","static":0,"static_file":"core\\/components\\/cityselect\\/elements\\/plugins\\/plugin.cityselect.php","content":"\\/** @var modX $modx *\\/\\r\\n\\/** @var array $scriptProperties *\\/\\r\\n\\r\\n\\/** @var citySelect $citySelect *\\/\\r\\nif (!$citySelect = $modx->getService(\'cityselect\', \'citySelect\',\\r\\n    $modx->getOption(\'cityselect_core_path\', null, $modx->getOption(\'core_path\') . \'components\\/cityselect\\/\') . \'model\\/cityselect\\/\')\\r\\n) {\\r\\n    return;\\r\\n}\\r\\n\\r\\nswitch ($modx->event->name) {\\r\\n    case \'OnHandleRequest\':\\r\\n        \\/* check context *\\/\\r\\n        if ($modx->context->key == \'mgr\') {\\r\\n            return;\\r\\n        }\\r\\n\\r\\n        \\/* check user location *\\/\\r\\n        if (!$modx->getOption(\'cityselect_check_user_location\', null, true)) {\\r\\n            return;\\r\\n        }\\r\\n\\r\\n        if (!$data = $citySelect->getSettlement() AND $data = $citySelect->getUserAddressByIp()) {\\r\\n            $citySelect->setSettlement($data);\\r\\n        }\\r\\n        break;\\r\\n\\r\\n    case \'pdoToolsOnFenomInit\':\\r\\n        if (!$fenom = $modx->getOption(\'fenom\', $scriptProperties)) {\\r\\n            return;\\r\\n        }\\r\\n\\r\\n        if (!isset($fenom->location)) {\\r\\n            $fenom->addAccessorSmart(\'settlement\', \'settlement\', Fenom::ACCESSOR_PROPERTY);\\r\\n            $fenom->settlement = $citySelect->getSettlement();\\r\\n        }\\r\\n\\r\\n        break;\\r\\n}"}',
+        'guid' => 'd1b65ae70a61f03687ce9224b128db38',
+        'native_key' => NULL,
+        'signature' => '7f51102807bdc3d56e61ca1138381529',
+        'related_objects' => 
+        array (
+          'PluginEvents' => 
+          array (
+            '0ad06d48fc3f89b8cbfcb2810d4f5742' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => true,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnHandleRequest","priority":10,"propertyset":0}',
+              'guid' => 'b40e04e6a23b5fda261754e875c59442',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnHandleRequest',
+              ),
+              'signature' => '9b0ef2199db7844e002071ab4e112ac1',
+            ),
+            '806ba708cdd74109509b1512197ad77c' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => true,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"pdoToolsOnFenomInit","priority":10,"propertyset":0}',
+              'guid' => 'e1e002441bb62706d0cb95c9a04bb373',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'pdoToolsOnFenomInit',
+              ),
+              'signature' => '4741100bb58ac3a3fd48c285133013dc',
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Chunks' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => false,
+      'unique_key' => 'name',
+    ),
+    'Plugins' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'PluginEvents' => 
+    array (
+      'preserve_keys' => true,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'pluginid',
+        1 => 'event',
+      ),
+    ),
+  ),
+  'namespace' => 'cityselect',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"cityselect-2.0.11-beta\\/modCategory\\/bbe5e66b8e3cfdeab3476d04d4471894\\/0\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"cityselect"}',
+    ),
+    1 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"cityselect-2.0.11-beta\\/modCategory\\/bbe5e66b8e3cfdeab3476d04d4471894\\/1\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"cityselect"}',
+    ),
+    2 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"cityselect-2.0.11-beta\\/modCategory\\/bbe5e66b8e3cfdeab3476d04d4471894.resolve.setup.resolver","type":"php","name":"resolve.setup"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'ce4224c54491ba6c119f87ffd606ca5c',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => 'bbe5e66b8e3cfdeab3476d04d4471894',
+  'native_key' => NULL,
+  'object' => '{"id":null,"parent":0,"category":"citySelect","rank":0}',
+);

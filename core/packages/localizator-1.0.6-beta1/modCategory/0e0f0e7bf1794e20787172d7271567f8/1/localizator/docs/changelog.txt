@@ -1,0 +1,44 @@
+Changelog for localizator.
+
+1.0.6-beta
+==============
+- Fixed TV tabs
+- Added events
+
+1.0.5-beta1
+==============
+- Fixed processTVs
+- Added policy template for editing localizations
+- Added german lexicon (by Ibochkarev).
+- Added franch lexicon (by Ibochkarev).
+
+1.0.4-beta1
+==============
+- Fixed error modWebLink resources
+- Fixed error tinymce_rte
+
+1.0.4-beta
+==============
+- Fixed snippet Localizator
+- Fixed plugin Localizator
+- Fixed localizator.class.php
+- Added mse2_filters_handler_class
+- Added localization fields indexing in mSearch2 (by pavelgvozdb - https://modx.pro/howto/16466)
+
+1.0.3-beta
+==============
+- Fixed snippet Localizator
+
+1.0.2-beta
+==============
+- Added translate for migxtv fields (by nizart91)
+- Fixed localizatorcontent.class.php
+- Fixed snippet Localizator
+
+1.0.1-beta
+==============
+- Added localization for tv fields (by nizart91)
+
+1.0.0-beta
+==============
+- First release

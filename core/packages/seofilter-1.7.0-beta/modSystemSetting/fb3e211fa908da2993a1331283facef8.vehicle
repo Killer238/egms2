@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'seofilter',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '6f123509b70b0990d3a9de1954ea821f',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'fb3e211fa908da2993a1331283facef8',
+  'native_key' => 'seofilter_count_handler_class',
+  'object' => '{"key":"seofilter_count_handler_class","value":"sfCountHandler","xtype":"textfield","namespace":"seofilter","area":"seofilter_count","editedon":null}',
+);

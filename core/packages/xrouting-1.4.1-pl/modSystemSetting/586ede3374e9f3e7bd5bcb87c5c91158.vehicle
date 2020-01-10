@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'xrouting',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '3266357d6c5e6f0221ef7ecc73d9ef91',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '586ede3374e9f3e7bd5bcb87c5c91158',
+  'native_key' => 'xrouting.default_context',
+  'object' => '{"key":"xrouting.default_context","value":"web","xtype":"textfield","namespace":"xrouting","area":"common","editedon":null}',
+);

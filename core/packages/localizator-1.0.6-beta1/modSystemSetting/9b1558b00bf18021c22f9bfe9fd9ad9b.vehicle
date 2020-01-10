@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'localizator',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '0717c8d85feb6300cdcd02de91a77b8b',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '9b1558b00bf18021c22f9bfe9fd9ad9b',
+  'native_key' => 'localizator_translate_fields',
+  'object' => '{"key":"localizator_translate_fields","value":"pagetitle,longtitle,menutitle,seotitle,keywords,introtext,description,content","xtype":"textfield","namespace":"localizator","area":"localizator_translator","editedon":null}',
+);

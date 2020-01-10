@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="ploader" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.1">
+	<object class="plCategory" table="pl_category" extends="xPDOObject">
+		<field key="id_category" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="name" dbtype="varchar" precision="255" phptype="string" null="false" />
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_category" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="plConnectors" table="pl_connectors" extends="xPDOObject">
+		<field key="id_connecter" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="provider" dbtype="varchar" precision="20" phptype="string" null="false" />
+		<field key="connection_type" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="url_sitemap" dbtype="varchar" precision="255" phptype="string" null="false" index="unique" />
+		<field key="load_datetime" dbtype="datetime" phptype="datetime" null="false" />
+		<field key="log" dbtype="text" phptype="string" null="false" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_connecter" length="" collation="A" null="false" />
+		</index>
+		<index alias="url_sitemap" name="url_sitemap" primary="false" unique="true" type="BTREE" >
+			<column key="url_sitemap" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="plLoads" table="pl_loads" extends="xPDOObject">
+		<field key="id_load" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="url" dbtype="varchar" precision="255" phptype="string" null="false" index="unique" />
+		<field key="page_type" dbtype="varchar" precision="10" phptype="string" null="false" />
+		<field key="id_pproduct" dbtype="int" precision="11" phptype="integer" null="true" />
+		<field key="url_product_name" dbtype="varchar" precision="255" phptype="string" null="false" />
+		<field key="provider" dbtype="varchar" precision="20" phptype="string" null="false" />
+		<field key="id_category" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="id_manufacturer" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="id_theme" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="load_data" dbtype="text" phptype="string" null="false" />
+		<field key="load_datetime" dbtype="datetime" phptype="datetime" null="true" />
+		<field key="exist_url" dbtype="int" precision="11" phptype="integer" null="false" default="1" />
+		<field key="active" dbtype="int" precision="11" phptype="integer" null="false" default="1" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_load" length="" collation="A" null="false" />
+		</index>
+		<index alias="url" name="url" primary="false" unique="true" type="BTREE" >
+			<column key="url" length="" collation="A" null="false" />
+		</index>
+		<index alias="id_load" name="id_load" primary="false" unique="false" type="BTREE" >
+			<column key="id_load" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="plManufacturer" table="pl_manufacturer" extends="xPDOObject">
+		<field key="id_manufacturer" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="name" dbtype="int" precision="11" phptype="integer" null="false" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_manufacturer" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="plPproduct" table="pl_pproduct" extends="xPDOObject">
+		<field key="id_pproduct" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="name" dbtype="varchar" precision="255" phptype="string" null="false" />
+		<field key="id_product" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="id_category" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="id_manufacturer" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="id_theme" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="load_params" dbtype="text" phptype="string" null="false" />
+		<field key="load_datetime" dbtype="datetime" phptype="datetime" null="false" />
+		<field key="active" dbtype="int" precision="11" phptype="integer" null="false" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_pproduct" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="plPproductConsists" table="pl_pproduct_consists" extends="xPDOObject">
+		<field key="id_consists" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="id_load" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="id_product" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="position" dbtype="int" precision="11" phptype="integer" null="false" default="0" />
+		<field key="id_consists_item" dbtype="int" precision="11" phptype="integer" null="false" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_consists" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="plPproductConsistsItem" table="pl_pproduct_consists_item" extends="xPDOObject">
+		<field key="id_consists_item" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="provider" dbtype="varchar" precision="20" phptype="string" null="false" />
+		<field key="name" dbtype="varchar" precision="200" phptype="string" null="false" />
+		<field key="description" dbtype="text" phptype="string" null="false" />
+		<field key="image_url" dbtype="varchar" precision="200" phptype="string" null="false" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_consists_item" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="plPproductFeature" table="pl_pproduct_feature" extends="xPDOObject">
+		<field key="id_load_feature" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="id_load" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="id_load_feature_map" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="active" dbtype="int" precision="11" phptype="integer" null="false" default="1" />
+		<field key="load_datetime" dbtype="datetime" phptype="datetime" null="false" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_load_feature" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="plPproductFeatureMap" table="pl_pproduct_feature_map" extends="xPDOObject">
+		<field key="id_load_feature_map" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="provider" dbtype="varchar" precision="20" phptype="string" null="false" />
+		<field key="id_category" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="feature_load_name" dbtype="varchar" precision="150" phptype="string" null="false" />
+		<field key="feature_load_value" dbtype="varchar" precision="150" phptype="string" null="false" />
+		<field key="key" dbtype="varchar" precision="250" phptype="string" null="false" />
+		<field key="feature_value" dbtype="varchar" precision="255" phptype="string" null="false" />
+		<field key="active" dbtype="int" precision="11" phptype="integer" null="false" default="1" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_load_feature_map" length="" collation="A" null="false" />
+		</index>
+		<index alias="id_load_feature_map" name="id_load_feature_map" primary="false" unique="true" type="BTREE" >
+			<column key="id_load_feature_map" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="plPproductReviews" table="pl_pproduct_reviews" extends="xPDOObject">
+		<field key="id_review" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="id_product" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="id_pproduct" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="name" dbtype="varchar" precision="255" phptype="string" null="false" />
+		<field key="stars" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="datetime" dbtype="datetime" phptype="datetime" null="false" />
+		<field key="text" dbtype="text" phptype="string" null="false" />
+		<field key="text_rewrite" dbtype="text" phptype="string" null="false" />
+		<field key="published" dbtype="int" precision="11" phptype="integer" null="false" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_review" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="plPproductTheme" table="pl_pproduct_theme" extends="xPDOObject">
+		<field key="id_theme" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="theme_name" dbtype="varchar" precision="100" phptype="string" null="false" />
+		<field key="params" dbtype="text" phptype="string" null="false" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="id_theme" length="" collation="A" null="false" />
+		</index>
+	</object>
+</model>

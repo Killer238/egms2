@@ -1,0 +1,16 @@
+<?php return array (
+  'class' => 'xPDOScriptVehicle',
+  'object' => 
+  array (
+    'source' => 'msearch2-1.13.3-pl/xPDOScriptVehicle/47d22e843ade6a94d382324bd35f17f6.resolve.encryption.script',
+  ),
+  'vehicle_class' => 'xPDOScriptVehicle',
+  'namespace' => 'msearch2',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'guid' => '72386c614150c374c1f7e9015ab9fc78',
+  'package' => '',
+  'signature' => '47d22e843ade6a94d382324bd35f17f6',
+  'native_key' => '72386c614150c374c1f7e9015ab9fc78',
+);

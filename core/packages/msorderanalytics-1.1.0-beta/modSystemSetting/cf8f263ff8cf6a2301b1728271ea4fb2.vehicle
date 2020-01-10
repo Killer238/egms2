@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'msorderanalytics',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '76ec8bd8c767950ab83599ffa6b13fcf',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'cf8f263ff8cf6a2301b1728271ea4fb2',
+  'native_key' => 'msoa_ga_tracking_id',
+  'object' => '{"key":"msoa_ga_tracking_id","value":"","xtype":"textfield","namespace":"msorderanalytics","area":"msoa_main","editedon":null}',
+);

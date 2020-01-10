@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'contextrouter',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'a8e13115448eba035465bb5070217706',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '6dba7e67685c4851c69fb4dfeb728f90',
+  'native_key' => 'contextrouter.defaultContext',
+  'object' => '{"key":"contextrouter.defaultContext","value":"web","xtype":"textfield","namespace":"contextrouter","area":"default","editedon":null}',
+);

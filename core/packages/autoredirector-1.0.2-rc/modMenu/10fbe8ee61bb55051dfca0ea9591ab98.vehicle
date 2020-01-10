@@ -1,0 +1,17 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'unique_key' => 'text',
+  'related_objects' => true,
+  'namespace' => 'autoredirector',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'd2d5a87cb7c838132f21b23d61133ec9',
+  'package' => 'modx',
+  'class' => 'modMenu',
+  'signature' => '10fbe8ee61bb55051dfca0ea9591ab98',
+  'native_key' => 'autoredirector',
+  'object' => '{"text":"autoredirector","parent":"components","action":"index","description":"autoredirector_menu_desc","icon":"images\\/icons\\/plugin.gif","menuindex":0,"params":"","handler":"","permissions":"","namespace":"autoredirector"}',
+);

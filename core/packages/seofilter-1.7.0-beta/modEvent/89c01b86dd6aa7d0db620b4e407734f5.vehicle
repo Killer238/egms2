@@ -1,0 +1,15 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'namespace' => 'seofilter',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '1d77883a10edd8dd9e3c64b31ba1110c',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '89c01b86dd6aa7d0db620b4e407734f5',
+  'native_key' => 'sfOnWordAdd',
+  'object' => '{"name":"sfOnWordAdd","service":6,"groupname":"SeoFilter"}',
+);

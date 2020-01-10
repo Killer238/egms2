@@ -1,0 +1,15 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'namespace' => 'localizator',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '5db79f886296ddc0acebd6d6bdb56601',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '140620c7631174325f46d50c4043a331',
+  'native_key' => 'OnBeforeSaveLocalization',
+  'object' => '{"name":"OnBeforeSaveLocalization","service":6,"groupname":"localizator"}',
+);

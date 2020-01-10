@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'msoptionsprice',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '42f02c4908c6485e10a2ba573b3430fd',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'a4f247eaf6239a3ac7cb8ad178d3fc59',
+  'native_key' => 'msoptionsprice_window_modification_tabs',
+  'object' => '{"key":"msoptionsprice_window_modification_tabs","value":"modification","xtype":"textarea","namespace":"msoptionsprice","area":"msoptionsprice_main","editedon":null}',
+);

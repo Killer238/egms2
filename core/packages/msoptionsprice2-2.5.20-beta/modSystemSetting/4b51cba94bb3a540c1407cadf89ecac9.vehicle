@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'msoptionsprice',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'f2194572f63701b07fb4341e2837d432',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '4b51cba94bb3a540c1407cadf89ecac9',
+  'native_key' => 'msoptionsprice_status_pickup_remains',
+  'object' => '{"key":"msoptionsprice_status_pickup_remains","value":"1","xtype":"textfield","namespace":"msoptionsprice","area":"msoptionsprice_main","editedon":null}',
+);

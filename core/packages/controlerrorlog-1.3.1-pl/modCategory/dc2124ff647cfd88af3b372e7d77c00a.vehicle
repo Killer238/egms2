@@ -1,0 +1,108 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Plugins' => 
+    array (
+      '296a513bfe55eab9a10705a4b1b23c31' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modPlugin',
+        'object' => '{"id":null,"source":1,"property_preprocess":0,"name":"controlErrorLog","description":"","editor_type":0,"category":0,"cache_type":0,"plugincode":"switch ($modx->event->name) {\\r\\n    case \'OnManagerPageBeforeRender\':\\r\\n        if ($modx->hasPermission(\'error_log_view\')) {\\r\\n            $modx->controller->addLexiconTopic(\'controlerrorlog:default\');\\r\\n            $modx->controller->addCss($modx->getOption(\'assets_url\') . \'components\\/controlerrorlog\\/css\\/mgr\\/main.css\');\\r\\n            $modx->controller->addJavascript($modx->getOption(\'assets_url\') . \'components\\/controlerrorlog\\/js\\/mgr\\/cel.default.js\');\\r\\n\\r\\n            $response = $modx->runProcessor(\'mgr\\/errorlog\\/get\', [\'includeContent\' => false], [\'processors_path\' => $modx->getOption(\'core_path\') . \'components\\/controlerrorlog\\/processors\\/\']);\\r\\n            $resObj = $response->getObject();\\r\\n            $_html = \\"<script>\\tcontrolErrorLog.config = \\" . $modx->toJSON($resObj) . \\";<\\/script>\\";\\r\\n            $modx->controller->addHtml($_html);\\r\\n        }\\r\\n        break;\\r\\n    case \'OnHandleRequest\':\\r\\n        if ($modx->context->get(\'key\') == \'mgr\') {\\r\\n            return \'\';\\r\\n        }\\r\\n        $f = $modx->getOption(xPDO::OPT_CACHE_PATH) . \'logs\\/error.log\';\\r\\n        if (file_exists($f)) {\\r\\n            $casheHash = $modx->cacheManager->get(\'error_log\');\\r\\n            $hash = md5_file($f);\\r\\n            $email = $modx->getOption(\'controlerrorlog.admin_email\');\\r\\n            if (filesize($f) > 0 && !empty($casheHash) && $casheHash != $hash && $modx->getOption(\'controlerrorlog.control_frontend\') && !empty($email)) {\\r\\n                $modx->lexicon->load(\'controlerrorlog:default\');\\r\\n                \\/** @var modPHPMailer $mail *\\/\\r\\n                $mail = $modx->getService(\'mail\', \'mail.modPHPMailer\');\\r\\n                $mail->setHTML(true);\\r\\n\\r\\n                $mail->set(modMail::MAIL_SUBJECT, $modx->lexicon(\'errorlog_email_subject\'));\\r\\n                $mail->set(modMail::MAIL_BODY, $modx->lexicon(\'errorlog_email_body\'));\\r\\n                $mail->set(modMail::MAIL_SENDER, $modx->getOption(\'emailsender\'));\\r\\n                $mail->set(modMail::MAIL_FROM, $modx->getOption(\'emailsender\'));\\r\\n                $mail->set(modMail::MAIL_FROM_NAME, $modx->getOption(\'site_name\'));\\r\\n\\r\\n                $mail->address(\'to\', $email);\\r\\n                $mail->address(\'reply-to\', $modx->getOption(\'emailsender\'));\\r\\n\\r\\n                if (!$mail->send()) {\\r\\n                    print (\'An error occurred while trying to send the email: \' . $modx->mail->mailer->ErrorInfo);\\r\\n                }\\r\\n                $mail->reset();\\r\\n            }\\r\\n            if ($casheHash != $hash) {\\r\\n                $modx->cacheManager->set(\'error_log\', $hash, 0);\\r\\n            }\\r\\n        }\\r\\n        break;\\r\\n}","locked":0,"properties":null,"disabled":0,"moduleguid":"","static":0,"static_file":"core\\/components\\/controlerrorlog\\/elements\\/plugins\\/plugin.controlerrorlog.php","content":"switch ($modx->event->name) {\\r\\n    case \'OnManagerPageBeforeRender\':\\r\\n        if ($modx->hasPermission(\'error_log_view\')) {\\r\\n            $modx->controller->addLexiconTopic(\'controlerrorlog:default\');\\r\\n            $modx->controller->addCss($modx->getOption(\'assets_url\') . \'components\\/controlerrorlog\\/css\\/mgr\\/main.css\');\\r\\n            $modx->controller->addJavascript($modx->getOption(\'assets_url\') . \'components\\/controlerrorlog\\/js\\/mgr\\/cel.default.js\');\\r\\n\\r\\n            $response = $modx->runProcessor(\'mgr\\/errorlog\\/get\', [\'includeContent\' => false], [\'processors_path\' => $modx->getOption(\'core_path\') . \'components\\/controlerrorlog\\/processors\\/\']);\\r\\n            $resObj = $response->getObject();\\r\\n            $_html = \\"<script>\\tcontrolErrorLog.config = \\" . $modx->toJSON($resObj) . \\";<\\/script>\\";\\r\\n            $modx->controller->addHtml($_html);\\r\\n        }\\r\\n        break;\\r\\n    case \'OnHandleRequest\':\\r\\n        if ($modx->context->get(\'key\') == \'mgr\') {\\r\\n            return \'\';\\r\\n        }\\r\\n        $f = $modx->getOption(xPDO::OPT_CACHE_PATH) . \'logs\\/error.log\';\\r\\n        if (file_exists($f)) {\\r\\n            $casheHash = $modx->cacheManager->get(\'error_log\');\\r\\n            $hash = md5_file($f);\\r\\n            $email = $modx->getOption(\'controlerrorlog.admin_email\');\\r\\n            if (filesize($f) > 0 && !empty($casheHash) && $casheHash != $hash && $modx->getOption(\'controlerrorlog.control_frontend\') && !empty($email)) {\\r\\n                $modx->lexicon->load(\'controlerrorlog:default\');\\r\\n                \\/** @var modPHPMailer $mail *\\/\\r\\n                $mail = $modx->getService(\'mail\', \'mail.modPHPMailer\');\\r\\n                $mail->setHTML(true);\\r\\n\\r\\n                $mail->set(modMail::MAIL_SUBJECT, $modx->lexicon(\'errorlog_email_subject\'));\\r\\n                $mail->set(modMail::MAIL_BODY, $modx->lexicon(\'errorlog_email_body\'));\\r\\n                $mail->set(modMail::MAIL_SENDER, $modx->getOption(\'emailsender\'));\\r\\n                $mail->set(modMail::MAIL_FROM, $modx->getOption(\'emailsender\'));\\r\\n                $mail->set(modMail::MAIL_FROM_NAME, $modx->getOption(\'site_name\'));\\r\\n\\r\\n                $mail->address(\'to\', $email);\\r\\n                $mail->address(\'reply-to\', $modx->getOption(\'emailsender\'));\\r\\n\\r\\n                if (!$mail->send()) {\\r\\n                    print (\'An error occurred while trying to send the email: \' . $modx->mail->mailer->ErrorInfo);\\r\\n                }\\r\\n                $mail->reset();\\r\\n            }\\r\\n            if ($casheHash != $hash) {\\r\\n                $modx->cacheManager->set(\'error_log\', $hash, 0);\\r\\n            }\\r\\n        }\\r\\n        break;\\r\\n}"}',
+        'guid' => 'c4ed937aabe20bd41baf4743e2ac2432',
+        'native_key' => NULL,
+        'signature' => '552b079c3ee23b327eb222d660f7496d',
+        'related_objects' => 
+        array (
+          'PluginEvents' => 
+          array (
+            'ac6bee7f1d1e30702c6cd12c4087148b' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => true,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnManagerPageBeforeRender","priority":0,"propertyset":0}',
+              'guid' => 'beef8e7a85c708ddde40020258b2ecee',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnManagerPageBeforeRender',
+              ),
+              'signature' => 'c701b754cd30d7c35b22c310a3c663ab',
+            ),
+            '7c072188570d4048130cdde488f354db' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => true,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnWebPageComplete","priority":0,"propertyset":0}',
+              'guid' => 'cad8effc6200116dce84759e6e09092f',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnWebPageComplete',
+              ),
+              'signature' => '5548e17b1d2e4e0add117cf30e17b517',
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Plugins' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'PluginEvents' => 
+    array (
+      'preserve_keys' => true,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'pluginid',
+        1 => 'event',
+      ),
+    ),
+  ),
+  'namespace' => 'controlerrorlog',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"controlerrorlog-1.3.1-pl\\/modCategory\\/dc2124ff647cfd88af3b372e7d77c00a\\/0\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"controlerrorlog"}',
+    ),
+    1 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"controlerrorlog-1.3.1-pl\\/modCategory\\/dc2124ff647cfd88af3b372e7d77c00a\\/1\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"controlerrorlog"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '8d45f03f2b643a262a3c40630c679a36',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => 'dc2124ff647cfd88af3b372e7d77c00a',
+  'native_key' => NULL,
+  'object' => '{"id":null,"parent":0,"category":"controlErrorLog","rank":0}',
+);

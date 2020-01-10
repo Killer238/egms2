@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'msorderanalytics',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '76d1226dfcac65dada5e39ead56f74f6',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '8281ed0d3095e508bfa63c3e717f3da7',
+  'native_key' => 'msoa_currency',
+  'object' => '{"key":"msoa_currency","value":"RUB","xtype":"textfield","namespace":"msorderanalytics","area":"msoa_main","editedon":null}',
+);

@@ -1,0 +1,17 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'related_objects' => false,
+  'namespace' => 'seodomains',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'c339c4b9aa290ff7e1a22c570092a317',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '5fc89b6795688ba71ac8428c099b8065',
+  'native_key' => 'seodomains_user_id',
+  'object' => '{"key":"seodomains_user_id","value":"","xtype":"textfield","namespace":"seodomains","area":"seodomains_yandex","editedon":null}',
+);

@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'modalconsole',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'd378d8febfebf808abbd8b372e999787',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'b352e9ea8fed8afb4bc031b3b56f6211',
+  'native_key' => 'modalconsole_files_path',
+  'object' => '{"key":"modalconsole_files_path","value":"{core_path}components\\/modalconsole\\/files\\/","xtype":"textfield","namespace":"modalconsole","area":"modalconsole_main","editedon":null}',
+);
