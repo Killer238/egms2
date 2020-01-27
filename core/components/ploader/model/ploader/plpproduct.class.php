@@ -2,6 +2,7 @@
 /**
  * @package ploader
  * @property string $name
+ * @property string $demping
  * @property integer $id_product
  * @property integer $id_category
  * @property integer $id_manufacturer

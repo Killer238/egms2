@@ -18,6 +18,6 @@ Disallow:
 User-agent: YandexImages
 Allow: /*
 
-Host: {print_r($_modx->config)}
+Host: https://{'region.host' | placeholder}
 
-Sitemap: {$_modx->config.site_url}sitemap.xml
+Sitemap: https://{'region.host' | placeholder}/sitemap.xml

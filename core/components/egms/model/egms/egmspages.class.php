@@ -1,12 +1,10 @@
 <?php
 /**
  * @package egms
- * @property integer $id_page
- * @property integer $type
+ * @property string $context
+ * @property string $url
+ * @property string $redirect_url
  * @property integer $id_resource
- * @property string $meta_title
- * @property string $meta_description
- * @property string $meta_keywords
- * @property string $h1
+ * @property integer $published
  */
-class egmsPages extends xPDOObject {}
+class egmsPages extends xPDOSimpleObject {}

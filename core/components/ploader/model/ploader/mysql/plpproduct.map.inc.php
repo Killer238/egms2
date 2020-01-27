@@ -7,6 +7,7 @@ $xpdo_meta_map['plPproduct']= array (
   'fields' => 
   array (
     'name' => NULL,
+    'demping' => NULL,
     'id_product' => NULL,
     'id_category' => NULL,
     'id_manufacturer' => NULL,
@@ -29,6 +30,13 @@ $xpdo_meta_map['plPproduct']= array (
     array (
       'dbtype' => 'varchar',
       'precision' => '255',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'demping' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '10',
       'phptype' => 'string',
       'null' => false,
     ),

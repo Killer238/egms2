@@ -38,6 +38,7 @@ if ($object){
         );
 
         $manager->createCache($object->get('id'), $request['params']);
+        
     }
 
     if($action==2)

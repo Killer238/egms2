@@ -1,25 +1,37 @@
 <?php
+
+//###########################################################################################################
 define('MODX_API_MODE', true);
-include dirname(dirname(dirname(dirname(__DIR__)))).'/index.php';
+require_once dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/index.php';
+require_once(MODX_CORE_PATH . 'components/ploader/model/ploader/loadmanager.php');
 
-//$t = $modx->makeUrl(37, 'web');
-//print ($t);
-//$t = $modx->makeUrl(37, 'mas');
-//$t = $modx->makeUrl(36, 'mas');
+$modx->loadClass('plConnectors', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plLoads', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plPproduct', MODX_CORE_PATH.'components/ploader/model/ploader/');
 
-//$r = implode(",", array_merge(array(145), array(-145)));
+$modx->loadClass('plPproductReviews', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plPproductFeature', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plPproductFeatureMap', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plPproductConsists', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plPproductConsistsItem', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plCategory', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plCategoryMap', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plManufacturer', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plManufacturerMap', MODX_CORE_PATH.'components/ploader/model/ploader/');
 
-$select = $modx->newQuery('msCategoryOption');
-$select->sortby('rank', 'ASC');
-$select = array(
-    'category_id' => 136,
-    'required' => 1
+$request = array(
+'select' => array(
+//'provider' => 'wwwmatrasru',
+//'page_type' => 'NEW',
+//'id_category' => 3,
+//'id_manufacturer' => 3,
+//'id_load' => 30479
+),
+'params' => array(
+'image_cache' => true,
+'proxy' => null,
+)
 );
-$f = $modx->getCollection('msCategoryOption', $select);
-$output = array();
+$manager = new loadmanager($modx);
 
-foreach ($f as $t)
-{
-    print_r($t);
-}
-//print_r($f);
+$manager->createCache(50450, $request['params']);

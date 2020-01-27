@@ -11,13 +11,31 @@ $filter_result = array(
     'class' => 'msProduct',
     'ajaxMode' => 'default',
     'pageLinkScheme' => '[[+pageVarKey]]-[[+page]]/',
-    'showLog' => '0',
+    'suggestions' => false,
+    //'showLog' => '1',
     //'cache_key' => 'dsfsd',
     'where' => $vh
 );
 //TODO: проверить работу из ТВ
+
+if($modx->resource->getTVValue('catalog_filter'))
+{
+    $params = explode('&', $modx->resource->getTVValue('catalog_filter'));
+    foreach ($params as $param){
+        $kv = explode('=',$param);
+        $_GET[$kv[0]] = $_REQUEST[$kv[0]] = $kv[1];
+    }
+}
+
 $filter_result['filters'] = $modx->resource->getTVValue('catalog_filters');
+if($filter_result['filters']=='')
+    $filter_result['filters'] = $modx->getContext($modx->context->key)->getOption('catalog_filters');
+
 $filter_result['aliases'] = $modx->resource->getTVValue('catalog_aliases');
+if($filter_result['aliases']=='')
+    $filter_result['aliases'] = $modx->getContext($modx->context->key)->getOption('catalog_aliases');
+
+//die($filter_result['aliases']);
 
 if($modx->resource->getTVValue('catalog_order'))
     $filter_result['sort'] = $modx->resource->getTVValue('catalog_order');
@@ -29,8 +47,6 @@ if($modx->resource->getTVValue('catalog_map'))
 
 if($modx->resource->getTVValue('catalog_depth'))
     $filter_result['depth'] = $modx->resource->getTVValue('catalog_depth');
-else
-    $filter_result['depth'] = 0;
 
 if ($modx->resource->getTVValue('catalog_limit'))
     $filter_result['limit'] = $modx->resource->getTVValue('catalog_limit');

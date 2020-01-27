@@ -2,10 +2,10 @@
 $request = array(
     'select' => array(
         'provider' => 'wwwmatrasru',
-        //'page_type' => 'NEW',
+        'page_type' => 'NEW',
         //'id_category' => 3,
-        //'id_manufacturer' => 3,
-        'id' => 26952
+        'id_manufacturer_map' => 0,
+       // 'id' => 26952
     ),
     'params' => array(
         'image_cache' => true,

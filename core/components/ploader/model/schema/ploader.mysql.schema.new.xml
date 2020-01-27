@@ -67,6 +67,7 @@
 	</object>
 	<object class="plPproduct" table="pl_pproduct" extends="xPDOSimpleObject">
 		<field key="name" dbtype="varchar" precision="255" phptype="string" null="false" />
+		<field key="demping" dbtype="varchar" precision="10" phptype="string" null="false" />
 		<field key="id_product" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="id_category" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="id_manufacturer" dbtype="int" precision="11" phptype="integer" null="false" />
@@ -84,6 +85,7 @@
 		<field key="log" dbtype="text" phptype="string" null="false" />
 		<aggregate alias="cvendors" class="msVendor" local="id_manufacturer" foreign="id" cardinality="one" owner="foreign" />
 		<aggregate alias="ccategorys" class="msCategory" local="id_category" foreign="id" cardinality="one" owner="foreign" />
+
 	</object>
 	<object class="plPproductConsists" table="pl_pproduct_consists" extends="xPDOObject">
 		<field key="id_consists" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
@@ -96,16 +98,11 @@
 			<column key="id_consists" length="" collation="A" null="false" />
 		</index>
 	</object>
-	<object class="plPproductConsistsItem" table="pl_pproduct_consists_item" extends="xPDOObject">
-		<field key="id_consists_item" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+	<object class="plPproductConsistsItem" table="pl_pproduct_consists_item" extends="xPDOSimpleObject">
 		<field key="provider" dbtype="varchar" precision="20" phptype="string" null="false" />
 		<field key="name" dbtype="varchar" precision="200" phptype="string" null="false" />
 		<field key="description" dbtype="text" phptype="string" null="false" />
 		<field key="image_url" dbtype="varchar" precision="200" phptype="string" null="false" />
-
-		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
-			<column key="id_consists_item" length="" collation="A" null="false" />
-		</index>
 	</object>
 	<object class="plPproductFeature" table="pl_pproduct_feature" extends="xPDOObject">
 		<field key="id_load_feature" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
@@ -133,12 +130,14 @@
 	<object class="plPproductReviews" table="pl_pproduct_reviews" extends="xPDOSimpleObject">
 		<field key="id_product" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="id_pproduct" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="context" dbtype="varchar" precision="15" phptype="string" null="false" />
 		<field key="name" dbtype="varchar" precision="255" phptype="string" null="false" />
 		<field key="stars" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="datetime" dbtype="datetime" phptype="datetime" null="false" />
 		<field key="text" dbtype="text" phptype="string" null="false" />
 		<field key="text_rewrite" dbtype="text" phptype="string" null="false" />
 		<field key="published" dbtype="int" precision="11" phptype="integer" null="false" />
+		<aggregate alias="msproduct" class="msProduct" local="id_product" foreign="id" cardinality="one" owner="foreign" />
 	</object>
 	<object class="plPproductTheme" table="pl_pproduct_theme" extends="xPDOObject">
 		<field key="id_theme" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />

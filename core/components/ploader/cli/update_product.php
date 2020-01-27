@@ -2,8 +2,8 @@
 
     $request = array(
         'select'=> array(
-            'id_product' => 89,
-            'id' => 1,
+            'id_product' => 986,
+            //'id' => 1,
         ),
         'load_params' => array(
             'load_meta' => false,
@@ -12,9 +12,9 @@
             'load_description' => false,
             'load_price' => true,
             'load_images' => false,
-            'load_features' => false,
-            'load_consistions' => false,
-            'load_reviews' => false,
+            'load_features' => true,
+            'load_consistions' => true,
+            'load_reviews' => true,
         ),
         'params' => array(
             'proxy' => null,

@@ -8,7 +8,8 @@ $xpdo_meta_map['egmsDelivery']= array (
   array (
     'id_region' => NULL,
     'id_vendor' => NULL,
-    'id_category' => NULL,
+    'id_therm' => NULL,
+    'd_payments' => NULL,
     'd_cost' => NULL,
     'd_min' => NULL,
     'd_time' => NULL,
@@ -34,12 +35,19 @@ $xpdo_meta_map['egmsDelivery']= array (
       'phptype' => 'integer',
       'null' => true,
     ),
-    'id_category' => 
+    'id_therm' => 
     array (
       'dbtype' => 'int',
       'precision' => '11',
       'phptype' => 'integer',
       'null' => true,
+    ),
+    'd_payments' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '50',
+      'phptype' => 'string',
+      'null' => false,
     ),
     'd_cost' => 
     array (
@@ -106,7 +114,13 @@ $xpdo_meta_map['egmsDelivery']= array (
           'collation' => 'A',
           'null' => false,
         ),
-        'id_category' => 
+        'id_vendor' => 
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => true,
+        ),
+        'id_therm' => 
         array (
           'length' => '',
           'collation' => 'A',
@@ -133,10 +147,10 @@ $xpdo_meta_map['egmsDelivery']= array (
       'cardinality' => 'one',
       'owner' => 'foreign',
     ),
-    'categorys' => 
+    'therm' => 
     array (
-      'class' => 'msCategory',
-      'local' => 'id_category',
+      'class' => 'egmsDeliveryTherm',
+      'local' => 'id_therm',
       'foreign' => 'id',
       'cardinality' => 'one',
       'owner' => 'foreign',

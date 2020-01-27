@@ -2,9 +2,11 @@
 
 $request = array(
     'select' => array(
-       // 'id_category' => 5,
-       // 'id_manufacturer' => 1,
-        'id' => 1,
+        'id_category' => 40,
+        'id_manufacturer' => 35,
+        //'id' => 2601,
+        'id_product' => 0,
+        'published' => 1
     )
 );
 

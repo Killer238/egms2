@@ -1,14 +1,14 @@
 <?php
 $request = array(
     'select' => array(
-        //'provider' => 'wwwmatrasru',
-        'id' => 26954,
-        //'page_type' => 'PRODUCT',
-       // 'id_pproduct' => 0,
-       // 'id_category:>' => 0,
-//        'id_manufacturer:>' => 0,
+        'provider' => 'omatrasru',
+        'id' => 34293,
+        'page_type' => 'PRODUCT',
+        'id_pproduct' => 0,
+        'id_category_map>:' => 0,
+        'id_manufacturer_map>:' => 0,
 //        'id_theme:>' => 0,
-//       'published' => 1
+       'published' => 1
     )
 );
 
@@ -26,7 +26,10 @@ $modx->loadClass('plPproductFeature', MODX_CORE_PATH.'components/ploader/model/p
 $modx->loadClass('plPproductFeatureMap', MODX_CORE_PATH.'components/ploader/model/ploader/');
 $modx->loadClass('plPproductConsists', MODX_CORE_PATH.'components/ploader/model/ploader/');
 $modx->loadClass('plPproductConsistsItem', MODX_CORE_PATH.'components/ploader/model/ploader/');
-
+$modx->loadClass('plCategory', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plCategoryMap', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plManufacturer', MODX_CORE_PATH.'components/ploader/model/ploader/');
+$modx->loadClass('plManufacturerMap', MODX_CORE_PATH.'components/ploader/model/ploader/');
 //####################################################
 
 $manager = new loadmanager($modx);

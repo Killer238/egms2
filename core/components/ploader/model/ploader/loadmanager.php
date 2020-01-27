@@ -45,8 +45,9 @@ class loadmanager
     {
         $pproduct = null;
         $params = null;
-        if($id_pproduct>0)
-            $pproduct = $this->modx->getObject('plPproduct', $id_pproduct);
+
+        $pproduct = $this->modx->getObject('plPproduct', array('id' => $id_pproduct));
+
         if($pproduct){
             $id_product = $pproduct->get('id_product');
             if($id_product>0)
@@ -66,9 +67,10 @@ class loadmanager
             //создаем новый товар
             $data = array( 'class_key' => 'msProduct',
                 'pagetitle' => $pproduct->get('name'),
+                'context' => 'web', //TODO: в параметры
                 'longtitle' => $pproduct->get('name'),
                 'parent' => $pproduct->get('id_category'),
-                'template' => 6, //TODO: тему из таблицы
+                'template' => 6, //TODO: в параметры или таблицу
                 'vendor' => $pproduct->get('id_manufacturer'),
                 );
 
@@ -88,7 +90,7 @@ class loadmanager
             $pproduct->save();
 
             // получаем лоадеры для загрузки прочих данных
-            $load_params['load_name'] = $pproduct->get('name');
+            //$load_params['load_name'] = $pproduct->get('name');
             $load_params['load_description'] = $pproduct->get('load_description');
             $load_params['load_price'] = $pproduct->get('load_price');
             $load_params['load_images'] = $pproduct->get('load_images');
@@ -175,9 +177,12 @@ class loadmanager
             $this->getContentLoad($loads['load_price'], $params);
 
             // обновляем цену
+            $price = $this->load_data[$loads['load_price']]['price']['price'];
+            $old_price = $this->load_data[$loads['load_price']]['price']['old_price'];
+
             $data = array(
-                'price' => $this->load_data[$loads['load_price']]['price']['price'],
-                'old_price' => $this->load_data[$loads['load_price']]['price']['old_price'],
+                'price' => $price,
+                'old_price' => ($price==$old_price)?0:$old_price,
             );
             $this->updateResourseData($id_product, $data);
 
@@ -230,7 +235,7 @@ class loadmanager
                     continue;
 
                 $select_po = array(
-                    'key' => $c->get('key'),
+                    'key' => $k, //$c->get('key'),
                     'product_id' => $id_product,
                 );
                 if($po = $this->modx->getObject('msProductOption', $select_po)) {
@@ -260,7 +265,7 @@ class loadmanager
 
     public function getContentLoad($id_load, $params = null)
     {
-        $load = $this->modx->getObject('plLoads', $id_load);
+        $load = $this->modx->getObject('plLoads', array('id' => $id_load));
         $provider_name = $load->get('provider');
 
         // если предыдущий провайдер не равен текущему
@@ -324,10 +329,11 @@ class loadmanager
                 'category_bread' => $bc,
                 'category_name' =>  $cd['category'],
             );
-            if($f = $this->modx->getObject('plCategoryMap', $c_s))
+            $f = $this->modx->getObject('plCategoryMap', $c_s);
+            if($f)
             {
                 $c_id = $f->get('id');
-                $this->ploaderUpadteField($id_load, $c_id, 'id');
+                $this->ploaderUpadteField($id_load, $c_id, 'id_category_map');
                 $this->ploaderUpadteField($id_load, $bc, 'breadcrumbs');
             }else
             {
@@ -378,7 +384,7 @@ class loadmanager
 
     private function ploaderUpadteField($id_load, $id_m, $f_name)
     {
-        $l = $this->modx->getObject('plLoads', $id_load);
+        $l = $this->modx->getObject('plLoads', array('id' => $id_load));
         $l->set($f_name, $id_m);
         $l->save();
     }
@@ -392,11 +398,11 @@ class loadmanager
                 'provider' => $provider_name,
                 'feature_load_name' => $feature['name'],
                 'feature_load_value' => $feature['value'],
-                'feature_value' => $feature['value'],
             );
 
             if (!$option = $this->modx->getObject('plPproductFeatureMap', $select)) {
                 $option = $this->modx->newObject('plPproductFeatureMap');
+                $select['feature_value'] = $feature['value'];
                 $option->fromArray($select);
                 $option->save();
             }
@@ -406,7 +412,7 @@ class loadmanager
 
     public function createCache($id_load, $params)
     {
-        $load = $this->modx->getObject('plLoads', $id_load);
+        $load = $this->modx->getObject('plLoads', array('id' => $id_load));
 
         $this->getContentLoad($id_load, $params);
         $dt = date('Y-m-d H:i:s');
@@ -516,7 +522,7 @@ class loadmanager
         //получаем лоадеры
         if($id_load== null && $params == null)
             // выбираем новых активных закэшированныйх
-            $params = array('page_type' => 'PRODUCT', 'id_pproduct' => 0, 'id_category:>' => '0', 'id_manufacturer:>' => '0', 'published' => 1);
+            $params = array('page_type' => 'PRODUCT', 'id_pproduct' => 0, 'id_category_map:>' => '0', 'id_manufacturer_map:>' => '0', 'published' => 1);
         $new_id = 0;
         $loads = $this->getLoads($id_load, $params);
         $error_flag = false;
@@ -601,14 +607,20 @@ class loadmanager
 
     private function getCategoryMap($categoryMap)
     {
-        $c = $this->modx->getObject("plCategoryMap", $categoryMap);
-        return $c->get("id_category");
+        $c = $this->modx->getObject("plCategoryMap", array('id' => $categoryMap));
+        if($c)
+            return $c->get("id_category");
+        else
+            return 0;
     }
 
     private function getManufacturerMap($manufacturerMap)
     {
-        $m = $this->modx->getObject("plManufacturerMap", $manufacturerMap);
-        return $m->get("id_manufacturer");
+        $m = $this->modx->getObject("plManufacturerMap", array('id' => $manufacturerMap));
+        if($m)
+            return $m->get("id_manufacturer");
+        else
+            return 0;
     }
 
     private function addPproduct($id_load, $name, $id_category, $id_manufacturer, $id_theme = 0)
@@ -726,7 +738,11 @@ class loadmanager
             foreach ($connectors as $connector) {
                 if($connector['plConnectors_published']>0){
                     //получаем контент с учетом кэширования и прокси
-                    $provider->getContent($connector['plConnectors_url_sitemap'], $connector['plConnectors_id'], "conn", $params['proxy'], $params['cache']);
+                    $provider->getContent($connector['plConnectors_url_sitemap'],
+                        $connector['plConnectors_id'],
+                        "conn",
+                        $params['proxy'],
+                        $params['cache']);
                     //если контент ок
                     if(!$provider->errors){
 
@@ -751,7 +767,8 @@ class loadmanager
                 foreach ($urls as $url)
                 {
                     //если урла нет, то добавляем его
-                    if(!$l = $this->modx->getObject('plLoads', array('url' => $url)))
+                    $l = $this->modx->getObject('plLoads', array('url' => $url));
+                    if(!$l)
                     {
                         $this->addLoad($url, $provider_name);
                     }else{
@@ -802,26 +819,36 @@ class loadmanager
     {
         $table = $this->modx->getTableName('plLoads');
 
-        $sql = "INSERT INTO {$table} (`url`, `page_type`, `id_pproduct`, `url_product_name`,
-                                    `provider`, `id_category_map`, `id_manufacturer_map`, `exist_url`, `load_datetime`, `published`) 
-                                    VALUES (:url, :page_type, :id_pproduct, :url_product_name, :provider, 
-                                    :id_category_map, :id_manufacturer_map, :exist_url, :published);";
+        $sql = "INSERT INTO {$table} (`id_group`, `url`, `page_type`, `id_pproduct`, `url_product_name`,
+                                    `breadcrumbs`, `provider`, `id_category_map`, `id_manufacturer_map`, `load_data`, 
+                                    `load_datetime`, `exist_url`, `published`, `action`, `log`) 
+                                    VALUES (:id_group, :url, :page_type, :id_pproduct, :url_product_name, 
+                                     :breadcrumbs, :provider, :id_category_map, :id_manufacturer_map, :load_data, :load_datetime,  
+                                     :exist_url, :published, :action, :log);";
         $stmt = $this->modx->prepare($sql);
 
+        $stmt->bindValue(':id_group', 0);
         $stmt->bindValue(':url', $url);
         $stmt->bindValue(':page_type', 'NEW');
         $stmt->bindValue(':id_pproduct', 0);
         $stmt->bindValue(':url_product_name', '-');
         $stmt->bindValue(':provider', $provider);
+        $stmt->bindValue(':breadcrumbs', '');
         $stmt->bindValue(':id_category_map', 0);
         $stmt->bindValue(':id_manufacturer_map', 0);
+        $stmt->bindValue(':load_data', '');
         $stmt->bindValue(':load_datetime', date('Y-m-d H:i:s'));
         $stmt->bindValue(':exist_url', 1);
         $stmt->bindValue(':published', 1);
+        $stmt->bindValue(':action', 0);
+        $stmt->bindValue(':log', '');
 
         $stmt->execute();
 
         $stmt->closeCursor();
+
+        $lr = $this->modx->lastInsertId();
+
 
         $this->result['added'] += 1;
     }

@@ -1,0 +1,53 @@
+ul.atrs li {
+    display: inline;
+
+}
+
+div.product__main{
+
+}
+
+div.product__h1{
+
+}
+
+div.product__top{
+
+}
+
+div.product__images{
+
+}
+
+
+div.product__pricebox{
+    padding: 1rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e7e0d1;
+    background-color: #fffbf4;
+}
+
+dl.dlist-inline dt{
+    float: left;
+}
+div.card-product{
+    margin-top: 0.8rem;
+}
+
+div.full__dialog{
+    max-width: 100%;
+    margin: 0px;
+    height: 100%;
+}
+
+.sd-city-input{
+    margin-bottom: 2rem;
+
+}
+
+#bodyf{
+    padding: 2rem;
+}
+
+

@@ -3,7 +3,7 @@
     $request = array(
         'select'=> array(
             'id_category' => 40,
-            'id_product' => 389,
+            'id_product' => 533,
         ),
         'load_params' => array(
             'load_meta' => false,

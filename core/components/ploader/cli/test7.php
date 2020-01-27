@@ -1,12 +1,10 @@
 <?php
-$tmp = array("sdfsdf","sfdf");
-$product_alias = array_shift($tmp);
-$thed = array_shift($tmp);
+define('MODX_API_MODE', true);
+include dirname(dirname(dirname(dirname(__DIR__)))).'/index.php';
 
-print $product_alias;
-print "\n\t";
-print $thed;
-if($thed)
-    print "set";
-else
-    print "not set";
+$product = 1777;
+$t = $modx->getObject("msProduct", $product);
+
+$n = $t->get('vendor.name');
+$p = $t->get('vendor.id');
+$t =1;

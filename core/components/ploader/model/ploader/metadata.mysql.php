@@ -9,15 +9,15 @@ $xpdo_meta_map = array (
     3 => 'plLoads',
     4 => 'plManufacturerMap',
     5 => 'plPproduct',
-    6 => 'plPproductFeatureMap',
-    7 => 'plPproductReviews',
+    6 => 'plPproductConsistsItem',
+    7 => 'plPproductFeatureMap',
+    8 => 'plPproductReviews',
   ),
   'xPDOObject' => 
   array (
     0 => 'plManufacturer',
     1 => 'plPproductConsists',
-    2 => 'plPproductConsistsItem',
-    3 => 'plPproductFeature',
-    4 => 'plPproductTheme',
+    2 => 'plPproductFeature',
+    3 => 'plPproductTheme',
   ),
 );

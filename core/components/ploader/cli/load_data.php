@@ -2,9 +2,10 @@
 $request = array(
     'select' => array(
         'provider' => 'wwwmatrasru',
+        'page_type' => 'NEW',
         //'id_category' => 3,
         //'id_manufacturer' => 3,
-       // 'id_load' => 26957
+       // 'id' => 49279
     ),
     'params' => array(
     )
@@ -34,8 +35,8 @@ $loads = $modx->getCollection('plLoads', $request['select']);
 
 foreach ($loads as $load)
 {
-    $manager->loadData($load->get('id_load'), $request['params']);
-    print "Load Data from id_load: ".$load->get('id_load')."; product: ".$load->get('url_product_name'). "\n";
+    $manager->loadData($load->get('id'), $request['params']);
+    print "Load Data from id_load: ".$load->get('id')."; product: ".$load->get('url_product_name'). "\n";
     $manager->printErrors();
 }
 

@@ -43,7 +43,6 @@ class frontendManager {
 
 
 	public function initialize($ctx = 'web', $scriptProperties = array()){
-
 		$this->config = array_merge($this->config, $scriptProperties);
 		if (!empty($this->initialized[$ctx])) {
             return true;

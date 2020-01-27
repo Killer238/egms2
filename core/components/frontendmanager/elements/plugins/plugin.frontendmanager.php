@@ -2,7 +2,7 @@
 if (!$modx->user->hasSessionContext('mgr') || !$modx->user->isMember('Administrator')) return;
 switch ($modx->event->name) {
     case 'OnWebPagePrerender':
-		if (!$modx->resource->get('template')) break;
+        if (!$modx->resource->get('template')) break;
         $frontendManager = $modx->getService('frontendmanager','frontendManager', MODX_CORE_PATH . 'components/frontendmanager/model/frontendmanager/', array());
         if(!$frontendManager) return;
 		$contentTypes = explode(',', $modx->getOption('frontendmanager_contenttypes'));

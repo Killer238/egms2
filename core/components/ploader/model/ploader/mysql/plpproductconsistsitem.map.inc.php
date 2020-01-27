@@ -3,10 +3,9 @@ $xpdo_meta_map['plPproductConsistsItem']= array (
   'package' => 'ploader',
   'version' => '1.1',
   'table' => 'pl_pproduct_consists_item',
-  'extends' => 'xPDOObject',
+  'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
-    'id_consists_item' => NULL,
     'provider' => NULL,
     'name' => NULL,
     'description' => NULL,
@@ -14,15 +13,6 @@ $xpdo_meta_map['plPproductConsistsItem']= array (
   ),
   'fieldMeta' => 
   array (
-    'id_consists_item' => 
-    array (
-      'dbtype' => 'int',
-      'precision' => '11',
-      'phptype' => 'integer',
-      'null' => false,
-      'index' => 'pk',
-      'generated' => 'native',
-    ),
     'provider' => 
     array (
       'dbtype' => 'varchar',
@@ -49,25 +39,6 @@ $xpdo_meta_map['plPproductConsistsItem']= array (
       'precision' => '200',
       'phptype' => 'string',
       'null' => false,
-    ),
-  ),
-  'indexes' => 
-  array (
-    'PRIMARY' => 
-    array (
-      'alias' => 'PRIMARY',
-      'primary' => true,
-      'unique' => true,
-      'type' => 'BTREE',
-      'columns' => 
-      array (
-        'id_consists_item' => 
-        array (
-          'length' => '',
-          'collation' => 'A',
-          'null' => false,
-        ),
-      ),
     ),
   ),
 );

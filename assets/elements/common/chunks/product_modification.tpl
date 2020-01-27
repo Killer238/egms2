@@ -16,7 +16,7 @@
         <dd>
             <select name="options[{$name}]">
                 {foreach $options as $option}
-                    <option value="{$option.value}" data-size="{$option.value}" data-url="{$id | url}{$option.value}/" data-price="{$option.price}" data-old-price="{$option.old_price}"{$option.selected}>{$option.value}</option>
+                    <option value="{$option.value}" data-productid="{$id}" data-size="{$option.value}" data-url="{$id | url}{$option.value}/" data-price="{$option.price}" data-old-price="{$option.old_price}"{$option.selected}>{$option.value}</option>
                 {/foreach}
             </select>
         </dd>

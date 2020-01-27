@@ -25,7 +25,10 @@ switch ($event) {
             {
                 // если подстрока каталога найдена в начале
                 // то значит это товар и нужно попробовать найти
-                if(strpos($request, $dh['region']['product_category_url'])==0) {
+                //die("-".strpos($request, $dh['region']['product_category_url']));
+                if(strpos($request, $dh['region']['product_category_url'])===0) {
+                    //die($request);
+                    //die($dh['region']['product_category_url']);
                     $tmp = explode('/', trim(ltrim($request, $dh['region']['product_category_url']), "/"));
                     // извлекаем alias
                     $themplate = 0;

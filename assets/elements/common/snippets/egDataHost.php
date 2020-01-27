@@ -38,8 +38,21 @@ if(!$hostdata = $cacheManager->get($hash))
 
 
     $vs = explode('||', $my_region->get('vendors'));
-    foreach ($vs as $v)
+    //
+    //die(print_r($vs));
+    //die("-". $my_region->get('id_region'));
+    $where = array(
+        'id_therm'=> 0,
+        'published' => 1,
+        'id_region' =>  $my_region->get('id_region'),
+        'id_vendor:NOT IN' => $vs,
+        );
+
+    $deliverys = $modx->getCollection('egmsDelivery', $where);
+    foreach ($deliverys as $delivery){
+        $v = $delivery->get('id_vendor');
         $hostdata['region']['vendors'][$v] = $v;
+    }
 
     //заполняем массивы категорий каталога сайта и продуктового катлога
 
@@ -106,19 +119,19 @@ if(!$hostdata = $cacheManager->get($hash))
 
     $deliverys = $modx->getCollection('egmsDelivery',array(
         'id_region' => $my_region->get('id_region'),
-        'id_vendor:IN' => $hostdata['region']['vendors'])
-    );
+        //'id_category' => $hostdata['region']['vendors'],
+        'id_vendor:NOT IN'=> $vs,
+        ));
 
     foreach ($deliverys as $delivery) {
-        $hostdata['delivery']['vendor_'.$delivery->get('id_vendor')]['category_'.$delivery->get('id_category')] = array(
-            'id_delivery' => $delivery->get('id'),
-            'vendor' => $delivery->get('id_vendor'),
-            'category' => $delivery->get('id_category'),
-            'delivery_cost' => $delivery->get('d_cost'),
-            'delivery_free_cost'=> $delivery->get('d_min'),
-            'delivery_time' => $delivery->get('d_time'),
-            'delivery_instock' => $delivery->get('d_instock'),
-            'delivery_address' => $delivery->get('s_address'),
+        $hostdata['delivery'][$delivery->get('id_vendor')."-".$delivery->get('id_therm')] = array(
+            'd_payments' => $delivery->get('d_payments'),
+            'd_cost' => $delivery->get('d_cost'),
+            'd_min'=> $delivery->get('d_min'),
+            'd_time' => $delivery->get('d_time'),
+            'd_instock' => $delivery->get('d_instock'),
+            's_address' => $delivery->get('s_address'),
+            'delivery_options' => $delivery->get('delivery_options'),
             );
     }
 

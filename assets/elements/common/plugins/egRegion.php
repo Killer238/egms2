@@ -36,7 +36,11 @@ switch ($modx->event->name) {
                 $modx->setPlaceholder('region.phone', $dh['region']['phone']);
                 $modx->setPlaceholder('region.phone_local', $dh['region']['phone_local']);
                 $modx->setPlaceholder('region.mail', $dh['region']['email']);
-                $modx->setPlaceholder('region.region_address', $dh['region']['email']);
+                $modx->setPlaceholder('region.region_address', $dh['region']['region_address']);
+
+                $them = $modx->getContext($dh['region']['context'])->getOption('themplate_name');
+                $them = ($them)?$them:$modx->getOption('themplate_name');
+                $modx->setPlaceholder('themplate_name', $them);
 
                 $modx->setPlaceholder('region.city', $dh['region']['city']['city']);
                 $modx->setPlaceholder('region.city_i', $dh['region']['city']['city_i']);
@@ -45,8 +49,11 @@ switch ($modx->event->name) {
                 $modx->setPlaceholder('region.city_v', $dh['region']['city']['city_v']);
                 $modx->setPlaceholder('region.city_t', $dh['region']['city']['city_t']);
                 $modx->setPlaceholder('region.city_p', $dh['region']['city']['city_p']);
-                $modx->setPlaceholder('region.product_category_url', $dh['region']['product_category_url']);
 
+                $modx->setPlaceholder('region.vendors', $dh['region']['vendors']);
+
+                $modx->setPlaceholder('region.product_category_url', $dh['region']['product_category_url']);
+                $modx->setPlaceholder('delivery', $dh['delivery']);
                 return;
             } else {
                 $main_host = implode(".", array_reverse(array_slice(array_reverse(explode('.', $host)), 0, 2)));

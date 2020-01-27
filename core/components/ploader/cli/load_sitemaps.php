@@ -2,13 +2,13 @@
 
 $request = array(
   'select' => array(
-      //'provider' => 'getmatrasru',
-      'id' => 4
+      'provider' => 'wwwmatrasru',
+      //'id' => 4
   ),
   'params' => array(
       'proxy' => false,
       'cache' => false,
-      'exist_url' => true,
+      'exist_url' => false,
   )
 );
 //#############################################################################

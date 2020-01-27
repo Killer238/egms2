@@ -8,6 +8,7 @@ $xpdo_meta_map['plPproductReviews']= array (
   array (
     'id_product' => NULL,
     'id_pproduct' => NULL,
+    'context' => NULL,
     'name' => NULL,
     'stars' => NULL,
     'datetime' => NULL,
@@ -29,6 +30,13 @@ $xpdo_meta_map['plPproductReviews']= array (
       'dbtype' => 'int',
       'precision' => '11',
       'phptype' => 'integer',
+      'null' => false,
+    ),
+    'context' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '15',
+      'phptype' => 'string',
       'null' => false,
     ),
     'name' => 
@@ -69,6 +77,17 @@ $xpdo_meta_map['plPproductReviews']= array (
       'precision' => '11',
       'phptype' => 'integer',
       'null' => false,
+    ),
+  ),
+  'aggregates' => 
+  array (
+    'msproduct' => 
+    array (
+      'class' => 'msProduct',
+      'local' => 'id_product',
+      'foreign' => 'id',
+      'cardinality' => 'one',
+      'owner' => 'foreign',
     ),
   ),
 );

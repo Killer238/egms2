@@ -3,31 +3,36 @@ $xpdo_meta_map['egmsPages']= array (
   'package' => 'egms',
   'version' => '1.1',
   'table' => 'egms_pages',
-  'extends' => 'xPDOObject',
+  'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
-    'id_page' => NULL,
-    'type' => NULL,
+    'context' => NULL,
+    'url' => NULL,
+    'redirect_url' => NULL,
     'id_resource' => NULL,
-    'meta_title' => NULL,
-    'meta_description' => NULL,
-    'meta_keywords' => NULL,
-    'h1' => NULL,
+    'published' => NULL,
   ),
   'fieldMeta' => 
   array (
-    'id_page' => 
+    'context' => 
     array (
-      'dbtype' => 'int',
-      'precision' => '11',
-      'phptype' => 'integer',
+      'dbtype' => 'varchar',
+      'precision' => '20',
+      'phptype' => 'string',
       'null' => false,
     ),
-    'type' => 
+    'url' => 
     array (
-      'dbtype' => 'int',
-      'precision' => '11',
-      'phptype' => 'integer',
+      'dbtype' => 'varchar',
+      'precision' => '255',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'redirect_url' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '255',
+      'phptype' => 'string',
       'null' => false,
     ),
     'id_resource' => 
@@ -37,32 +42,11 @@ $xpdo_meta_map['egmsPages']= array (
       'phptype' => 'integer',
       'null' => false,
     ),
-    'meta_title' => 
+    'published' => 
     array (
-      'dbtype' => 'varchar',
-      'precision' => '255',
-      'phptype' => 'string',
-      'null' => false,
-    ),
-    'meta_description' => 
-    array (
-      'dbtype' => 'varchar',
-      'precision' => '255',
-      'phptype' => 'string',
-      'null' => false,
-    ),
-    'meta_keywords' => 
-    array (
-      'dbtype' => 'varchar',
-      'precision' => '255',
-      'phptype' => 'string',
-      'null' => false,
-    ),
-    'h1' => 
-    array (
-      'dbtype' => 'varchar',
-      'precision' => '255',
-      'phptype' => 'string',
+      'dbtype' => 'int',
+      'precision' => '11',
+      'phptype' => 'integer',
       'null' => false,
     ),
   ),
