@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 
     $('#filter_reset').click(function(){
-        console.log("reset");
+        //console.log("reset");
         mSearch2.reset();
     });
 
@@ -71,12 +71,23 @@ function chacgePrice(e){
                     //console.log($(this));
                     $(this)[0].href = url;
                 });
-                // delivery
                 // update price
+                var price = $(this).find('option:selected').attr('data-price');
+                $('.price-wrap-'+id+' div.price span').text(moneyFormat(price));
                 // update old price
+                var old_price = $(this).find('option:selected').attr('data-old-price');
+                $('.price-wrap-'+id+' del.price-old span').text(moneyFormat(old_price));
+
                 // update diff price
+                // delivery
+                var old_price = $(this).find('option:selected').attr('data-old-price');
+                $('.price-wrap-'+id+' del.price-old span').text(moneyFormat(old_price));
                 //console.log($(this));
             }
         });
     })
+}
+
+function moneyFormat(n) {
+    return parseFloat(n).toFixed(0).replace(/(\d)(?=(\d{3})+\.)/g, "$1 ").replace('.', ',');
 }

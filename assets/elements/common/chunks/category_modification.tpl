@@ -1,8 +1,8 @@
 <div class="price-wrap-{$product.product_id} prod-price">
     {if $product.price_old == 0 || $product.price_old != $product.price}
-    <del class="price-old">{$product.price_old} {'ms2_frontend_currency' | lexicon}</del><span class="badge-new">{$product.price_pr}%</span>
+        <del class="price-old"><span>{$product.price_old}</span> {'ms2_frontend_currency' | lexicon}</del><span class="badge-new">{$product.price_pr}%</span>
     {/if}
-    <div class="price h4">{$product.price} {'ms2_frontend_currency' | lexicon}</div>
+    <div class="price h4"><span>{$product.price}</span> {'ms2_frontend_currency' | lexicon}</div>
     <!--span class="m-2 p-2" style="padding: 2px 7px;font-size: 12px;background-color: #ef5f5f;color: #fff;border-radius: 4px;">-40%</span-->
 </div>
 <div>

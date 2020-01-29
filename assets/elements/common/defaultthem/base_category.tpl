@@ -21,5 +21,5 @@
     ]
     ])}
 
-    {$_modx->runSnippet("mFilter2", $filter)}
+    {$_modx->runSnippet("!mFilter2", $filter)}
 {/block}
