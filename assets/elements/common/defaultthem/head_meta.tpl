@@ -2,5 +2,5 @@
 <meta charset="">
 <meta name="description" content="{'egCeoData' | snippet | ceodata: 'meta_description'}">
 <meta name="keywords" content="{'egCeoData' | snippet | ceodata: 'meta_keywords'}">
-<base href="https://{'region.host' | placeholder}" />
+<base href="//{'region.host' | placeholder}" />
 
