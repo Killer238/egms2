@@ -20,11 +20,11 @@
             <article class="col-md-{$view=='grid'?'12':'5'}">
                {'!egOptionPrice' | snippet : ['tpl' => '@FILE elements/common/chunks/category_product_item_title.tpl','product' => $id]}
                 <p>Недорогой классический пружинный матрас на блоке "Боннель" с ППУ. Бязевый чехол.{$introtext}</p>
-                {'!egProductOptions' | snippet : [
+                {*'!egProductOptions' | snippet : [
                 'onlyOptions' => $modx->runSnippet("egCategoryFeatures", ['category_id' => $modx->resource->get('id')]),
                 'tpl' => '@FILE elements/common/chunks/tpl.categoryFeatures.tpl',
                 'product' => $id,
-                ]}
+                ]*}
                 {'!egOptionPrice' | snippet : ['tpl' => '@FILE elements/common/chunks/category_product_item_delivery.tpl','product' => $id]}
             </article>
             <div class="col-md-{$view=='grid'?'12':'3'} text-center border-left">
