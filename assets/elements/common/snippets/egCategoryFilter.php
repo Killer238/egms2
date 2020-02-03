@@ -44,6 +44,8 @@ else
 
 if($modx->resource->getTVValue('catalog_map'))
     $filter_result['parents'] = $modx->resource->getTVValue('catalog_map');
+else
+    $filter_result['parents'] = $modx->resource->getTVValue('catalog_products');
 
 if($modx->resource->getTVValue('catalog_depth'))
     $filter_result['depth'] = $modx->resource->getTVValue('catalog_depth');

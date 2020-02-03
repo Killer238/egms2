@@ -171,3 +171,15 @@ div.main__conteiner{
 .menu__full{
     height: 100vh;
 }
+
+div.dropdown-menu li.nav-item{
+    padding: 0px 0px 0px 0px;
+}
+div.dropdown-menu li.nav-item a {
+    padding: 0px 2px 0px 2px;
+}
+
+.modal-body {
+    max-height:calc(100vh - 200px);
+    overflow-y:auto
+}

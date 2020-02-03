@@ -231,8 +231,11 @@ class loadmanager
                 $k = $c->get('key');
                 if(trim($k)=='')
                     continue;
+                $feature_value = "";
                 if(trim($c->get('feature_value'))=='')
-                    continue;
+                    $feature_value = $c->get('feature_load_value');
+                else
+                    $feature_value =$c->get('feature_value');
 
                 $select_po = array(
                     'key' => $k, //$c->get('key'),
@@ -240,7 +243,7 @@ class loadmanager
                 );
                 if($po = $this->modx->getObject('msProductOption', $select_po)) {
                     //update
-                    $nv = $c->get('feature_value');
+                    $nv = $feature_value;//$c->get('feature_value');
                     if($nv != $po->get('value'))
                     {
                         $q = $this->modx->newQuery('msProductOption');

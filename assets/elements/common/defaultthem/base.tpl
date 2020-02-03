@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-sm">
                         <nav aria-label="breadcrumbs">
-                           {$_modx->runSnippet("pdoCrumbs", [
+                           {$_modx->runSnippet("egCrumbs", [
                             'showHome' => 0,
                             'showAtHome' => 0,
                             'tpl' => '@INLINE <li class="breadcrumb-item"><a href="{$link}" itemprop="item">{$menutitle}</a></li>',
@@ -31,6 +31,45 @@
                             'tplWrapper' => '@INLINE <ol class="breadcrumb">{$output}</ol>'
                             ])}
                         </nav>
+                        {'egCrumbs' | snippet : [
+                        'showHome' => 1,
+                        'tplWrapper' => '@INLINE <script type="application/ld+json">
+{
+ "@context": "http://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement":
+[ {$output} ]
+}
+</script>'
+                        'tplHome' => '@INLINE {
+   "@type": "ListItem",
+   "position": {$idx},
+   "item":
+   {
+    "@id": "{$link}",
+    "name": "{$menutitle}"
+    }
+  },'
+                        'tplCurrent' => '@INLINE {
+   "@type": "ListItem",
+   "position": {$idx},
+   "item":
+   {
+    "@id": "{$link}",
+    "name": "{$menutitle}"
+    }
+  }'
+                        'tpl' => '@INLINE {
+   "@type": "ListItem",
+   "position": {$idx},
+   "item":
+   {
+    "@id": "{$link}",
+    "name": "{$menutitle}"
+    }
+  },'
+                        ]}
+
                     </div>
                 </div>
             </div>
