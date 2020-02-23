@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'msoptionscolor',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '08d797d458deb13b8811e1e4543ae528',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '28e9a10a91f2d3dbe5c1e0a4683eca6c',
+  'native_key' => 'msoptionscolor_grid_color_show_possible',
+  'object' => '{"key":"msoptionscolor_grid_color_show_possible","value":true,"xtype":"combo-boolean","namespace":"msoptionscolor","area":"msoptionscolor_main","editedon":null}',
+);

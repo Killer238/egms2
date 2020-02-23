@@ -1,0 +1,23 @@
+<?php return array (
+  'class' => 'xPDOFileVehicle',
+  'object' => 
+  array (
+    'source' => 'msoptionscolor-2.1.9-beta/xPDOFileVehicle/f7cbb9891d6e0426997debffb8220371/',
+    'target' => 'return MODX_CORE_PATH . \'components/\';',
+    'name' => 'msoptionscolor',
+  ),
+  'vehicle_class' => 'xPDOFileVehicle',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'php',
+      'body' => '{"type":"php","source":"msoptionscolor-2.1.9-beta\\/xPDOFileVehicle\\/f7cbb9891d6e0426997debffb8220371.resolve.encryption.resolver","name":"resolve.encryption"}',
+    ),
+  ),
+  'vehicle_package' => 'transport',
+  'guid' => 'd6c851c32c31c07efb7fa75efda71964',
+  'package' => '',
+  'signature' => 'f7cbb9891d6e0426997debffb8220371',
+  'native_key' => 'd6c851c32c31c07efb7fa75efda71964',
+);

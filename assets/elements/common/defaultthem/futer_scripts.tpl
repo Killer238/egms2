@@ -2,7 +2,7 @@
     <div class="modal-dialog full__dialog modal-dialog-centered modal" role="document">
         <div class="modal-content full__dialog">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="filter_label">{'eg_modal_filter_ttitle' | lexicon}</h5>
+                <h5 class="modal-title text-white" id="filter_label">{'eg_modal_filter_ttitle' | lexicon}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -21,9 +21,12 @@
 {$_modx->runSnippet("!egCitys", [
 'tpl' => '@FILE elements/common/chunks/modal_regions.tpl'
 ])}
+{*$_modx->getPlaceholder('MinifyX.js')*}
+{*<script src="assets/components/js/build.js?fgdgd6576fg" type="text/javascript"></script>*}
 
-<script src="assets/components/js/build.js?fgdgd6576fg" type="text/javascript"></script>
+
+<script src="assets/components/js/jquery-3.4.1.min.js?fg3347523544335335" type="text/javascript"></script>
+<script src="assets/components/js/popper.min.js?fg3347523544335335" type="text/javascript"></script>
+<script src="assets/components/js/bootstrap.min.js?fg3347523544335335" type="text/javascript"></script>
 <script src="assets/components/js/common.js?fg3347523544335335" type="text/javascript"></script>
-<script>
 
-</script>

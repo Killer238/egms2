@@ -18,8 +18,28 @@
             <section>
                 <h1 class="sf_h1">{'egCeoData' | snippet | ceodata: 'meta_h1'}</h1>
                 <!-- <h1 class="sf_h1">{$_modx->getPlaceholder('sf.h1')} </h1>-->
+
+                {var $mytags = $_modx->resource.catalog_tags | json_decode}
+
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <span class="" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">Популярые категории</span>
+                    <!--button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"  aria-expanded="false" aria-label="Toggle navigation">
+
+                    </button-->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav  display-inline">
+                            {foreach $mytags as $mytag}
+                            <li style="display: inline-block;">
+                                <a href="{$mytag.tag_url}" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">{$mytag.tag_name}</a>
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                </nav>
+
                 <div class="ctags">
-                    {var $mytags = $_modx->resource.catalog_tags | json_decode}
+
                     {foreach $mytags as $mytag}
                         <div class="ctag">
                             <a href="{$mytag.tag_url}" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">{$mytag.tag_name}</a>

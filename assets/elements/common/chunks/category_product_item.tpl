@@ -5,8 +5,9 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-{$view=='grid'?'12':'4'}">
+                <div class="art">Арт: 0003456</div>
                 <div class="img-wrap">
-                    <a class="url-{$id}" href="{$base_category}/{'!egOptionPrice' | snippet : ['tpl' => '@INLINE {$product.url}','product' => $id]}">
+                    <a class="url-{$id}" href="{$_pls['region.product_category_url']}{'region.product_category_url' | placeholder}/{$id | resource :'uri'}">
                         {if $thumb?}
                             <img src="{$thumb}" class="mw-100" alt="{$pagetitle}" title="{$pagetitle}"/>
                         {else}
@@ -18,13 +19,28 @@
                 </div>
             </div>
             <article class="col-md-{$view=='grid'?'12':'5'}">
-               {'!egOptionPrice' | snippet : ['tpl' => '@FILE elements/common/chunks/category_product_item_title.tpl','product' => $id]}
-                <p>Недорогой классический пружинный матрас на блоке "Боннель" с ППУ. Бязевый чехол.{$introtext}</p>
-                {*'!egProductOptions' | snippet : [
-                'onlyOptions' => $modx->runSnippet("egCategoryFeatures", ['category_id' => $modx->resource->get('id')]),
+                {*if $product.reviews > 0 *}
+                <div class="prod__grid__stars">
+                    <span></span><span></span><span></span><span></span><span></span><div class="reviews">отзывы(5)</div>
+                </div>
+                {*/if*}
+                <h4><a class="url-{$id}" href="{$_pls['region.product_category_url']}{'region.product_category_url' | placeholder}/{$id | resource :'uri'}">
+                        {if $_modx->resource.longtitle && $_modx->resource.class_key=='msCategory'}
+                            {if $longtitle == $pagetitle}
+                                {$longtitle}
+                            {else}
+                            <div class="catalog">{$_modx->resource.longtitle}</div>
+                            {$_pls['vendor.name']} {$pagetitle}
+                            {/if}
+                        {else}
+                            {$longtitle}
+                        {/if}</a></h4>
+                {*<p>Недорогой классический пружинный матрас на блоке "Боннель" с ППУ. Бязевый чехол.{$introtext}</p>*}
+                {'!egProductOptions' | snippet : [
+                'onlyOptions' => $modx->runSnippet("egCategoryFeatures"),
                 'tpl' => '@FILE elements/common/chunks/tpl.categoryFeatures.tpl',
                 'product' => $id,
-                ]*}
+                ]}
                 {'!egOptionPrice' | snippet : ['tpl' => '@FILE elements/common/chunks/category_product_item_delivery.tpl','product' => $id]}
             </article>
             <div class="col-md-{$view=='grid'?'12':'3'} text-center border-left">

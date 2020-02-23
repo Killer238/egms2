@@ -1,0 +1,15 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'namespace' => 'msoptionscolor',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '7950da58f516d40c30e138f4c0fdd333',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '7684c10f782ddee6cdbc5ec198bf91fe',
+  'native_key' => 'msocColorRemove',
+  'object' => '{"name":"msocColorRemove","service":6,"groupname":"msOptionsColor"}',
+);

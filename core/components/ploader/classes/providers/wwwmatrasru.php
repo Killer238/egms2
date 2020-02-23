@@ -51,7 +51,7 @@ class wwwmatrasru  extends provider{
         return $features;
     }
 
-    //returt array( price, old price, modification
+    //returt array( common, options, mods);
     public function getPrice(){
 
         $prod_id = 0;
@@ -65,9 +65,92 @@ class wwwmatrasru  extends provider{
                 $l = $si->attr['data-length'];
             }
         }
-
+        //die("-".$this->content);
         $url = 'https://www.matras.ru/api/catalog/item/'.$prod_id.'?common=true&sizes=true&kits=true&colors=true&filter_width='.$w.'&filter_length='.$l;
 
+        $this->json_text = $this->getContentItem($url, $this->id, $pref = "api", $this->proxy, $this->use_cache, $cookie_use = false);
+        $base_data = json_decode($this->json_text,1);
+
+        $result2 = array();
+
+        //заполняем массивы цвета , размера и оснований
+        foreach ($base_data as $key => $data_group){
+            $needle = array('colors', 'sizes', 'kits');
+            if(in_array($key, $needle)){
+                foreach ($data_group as $option){
+                    if($key == 'colors'){
+                        $result2['options']['color'][]= array(
+                            'id' => $option['id'],
+                            'name' => $option['name'],
+                            'image' => $option['url']
+                        );
+                    }
+
+                    if($key == 'sizes'){
+                        $result2['options']['size'][]= array(
+                            'id' => $option['id'],
+                            'name' => $option['w'].'x'.$option['h'],
+                            'price' => $option['price'],
+                            'old_price' => $option['discount_price'],
+                        );
+                    }
+
+                    if($key == 'kits'){
+                        $result2['options']['kit'][]= array(
+                            'id' => $option['id'],
+                            'name' => $option['kits'],
+                        );
+                    }
+                }
+            }
+        }
+        /*
+        //пустой мод - грузим только размеры в модификации
+        $mode = '';
+        //если есть основания то комбинации гоним только по китам
+        if($result2['options']['size']['kit'])
+            $mode = 'kit';
+            //если оснований нет, то проверяем есть ли цвета
+            if($result2['options']['size']['color'])
+                $mode = 'color';
+*/
+        /*
+        $url = 'https://www.matras.ru/api/catalog/item/'.$prod_id.'?common=true&sizes=true&kits=true&colors=true&filter_width='.
+            $w.'&filter_length='.$l.'&color='.$id_color.'&kit='.$kit_id;
+
+        $temp_res = $this->getContentItem($url, $this->id, $pref = "api", $this->proxy, $this->use_cache, $cookie_use = false);
+        $temp_data = json_decode($temp_res,1);
+*/
+
+        foreach ($result2['options']['size'] as $size){
+            //получаем основую цену с первого размера
+            if (!$result2['common'])
+            {
+                $result2['common'] = array(
+                    'price' => $size['price'],
+                    'old_price' =>  $size['old_price'],
+                );
+            }
+            // получаем модификации
+            if($size['price'] != $result2['common']['price'])
+            {
+                $result2['mods'][] = array(
+                    'name' => $size['name'],
+                    'price' => $size['price'],
+                    'old_price' => ($size['price']==$size['old_price'])?0:$size['old_price'],
+                    'options' => array(
+                        'size' => $size['name'],
+                        //'color' => 2,
+                        //'kits' => 3,
+                    )
+                );
+            }
+        }
+
+
+
+        return $result2;
+        /*
         $this->json_text = $this->getContentItem($url, $this->id, $pref = "api", $this->proxy, $this->use_cache, $cookie_use = false);
 
         $json = json_decode($this->json_text, true);
@@ -94,7 +177,9 @@ class wwwmatrasru  extends provider{
             $i++;
         }
         $result['modifications'] = $modifications;
+
         return $result;
+        */
         /*
         $price = "";
 

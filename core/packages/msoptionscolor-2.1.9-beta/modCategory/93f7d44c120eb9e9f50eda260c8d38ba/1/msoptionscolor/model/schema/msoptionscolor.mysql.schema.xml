@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="msoptionscolor" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="msoptionscolor"
+	   version="1.1">
+
+	<object class="msocColor" table="msop_colors" extends="xPDOObject">
+		<field key="rid" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="pk"/>
+		<field key="key" dbtype="varchar" precision="255" phptype="string" null="false" index="pk"/>
+		<field key="value" dbtype="varchar" precision="255" phptype="string" null="false" index="pk"/>
+
+		<field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
+		<field key="color" dbtype="varchar" precision="50" phptype="string" null="true" />
+		<field key="color2" dbtype="varchar" precision="50" phptype="string" null="true" />
+		<field key="pattern" dbtype="varchar" precision="255" phptype="string" null="true" />
+		<field key="pattern2" dbtype="varchar" precision="255" phptype="string" null="true" />
+
+		<field key="image" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="true"/>
+		<field key="image2" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="true"/>
+
+		<!--<field key="ral" dbtype="varchar" precision="50" phptype="string" null="false" />-->
+		<field key="active" dbtype="tinyint" precision="1" phptype="boolean" attributes="unsigned" null="false" default="1" index="index"/>
+		<field key="description" dbtype="tinytext" phptype="string" null="true" default="" />
+
+		<index alias="rid" name="rid" primary="false" unique="false" type="BTREE">
+			<column key="rid" length="" collation="A" null="false"/>
+		</index>
+		<index alias="key" name="key" primary="false" unique="false" type="BTREE">
+			<column key="key" length="" collation="A" null="false"/>
+		</index>
+		<index alias="value" name="value" primary="false" unique="false" type="BTREE">
+			<column key="value" length="" collation="A" null="false"/>
+		</index>
+		<index alias="value_ft" name="value_ft" primary="false" unique="false" type="FULLTEXT">
+			<column key="value" length="" collation="A" null="false"/>
+		</index>
+
+		<index alias="image" name="image" primary="false" unique="false" type="BTREE">
+			<column key="image" length="" collation="A" null="false"/>
+		</index>
+		<index alias="image2" name="image2" primary="false" unique="false" type="BTREE">
+			<column key="image2" length="" collation="A" null="false"/>
+		</index>
+
+		<index alias="active" name="active" primary="false" unique="false" type="BTREE">
+			<column key="active" length="" collation="A" null="false"/>
+		</index>
+
+	</object>
+
+
+</model>

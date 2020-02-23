@@ -11,7 +11,6 @@
 switch ($modx->event->name) {
 
     case 'OnWebPagePrerender':
-
         $accessAllow = true;
         $datahost = $modx->runSnippet("egDataHost", []);
 
@@ -24,33 +23,21 @@ switch ($modx->event->name) {
             {
                 $accessAllow = false;
             }
-
-            // проверка на включение в каталог сайта
-            $parent = $modx->resource->parent;
-            if(!in_array($parent, $datahost['region']['product_categorys']))
-            {
-                $accessAllow = false;
-            }
-            //if(!$accessAllow)
-            //    die("false");
-            //else
-            //    die("true");
-            //if(!$accessAllow)
-            //    $modx->sendErrorPage();
         }
 
         // доступность прочих страниц на принадлежность к вэндору
         if($vendors = (int)$modx->resource->getTVValue('access_vendor'))
         {
-            if (in_array ($vendors, $datahost['region']['vendors']))
+            if (!in_array ($vendors, $datahost['region']['vendors']))
             {
                 $accessAllow = false;
             }
-
-           // if(!$accessAllow)
-            //    $modx->sendErrorPage();
         }
-
+       // die("-".$accessAllow);
+        if(!$accessAllow){
+            $modx->sendRedirect('//'.$_SERVER['HTTP_HOST'], array('responseCode' => 'HTTP/1.1 301 Moved Permanently'));
+            //$modx->sendErrorPage();
+        }
 
 
         break;

@@ -86,6 +86,8 @@
 <noindex>
     {include 'file:elements/common/defaultthem/futer_scripts.tpl'}
 </noindex>
+{if $_modx->user.id > 0}
 SQL: [^qt^] ([^q^]), PHP: [^p^], MEM: [^m^], ALL: [^t^] ([^s^])
+{/if}
 </body>
 </html>

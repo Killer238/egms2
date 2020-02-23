@@ -1,22 +1,44 @@
+{$_modx->lexicon->load('minishop2:cart')}
+{$_modx->lexicon->load('minishop2:default')}
 <div class="container">
     <div class="row">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a href="{98 | url}"><img src="/assets/matras-stock/img/logo.jpg" width="250px" ></a> <a href="#Cities" class="" data-toggle="modal"><i class="fa fa-map-marker p-1"></i>{'region.city' | placeholder}</a>
-        <a href="">{'region.phone' | placeholder}</a>
-        <a href="{76 | url}"> Корзина</a>
+        <div class="col-6">
+            <div class="header__menumobileb">
+                <button
+            </div>
+            <div class="header__logo">
+            <a href="{98 | url}">
+                <img style="margin:20px;" src="/assets/matras-stock/img/logo.jpg" width="250px" class="d-none d-lg-block" >
+                <span class="header__logomobile d-lg-none">МАТРАС-СТОК.РУ</span>
+            </a>
+            </div>
+            <div class="hearer__city">
+            <a href="#Cities" class="" data-toggle="modal"><span class="headmap d-none d-lg-block">
+                    </span>{'region.city' | placeholder}</a>
+            </div>
+        </div>
+        <div class="col-6">
+        </div>
         <!--
-        <div id="msMiniCart" class="{$total_count > 0 ? 'full' : ''}">
-            <div class="empty">
-                <h5>{'ms2_minicart' | lexicon}</h5>
-                {'ms2_minicart_is_empty' | lexicon}
-            </div>
-            <div class="not_empty">
-                <h5>{'ms2_minicart' | lexicon}</h5>
-                {'ms2_minicart_goods' | lexicon} <strong class="ms2_total_count">{$total_count}</strong> {'ms2_frontend_count_unit' | lexicon},
-                {'ms2_minicart_cost' | lexicon} <strong class="ms2_total_cost">{$total_cost}</strong> {'ms2_frontend_currency' | lexicon}
-            </div>
+        <div class="col-xs-1 col-lg-3">
+            <a href="{98 | url}"><img style="margin:20px;" src="/assets/matras-stock/img/logo.jpg" width="250px" class="" ></a>
+        </div>
+        <div class="col-xs-1 col-lg-2 my-auto head_city">
+            <a href="#Cities" class="" data-toggle="modal"><div class="headmap">
+                   {'region.city' | placeholder}</div></a>
+        </div>
+        <div class="col-xs-1 col-lg-3 my-auto head__phone">
+            <a href="#"><div class="headphone ">
+                    <span class="d-none d-none d-lg-block">{'region.phone' | placeholder}</span>
+                </div></a>
+        </div>
+        <div class="col-xs-1 col-lg-2 my-auto d-none d-lg-block text-center head_clock">
+            <div class="time__text"><div class="headclock">
+                    <span style="display: block;">Пн.–вс. </span><span>с 9:00 до 21:00</span>
+                </div></div>
+        </div>
+        <div class="col-xs-1 col-lg-2 my-auto text-center head_cart">
+            {'!msMiniCart' | snippet : ['tpl' => '@FILE elements/common/chunks/miniCart.tpl']}
         </div>
         -->
 </div>

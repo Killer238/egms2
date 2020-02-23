@@ -1,5 +1,5 @@
 <?php
-$category_id = $modx->getOption('category_id', $scriptProperties);
+$category_id = $modx->getOption('category_id', $scriptProperties, $modx->resource->id);
 
 $select = array(
     'option_id:>' => 1,

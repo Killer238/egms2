@@ -175,10 +175,10 @@ class loadmanager
         if($load_params['load_price'])
         {
             $this->getContentLoad($loads['load_price'], $params);
-
+            $price_data = $this->load_data[$loads['load_price']]['price'];
             // обновляем цену
-            $price = $this->load_data[$loads['load_price']]['price']['price'];
-            $old_price = $this->load_data[$loads['load_price']]['price']['old_price'];
+            $price = $price_data['common']['price'];
+            $old_price = $price_data['common']['old_price'];
 
             $data = array(
                 'price' => $price,
@@ -186,16 +186,80 @@ class loadmanager
             );
             $this->updateResourseData($id_product, $data);
 
+            //генерируем опции и модификации
+
             //delete модификации
             $this->modx->call('msopModification', 'removeProductModification', array(&$this->modx, $id_product, array(array())));
+
+            //заполняем опции
+            $options = $price_data['options'];
+            foreach ($options as $key => $option){
+                $p = $this->modx->getObject("msProduct", array('id' => $id_product));
+                $ress=array();
+                foreach ($options[$key] as $val){
+                    $ress[]=$val['name'];
+                }
+                //если размер или цвет
+                if($key=='size' ||$key=='color'){
+                    $p->set($key, $ress);
+                    $p->save();
+                }
+                //если комплектация
+                if($key=='kit'){
+                    foreach ($ress as $res){
+                        $sql = "DELETE FROM ".$this->modx->config['table_prefix']."ms2_product_options 
+                            where product_id=".$id_product." and key='".$key."'";
+                        $this->modx->exec($sql);
+
+                        $select_po = array(
+                            'key' => $key,
+                            'product_id' => $id_product,
+                        );
+
+                        $select_po['value'] = $res;
+                        $this->addOptionsToList($select_po);
+                        $pn = $this->modx->newObject('msProductOption');
+                        $pn->fromArray($select_po);
+                        $pn->save();
+                    }
+                }
+
+            }
+
             //создаем модификации
-            $modification = $this->load_data[$loads['load_price']]['price']['modifications'];
+            $modification = $price_data['mods'];
             if($modification)
             {
                 $this->modx->call('msopModification',
                     'saveProductModification',
                     array(&$this->modx, $id_product, $modification));
             }
+
+            $colors = $price_data['options']['color'];
+            if($colors){
+
+                //удаляем старые и загружаем новые картинки
+                $sql = "DELETE FROM ".$this->modx->config['table_prefix']."msop_colors where rid=".$id_product;
+                $this->modx->exec($sql);
+
+                foreach ($colors as $color)
+                {
+                    //TODO: грузить плашки и сохранять в паттерн
+                    $select_po = array(
+                        'rid' => $id_product,
+                        'key' => 'color',
+                        'value' => $color['name'],
+                        'name' => $color['name'],
+                        'pattern' => $color['url'],
+                        'description' => $color['url'],
+                    );
+                    $po = $this->modx->newObject('msocColor');
+                    $po->fromArray($select_po);
+                    $po->save();
+                }
+
+            }
+
         }
 
         //load_features
@@ -213,6 +277,34 @@ class loadmanager
         return 'product created or updated';
     }
 
+    /*
+     * $option is array
+     * $option = array(
+     * 'key' => key,
+     * 'value' => value,
+     * );
+     */
+    private function addOptionsToList($option){
+        if($no = $this->modx->getObject('msOption', array('key' => $option['key']))){
+            $needl = array('combo-multiple', 'combobox');
+            if(in_array($no->get('type'), $needl)){
+                $properties = $no->get('properties');
+                $properties['values'][]=$option['value'];
+                $properties['values'] = array_unique($properties['values']);
+                $no->set('properties', $properties);
+                $no->save();
+            }
+        }
+    }
+
+    /**
+     * @param $id_product
+     * @param $id_load
+     * @param $provider_name
+     * функция получает массив характеристик
+     * делает проверку если они смаплены и активны
+     *
+     */
     private function featureProductUpdate($id_product, $id_load, $provider_name)
     {
         foreach ($this->load_data[$id_load]['features'] as $feature) {
@@ -225,8 +317,11 @@ class loadmanager
                 'published' => 1,
             );
 
-            $cf = $this->modx->getCollection('plPproductFeatureMap', $select);
-            foreach ($cf as $c)
+            $product = $this->modx->getObject("msProduct", array('id'=> $id_product));
+            $c = $this->modx->getObject('plPproductFeatureMap', $select);
+            if($c)
+            //$cf = $this->modx->getObject('plPproductFeatureMap', $select)
+            //foreach ($cf as $c)
             {
                 $k = $c->get('key');
                 if(trim($k)=='')
@@ -238,9 +333,35 @@ class loadmanager
                     $feature_value =$c->get('feature_value');
 
                 $select_po = array(
-                    'key' => $k, //$c->get('key'),
                     'product_id' => $id_product,
+                    'key' => $k, //$c->get('key'),
                 );
+                //добавляем опции для категории
+                if($option = $this->modx->getObject("msOption", array('key'=>$k))){
+                    $select_co = array(
+                        'option_id' => $option->get("id"),
+                        'category_id' => $product->get("parent"),
+                    );
+                    if(!$co = $this->modx->getObject('msCategoryOption', $select_co)) {
+                        //$select_co['rank'] = 0;
+                        $select_co['active'] = 1;
+                        //$select_co['required'] = 0;
+                        $newCat = $this->modx->newObject('msCategoryOption');
+                        $newCat->fromArray($select_co);
+                        $newCat->set('option_id', $select_co['option_id']);
+                        $newCat->set('category_id', $select_co['category_id']);
+                        $newCat->save();
+                    }
+                }
+                //удаляем опцию чтобы потом создать заново
+                if($po = $this->modx->getObject('msProductOption', $select_po)) {
+                    $q = $this->modx->newQuery('msProductOption');
+                    $q->command('DELETE');
+                    $q->where($select_po);
+                    $q->prepare();
+                    $q->stmt->execute();
+                }
+                /*
                 if($po = $this->modx->getObject('msProductOption', $select_po)) {
                     //update
                     $nv = $feature_value;//$c->get('feature_value');
@@ -252,16 +373,23 @@ class loadmanager
                         $q->set(array('value' => $nv));
                         $q->prepare();
                         $q->stmt->execute();
-                    }
 
-                }else
-                {
+                        //add value in list
+                        $select_po['value'] = $nv;
+                        $this->addOptionsToList($select_po);
+                    }
+                    */
+                //}else{
                     //insert
-                    $select_po['value'] = $c->get('feature_value');
+                    $select_po['value'] = $feature_value;//$c->get('feature_value');
                     $po = $this->modx->newObject('msProductOption');
                     $po->fromArray($select_po);
                     $po->save();
-                }
+                    //add value in list
+                    $this->addOptionsToList($select_po);
+                //}
+            }else{
+                //TODO: если запись не найдена, то добавляем характеристику для мапинг
             }
         }
     }

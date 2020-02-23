@@ -2,9 +2,9 @@
 
 $request = array(
     'select' => array(
-        'id_category' => 40,
-        'id_manufacturer' => 35,
-        //'id' => 2601,
+        'id_category:IN' => array(2622, 2623, 2624, 2625, 2626),
+//        'id_manufacturer' => 35,      2622, 2623, 2624, 2625, 2626
+//        'id' => 2658,
         'id_product' => 0,
         'published' => 1
     )

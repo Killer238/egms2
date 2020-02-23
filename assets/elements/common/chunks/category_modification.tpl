@@ -1,8 +1,8 @@
 <div class="price-wrap-{$product.product_id} prod-price">
-    {if $product.price_old == 0 || $product.price_old != $product.price}
-        <del class="price-old"><span>{$product.price_old}</span> {'ms2_frontend_currency' | lexicon}</del><span class="badge-new">{$product.price_pr}%</span>
+    {if $product.price_old != $product.price && $product.price_old > 0}
+        <del class="price-old"><span>{$product.price_old|number:0}</span> [[%ms2_frontend_currency]]</del><span class="badge-new">{$product.price_pr}%</span>
     {/if}
-    <div class="price h4"><span>{$product.price}</span> {'ms2_frontend_currency' | lexicon}</div>
+    <div class="price h4"><span>{$product.price|number:0}</span> [[%ms2_frontend_currency]]</div>
     <!--span class="m-2 p-2" style="padding: 2px 7px;font-size: 12px;background-color: #ef5f5f;color: #fff;border-radius: 4px;">-40%</span-->
 </div>
 <div>
@@ -26,7 +26,7 @@
     </form>
 </div>
 <div class="p-2">
-    <a href="{$base_category}/{$product.url}" class="btn btn-secondary url-{$product.product_id} btn w-100">{'eg_more' | lexicon}</a>
+    <a href="{$_pls['region.product_category_url']}{'region.product_category_url' | placeholder}/{$id | resource :'uri'}" class="btn btn-secondary url-{$product.product_id} btn w-100">{'eg_more' | lexicon}</a>
 </div>
 
 {*<a href="#"><i class="fa fa-heart"></i>{'eg_i' | lexicon}</a>*}

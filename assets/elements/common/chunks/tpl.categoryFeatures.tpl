@@ -1,6 +1,7 @@
 {foreach $options as $option}
 {if ($option.value != '') }
 <dl class="dlist-inline feature">
+
     <dt>{$option.caption}</dt>
     <dd class="text-right">
         {if $option.value is array}
@@ -15,6 +16,7 @@
             {/if}
         {/if}
     </dd>
+
 </dl>
 {/if}
 {/foreach}

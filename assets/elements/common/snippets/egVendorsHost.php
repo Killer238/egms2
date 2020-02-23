@@ -6,5 +6,5 @@ $str=array(
     $where => $vh['region']['vendors'],
 );
 $output = $modx->toJSON($str);
-
+//die($output);
 return $output;

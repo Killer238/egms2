@@ -1,4 +1,4 @@
-<h4>{'eg_size' | lexicon}:</h4>
+<h3>{'eg_size' | lexicon}:</h3>
 <ul class="atrs">
     {foreach $options as $option}
         {if (!$option.selected)}

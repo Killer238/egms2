@@ -18,6 +18,7 @@
     'ajaxMode' => 'default',
     'paginator' => 'pdoPage',
     'showLog' => '0',
+    'where' => '{"Data.vendor:IN":'~ $_modx->getPlaceholder('region.vendors_arr') ~',"AND:Data.price:>":"2"}',
     ]
     ])}
 

@@ -1,0 +1,16 @@
+<?php return array (
+  'class' => 'xPDOScriptVehicle',
+  'object' => 
+  array (
+    'source' => 'msoptionscolor-2.1.9-beta/xPDOScriptVehicle/90036f53882f4786b1b76c481f33e87c.resolve.encryption.script',
+  ),
+  'vehicle_class' => 'xPDOScriptVehicle',
+  'namespace' => 'msoptionscolor',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'guid' => 'ce2da12723a11fb1e0e584d2fb704a08',
+  'package' => '',
+  'signature' => '90036f53882f4786b1b76c481f33e87c',
+  'native_key' => 'ce2da12723a11fb1e0e584d2fb704a08',
+);

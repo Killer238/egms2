@@ -1,4 +1,11 @@
 {extends 'file:elements/common/defaultthem/base.tpl'}
 {block 'content'}
-    <h1>text</h1>
+    <div class="container">
+        <div class="row">
+            <div>
+                <h1>{$_modx->resource.longtitle}</h1>
+                {$_modx->resource.content}
+            </div>
+        </div>
+    </div>
 {/block}

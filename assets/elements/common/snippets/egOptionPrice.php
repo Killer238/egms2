@@ -2,6 +2,7 @@
 $tpl = $modx->getOption('tpl', $scriptProperties);
 $product = $modx->getOption('product', $scriptProperties);
 $options = $modx->getOption('options', $scriptProperties);
+$baseCategory = $modx->getOption('basecategory', $scriptProperties);
 
 $classModification = 'msopModification';
 $classOption = 'msopModificationOption';
@@ -49,7 +50,9 @@ if (!function_exists('egGetModificationOptions')) {
         $product_cache['default'] = array(
             'product_id' => $product->get('id'),
             'product_vendor_id' => $product->get('vendor.id'),
-            'product_name' => $product->get('longtitle'),
+            'product_vendor_name' => $product->get('vendor.name'),
+            'product_name' => $product->get('pagetitle'),
+            'product_fullname' => $product->get('longtitle'),
             'price' => $product->get('price'),
             'price_old' => $product->get('old_price'),
             'price_diff' => ($product_cache['default']['price_old']>0)?$product_cache['default']['price']-$product_cache['default']['price_old']:0,
@@ -122,7 +125,6 @@ if(isset($_REQUEST[$get_val]))
 $dh = $modx->runSnippet('egDataHost');
 
 $delivery_conditions = $dh['delivery'];
-$base_category = $dh['region']['product_category_url'];
 $region = $dh['region']['city'];
 
 $delivery = $delivery_conditions[$product_cache['vendor_id'].'-0'];
@@ -134,7 +136,7 @@ $pdoTools = $modx->getService('pdoTools');
 $output = $pdoTools->getChunk($tpl, [
     'id'          => $product,
     'region'      => $region,
-    'base_category' => $base_category,
+    'base_category' => $baseCategory,
     'product'     => $product_default,
     'options'     => $product_cache['options'],
     'delivery'    => $delivery,

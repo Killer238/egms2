@@ -9,16 +9,20 @@
             [[+new:isnot=``:then=`<span class="badge badge-secondary badge-pill col-auto">[[%ms2_frontend_new]]</span>`]]
             [[+popular:isnot=``:then=`<span class="badge badge-secondary badge-pill col-auto">[[%ms2_frontend_popular]]</span>`]]
             [[+favorite:isnot=``:then=`<span class="badge badge-secondary badge-pill col-auto">[[%ms2_frontend_favorite]]</span>`]]
+            <div class="prod-grid-stars">
+                <span></span><span></span><span></span><span></span><span></span><div class="reviews">отзывы(5)</div>
+            </div>
         </div>
     </div>
-     <div id="msProduct" class="row product__top">
+
+     <div class="row product__top">
          <div class="col-12 col-md-8">
              <div class="gallery-wrap product__images">
                  [[!msGallery]]
              </div>
          </div>
-         <div class="col-12 col-md-4 product__pricebox">
-             <div>
+         <div class="col-12 col-md-4">
+             <div class="ms2_product product__pricebox">
                  {'!egOptionPrice' | snippet : [
                  'tpl' => '@FILE elements/common/chunks/product_modification.tpl',
                  'product' => $_modx->resource.id,
@@ -48,14 +52,14 @@
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="desc">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-sm-12 col-md-4">
                             {'egConsistens' | snippet :['tpl' => '@FILE elements/common/chunks/product_consists.tpl']}
                             <p>
                                 {* выводим описание для определенного контекста*}
                             {$_modx->resource.id | resource: 'product_description'| cdesc :$_modx->context.key | htmlspecialchars}
                             </p>
                         </div>
-                        <div class="col-8">
+                        <div class="col-sm-12 col-md-8">
                             {'msProductOptions' | snippet : ['hideEmpty'=> 1]}
                         </div>
                     </div>
@@ -73,9 +77,8 @@
             'options' => 'msoption|size'
             ]}
 
-            {*
-            с этим товаром покупают
-            *}
+
+
             {*
             смотрите еще
             *}
@@ -90,6 +93,20 @@
 
         </div>
     </div>
+     <div class="row mb-3">
+         <div class="col-12"><h3>С этим товаром покупают</h3></div>
+         {*с этим товаром покупают*}
+         {$_modx->setPlaceholder('product_view', 'grid')}
+         {$_modx->runSnippet("msProducts", [
+         'context' => 'web',
+         'limit' => 3,
+         'parents' => 0,
+         'resources' => '263,264,265,266',
+         'sortby'=>'ids',
+         'tpl' => '@FILE elements/common/chunks/category_product_item.tpl',
+         'where' => '{"Data.vendor:IN":'~ $_modx->getPlaceholder('region.vendors_arr') ~'}',
+         ])}
+     </div>
  </div>
 </section>
 {/block}

@@ -1,20 +1,17 @@
 <?php
 $filter = $modx->getOption('filter', $scriptProperties);
-
-$vh = $modx->runSnippet('egVendorsHost',['where' => 'Data.vendor:IN']);
-
-//$_GET['vendor']=$_REQUEST['vendor']=1;
-//die();
 //значения фильтра по умолчанию
 $filter_result = array(
 'element' => 'msProducts',
     'class' => 'msProduct',
     'ajaxMode' => 'default',
     'pageLinkScheme' => '[[+pageVarKey]]-[[+page]]/',
-    'suggestions' => false,
+    'suggestions' => true,
+    'setMeta' => 0,
+    //'showEmptyFilters' => false,
+    //'suggestionsSliders' => true,
     //'showLog' => '1',
     //'cache_key' => 'dsfsd',
-    'where' => $vh
 );
 //TODO: проверить работу из ТВ
 

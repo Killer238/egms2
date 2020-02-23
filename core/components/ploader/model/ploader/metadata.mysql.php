@@ -11,7 +11,9 @@ $xpdo_meta_map = array (
     5 => 'plPproduct',
     6 => 'plPproductConsistsItem',
     7 => 'plPproductFeatureMap',
-    8 => 'plPproductReviews',
+    8 => 'plPproductImages',
+    9 => 'plPproductOimage',
+    10 => 'plPproductReviews',
   ),
   'xPDOObject' => 
   array (

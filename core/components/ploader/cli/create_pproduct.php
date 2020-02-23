@@ -1,12 +1,12 @@
 <?php
 $request = array(
     'select' => array(
-        'provider' => 'omatrasru',
-        'id' => 34293,
+        'provider' => 'wwwmatrasru',
+//        'id' => 34293,
         'page_type' => 'PRODUCT',
         'id_pproduct' => 0,
-        'id_category_map>:' => 0,
-        'id_manufacturer_map>:' => 0,
+//        'id_category_map>:' => 0,
+//        'id_manufacturer_map>:' => 0,
 //        'id_theme:>' => 0,
        'published' => 1
     )

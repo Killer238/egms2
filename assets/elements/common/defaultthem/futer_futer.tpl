@@ -1,19 +1,25 @@
 <section class="section-footer bg-primary">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-            <label for="s_mail" class="d-flex align-items-center">
-                Подписывайтесь!<input type="text" name="s_mail" id="s_mail" value="70" data-current-value="0" class="form-control ml-1" data-original-value="70">
-            </label>
-            <button type="button" class="btn btn-warning">Подписаться</button>
+        <div class="row p-4">
+            <div class="col-md-4 p-2">
+                    <div class="text-white h2 inline-block">Подписывайтесь!</div>
+                    <div class="text-white">Узнавайте свежую информацию о скидках и акциях первыми.</div>
+            </div>
+            <div class="col-md-8 p-2">
+                <form action="/" method="get" class="form-inline my-2 my-lg-0">
+                    <input type="text" name="s_mail" id="s_mail" class="form-control mr-sm-2 m-2 w-50"  placeholder="Ваш email">
+                    <button type="button" class="btn btn-warning m-2 w-30">Подписаться</button>
+                    <div class="text-white font-italic">* Нажимая на кнопку "Подписаться", я даю согласие на <a href="{2739|url}"  class="text-white font-italic">обработку персональных данных</a></div>
+                </form>
             </div>
         </div>
     </div>
 </section>
 <section class="section-footer bg-light">
     <div class="container">
-        <div class="row">
+        <div class="row pt-4">
             <div class="col-md-3">
+                <h4>ИНФОРМАЦИЯ</h4>
                 {$_modx->runSnippet("pdoMenu", [
                     'context' => $modx->context->key,
                     'parents' => 412,
@@ -21,41 +27,35 @@
                 ])}
             </div>
             <div class="col-md-3">
+                <h4>МАТРАСЫ</h4>
                 {$_modx->runSnippet("pdoMenu", [
                     'context' => $modx->context->key,
                     'parents' => 136,
                     'hereClass' => 'active',
-                    'tplStart' => '@INLINE <h2 [[+classes]]><a href="[[+link]]" [[+attributes]]>[[+menutitle]]</a></h2>[[+wrapper]]',
-                    'displayStart' =>2,
-                    'resources' => '136,460,147,453,141,463,454,455,456,457,458',
+                    'resources' => '136,454,455,456,457,458',
                 ])}
             </div>
             <div class="col-md-3">
+                <h4>ДЕТСКИЕ МАТРАСЫ</h4>
                 {$_modx->runSnippet("pdoMenu", [
                     'context' => $modx->context->key,
                     'parents' => 135,
+                    'resources'=>'135,420,421,422,423',
                     'hereClass' => 'active',
-                    'tplStart' => '@INLINE <h2 [[+classes]]><a href="[[+link]]" [[+attributes]]>[[+menutitle]]</a></h2>[[+wrapper]]',
-                    'displayStart' =>2,
-                    'resources' => '',
                 ])}
             </div>
             <div class="col-md-3">
+                <h4>НАМАТРАСНИКИ</h4>
                 {$_modx->runSnippet("pdoMenu", [
                     'context' => $modx->context->key,
                     'parents' => 137,
                     'hereClass' => 'active',
-                    'tplStart' => '@INLINE <h2 [[+classes]]><a href="[[+link]]" [[+attributes]]>[[+menutitle]]</a></h2>[[+wrapper]]',
-                    'displayStart' =>2,
-                    'resources' => '',
                 ])}
+                <h4>ОСНОВАНИЯ</h4>
                 {$_modx->runSnippet("pdoMenu", [
                     'context' => $modx->context->key,
                     'parents' => 138,
                     'hereClass' => 'active',
-                    'tplStart' => '@INLINE <h2 [[+classes]]><a href="[[+link]]" [[+attributes]]>[[+menutitle]]</a></h2>[[+wrapper]]',
-                    'displayStart' =>2,
-                    'resources' => '',
                 ])}
             </div>
         </div>

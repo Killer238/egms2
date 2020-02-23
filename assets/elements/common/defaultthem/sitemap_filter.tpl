@@ -1,4 +1,4 @@
-{var $dh = $_modx->runSnippet("egDataHost", [])}
+{*var $dh = $_modx->runSnippet("egDataHost", [])}
 {var $host = $dh["region"]["host"]}
 {var $pc =  $dh['region']['site_categorys']}
 {var $parent = implode(",", $pc)}
@@ -14,4 +14,4 @@
     <changefreq>{$update}</changefreq>
     <priority>{$priority}</priority>
 </url>'
-])}
+])*}

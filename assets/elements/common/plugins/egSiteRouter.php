@@ -12,7 +12,6 @@ switch ($event) {
         {
             $alias = $modx->getOption('request_param_alias', null, 'alias', true);
             $request = &$_REQUEST[$alias];
-            //$tmp = explode('/', rtrim($request, "/")); // получаем ссылку
 
             $dh = $modx->runSnippet('egDataHost');
             //TODO: искать товары в страницах перезда??
@@ -21,6 +20,7 @@ switch ($event) {
             // то не ошибка
             //die($request);
             $get_val = "msoption|size";
+            $tmp = explode('/', trim(ltrim($request, $dh['region']['product_category_url']), "/"));
             if (preg_match('/\/$/',$request))
             {
                 // если подстрока каталога найдена в начале
@@ -29,7 +29,7 @@ switch ($event) {
                 if(strpos($request, $dh['region']['product_category_url'])===0) {
                     //die($request);
                     //die($dh['region']['product_category_url']);
-                    $tmp = explode('/', trim(ltrim($request, $dh['region']['product_category_url']), "/"));
+
                     // извлекаем alias
                     $themplate = 0;
                     $product_alias = array_shift($tmp);
@@ -84,6 +84,16 @@ switch ($event) {
                                 exit();
                             }
                         }
+                    }
+                }else{
+                    $product_alias = array_shift($tmp);
+
+                    $resource = $modx->getObject('modResource', array('alias' => $product_alias));
+                    if($resource){
+                        //если вторая секция изделие то 301 редирект
+                        $url = '//'.$_SERVER['HTTP_HOST'].'/'.$dh['region']['product_category_url'].'/'.$request;
+                        //die($url);
+                        $modx->sendRedirect($url, array('responseCode' => 'HTTP/1.1 301 Moved Permanently'));
                     }
                 }
             }

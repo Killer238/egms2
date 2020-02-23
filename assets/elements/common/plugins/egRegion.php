@@ -37,6 +37,9 @@ switch ($modx->event->name) {
                 $modx->setPlaceholder('region.phone_local', $dh['region']['phone_local']);
                 $modx->setPlaceholder('region.mail', $dh['region']['email']);
                 $modx->setPlaceholder('region.region_address', $dh['region']['region_address']);
+                $modx->setPlaceholder('region.code_yandex', $dh['region']['code_yandex']);
+                $modx->setPlaceholder('region.code_google', $dh['region']['code_google']);
+
 
                 $them = $modx->getContext($dh['region']['context'])->getOption('themplate_name');
                 $them = ($them)?$them:$modx->getOption('themplate_name');
@@ -51,6 +54,9 @@ switch ($modx->event->name) {
                 $modx->setPlaceholder('region.city_p', $dh['region']['city']['city_p']);
 
                 $modx->setPlaceholder('region.vendors', $dh['region']['vendors']);
+               // $t = $modx->toJSON($dh['region']['vendors']);
+               // die($t);
+                $modx->setPlaceholder('region.vendors_arr',  $modx->toJSON($dh['region']['vendors']));
 
                 $modx->setPlaceholder('region.product_category_url', $dh['region']['product_category_url']);
                 $modx->setPlaceholder('delivery', $dh['delivery']);

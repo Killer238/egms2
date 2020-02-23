@@ -137,6 +137,7 @@
 		<field key="text" dbtype="text" phptype="string" null="false" />
 		<field key="text_rewrite" dbtype="text" phptype="string" null="false" />
 		<field key="published" dbtype="int" precision="11" phptype="integer" null="false" />
+		<aggregate alias="msproduct" class="msProduct" local="id_product" foreign="id" cardinality="one" owner="foreign" />
 	</object>
 	<object class="plPproductTheme" table="pl_pproduct_theme" extends="xPDOObject">
 		<field key="id_theme" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />

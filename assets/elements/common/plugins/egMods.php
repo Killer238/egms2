@@ -29,9 +29,20 @@ switch ($modx->event->name) {
             return "file:".$input."/".$key;
         });
 
+        $fenom->addModifier('toflat', function ($input, $key) {
+            $tmp =array();
+                foreach ($input as $item) {
+                    $tmp[] = $item[$key];
+                }
+            return implode(',',$tmp);
+        });
+
         $fenom->addModifier('size', function ($input, $key) {
+            if($key='url'&&$_GET['msoption|size'])
+                return $_GET['msoption|size'].'/';
             return $_GET['msoption|size']?" - ".$_GET['msoption|size']." {'eg_sm'| lexicon}".$key:"";
         });
+        //()
 /*
         $fenom->addModifier('price_format', function ($input) {
             $price = str_replace(',','.',$input);

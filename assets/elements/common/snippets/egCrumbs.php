@@ -21,7 +21,6 @@ $arr = array(
 if($modx->resource->class_key=="msProduct"){
 
     $parent = $modx->resource->parent;
-    $cat_id = 2137;
 
     $where = $modx->newQuery('modResource');
     $where->leftJoin('modTemplateVarResource', 'TemplateVarResources');
@@ -29,27 +28,33 @@ if($modx->resource->class_key=="msProduct"){
     $where->limit(5);// Лимит
     $where->where(array(
         array(
-            'tv.name'   => 'catalog_map', // Имя TV
+            'tv.name'   => 'catalog_map', // Имя TV привязки каталога
             'context_key' => $modx->context->key,
-            'TemplateVarResources.value'    => $parent,// Значение TV
+            'TemplateVarResources.value'    => $parent,// Значение TV привязанного каталога
         )
     ));
     $resources = $modx->getCollection('modResource',$where);
     //die("-".count($resources));
-    foreach ($resources as $resource){
-        $cat_id = $resource->get('id');
-        break;
+    //если ресурс привязан к каталогу
+    if($resources){
+        foreach ($resources as $resource){
+            $cat_id = $resource->get('id');
+            break;
+        }
+
+        if ($cat_id > 0){
+            $res = $modx->getObject('modResource', $modx->resource->id);
+            $title = $res->get('longtitle');
+            $arr['to'] = $cat_id;
+            $arr['showCurrent'] = 1;
+            $arr['tplCurrent'] = $tpl;
+            $current = $output = $pdo->getChunk($tplcurrent, array('menutitle' => $title), false);
+            $arr['tplWrapper'] = str_replace('{$output}','{$output}'.$current, $tplwrapper);
+        }
+    }else{
+        $arr['to'] = 1;
     }
 
-    if ($cat_id > 0){
-        $res = $modx->getObject('modResource', $modx->resource->id);
-        $title = $res->get('longtitle');
-        $arr['to'] = $cat_id;
-        $arr['showCurrent'] = 1;
-        $arr['tplCurrent'] = $tpl;
-        $current = $output = $pdo->getChunk($tplcurrent, array('menutitle' => $title), false);
-        $arr['tplWrapper'] = str_replace('{$output}','{$output}'.$current, $tplwrapper);
-    }
 }
 
 $result = $modx->runSnippet("pdoCrumbs", $arr);

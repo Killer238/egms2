@@ -11,7 +11,7 @@
         'tpl' => '@FILE elements/common/chunks/msOrder.tpl'
         ])}
 
-        {'msGetOrder' | snippet : [
+        {'!msGetOrder' | snippet : [
         'tpl' => '']}
         </div>
     </div>

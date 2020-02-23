@@ -1,14 +1,13 @@
-<nav class="navbar navbar-expand p-0 bg-secondary d-none d-md-block">
+<nav class="navbar navbar-expand p-0 bg-secondary d-none d-md-block" style="width:100%;padding:10px 0px 10px 0px;background:#49505f;">
     <div class="container">
-        <ul class="navbar-nav">
-            <li class="nav-item"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Время работы: Пн.-Вс. с 9:00 до 22:00 (Мск){*'eg_time' | lexicon : ['namespase' => 'core']*} </font></font></li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> английский </font></font></a>
-                <ul class="dropdown-menu dropdown-menu-right" style="max-width: 100px;">
-                    <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">арабский</font></font></a></li>
-                    <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">русский </font></font></a></li>
-                </ul>
-            </li>
-        </ul>
+            {*<li class="nav-item"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Время работы: Пн.-Вс. с 9:00 до 22:00 (Мск)*}{*'eg_time' | lexicon : ['namespase' => 'core']*} {*</font></font></li>*}
+            {$_modx->runSnippet("pdoMenu", [
+            'context' => $modx->context->key,
+            'parents' => 412,
+            'hereClass' => 'active',
+            'tplOuter' => '@INLINE <ul class="navbar-nav">[[+wrapper]]</ul>',
+            'tpl' => '@INLINE <li class="nav-item"><a href="[[+link]]" class="nav-link" [[+attributes]]>[[+menutitle]]</a>[[+wrapper]]</li>',
+            ])}
+            <!--<li class="nav-item dropdown"><a href="#" class="nav-link">Гарантия{* и сертификаты*}</a></li>-->
     </div>
 </nav>

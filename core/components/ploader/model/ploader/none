@@ -231,3 +231,347 @@ I: Connected to client. :-)
 <- run -i 76
 Log closed at 2019-11-17 20:02:33
 
+Log opened at 2020-02-21 13:45:20
+I: Connecting to configured address/port: 127.0.0.1:9006.
+I: Connected to client. :-)
+-> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" fileuri="file:///C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php" language="PHP" xdebug:language_version="7.0.1-dev" protocol_version="1.0" appid="20000" idekey="19628"><engine version="2.4.0"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[http://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2016 by Derick Rethans]]></copyright></init>
+
+<- feature_set -i 1 -n show_hidden -v 1
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="1" feature="show_hidden" success="1"></response>
+
+<- feature_set -i 2 -n max_depth -v 1
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="2" feature="max_depth" success="1"></response>
+
+<- feature_set -i 3 -n max_children -v 100
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="3" feature="max_children" success="1"></response>
+
+<- feature_set -i 4 -n extended_properties -v 1
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="4" status="starting" reason="ok"><error code="3"><message><![CDATA[invalid or missing options]]></message></error></response>
+
+<- status -i 5
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="status" transaction_id="5" status="starting" reason="ok"></response>
+
+<- step_into -i 6
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="step_into" transaction_id="6" status="break" reason="ok"><xdebug:message filename="file:///C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php" lineno="12"></xdebug:message></response>
+
+<- breakpoint_set -i 7 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 588
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="7" id="200000001"></response>
+
+<- breakpoint_set -i 8 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 837
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="8" id="200000002"></response>
+
+<- breakpoint_set -i 9 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test6.php -n 37
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="9" id="200000003"></response>
+
+<- breakpoint_set -i 10 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 272
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="10" id="200000004"></response>
+
+<- breakpoint_set -i 11 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 963
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="11" id="200000005"></response>
+
+<- breakpoint_set -i 12 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/update_product_price.php -n 47
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="12" id="200000006"></response>
+
+<- breakpoint_set -i 13 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/load_data.php -n 38
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="13" id="200000007"></response>
+
+<- breakpoint_set -i 14 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test4.php -n 65
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="14" id="200000008"></response>
+
+<- breakpoint_set -i 15 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 901
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="15" id="200000009"></response>
+
+<- breakpoint_set -i 16 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 631
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="16" id="200000010"></response>
+
+<- breakpoint_set -i 17 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test8.php -n 6
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="17" id="200000011"></response>
+
+<- breakpoint_set -i 18 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 485
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="18" id="200000012"></response>
+
+<- breakpoint_set -i 19 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test_json.php -n 7
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="19" id="200000013"></response>
+
+<- breakpoint_set -i 20 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/update_product.php -n 51
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="20" id="200000014"></response>
+
+<- breakpoint_set -i 21 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/seofilter/elements/snippets/snippet.sfsitemap.php -n 26
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="21" id="200000015"></response>
+
+<- breakpoint_set -i 22 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 199
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="22" id="200000016"></response>
+
+<- breakpoint_set -i 23 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/seofilter/elements/snippets/snippet.sfmenu.php -n 4
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="23" id="200000017"></response>
+
+<- breakpoint_set -i 24 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test4.php -n 74
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="24" id="200000018"></response>
+
+<- breakpoint_set -i 25 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 307
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="25" id="200000019"></response>
+
+<- breakpoint_set -i 26 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 336
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="26" id="200000020"></response>
+
+<- breakpoint_set -i 27 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 635
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="27" id="200000021"></response>
+
+<- breakpoint_set -i 28 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 897
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="28" id="200000022"></response>
+
+<- breakpoint_set -i 29 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 425
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="29" id="200000023"></response>
+
+<- breakpoint_set -i 30 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/matrasrug.php -n 59
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="30" id="200000024"></response>
+
+<- breakpoint_set -i 31 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 818
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="31" id="200000025"></response>
+
+<- breakpoint_set -i 32 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 203
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="32" id="200000026"></response>
+
+<- breakpoint_set -i 33 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/create_cache.php -n 35
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="33" id="200000027"></response>
+
+<- breakpoint_set -i 34 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 73
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="34" id="200000028"></response>
+
+<- breakpoint_set -i 35 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/create_pproduct.php -n 40
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="35" id="200000029"></response>
+
+<- breakpoint_set -i 36 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 442
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="36" id="200000030"></response>
+
+<- breakpoint_set -i 37 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 230
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="37" id="200000031"></response>
+
+<- breakpoint_set -i 38 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 657
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="38" id="200000032"></response>
+
+<- breakpoint_set -i 39 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 269
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="39" id="200000033"></response>
+
+<- breakpoint_set -i 40 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test4.php -n 4
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="40" id="200000034"></response>
+
+<- breakpoint_set -i 41 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/seofilter/elements/snippets/snippet.sfsitemap.php -n 4
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="41" id="200000035"></response>
+
+<- breakpoint_set -i 42 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 848
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="42" id="200000036"></response>
+
+<- breakpoint_set -i 43 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/load_sitemaps.php -n 16
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="43" id="200000037"></response>
+
+<- breakpoint_set -i 44 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 525
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="44" id="200000038"></response>
+
+<- breakpoint_set -i 45 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/classes/providers/omatrasru.php -n 49
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="45" id="200000039"></response>
+
+<- breakpoint_set -i 46 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 302
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="46" id="200000040"></response>
+
+<- breakpoint_set -i 47 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test_json.php -n 1
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="47" id="200000041"></response>
+
+<- breakpoint_set -i 48 -t line -f file://C:/domains/newprojects/mega-son/www/core/cli/loader/update_features.php -n 47
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="48" id="200000042"></response>
+
+<- breakpoint_set -i 49 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 980
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="49" id="200000043"></response>
+
+<- breakpoint_set -i 50 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 883
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="50" id="200000044"></response>
+
+<- breakpoint_set -i 51 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 317
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="51" id="200000045"></response>
+
+<- breakpoint_set -i 52 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/update_product_features.php -n 51
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="52" id="200000046"></response>
+
+<- breakpoint_set -i 53 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 956
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="53" id="200000047"></response>
+
+<- breakpoint_set -i 54 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 611
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="54" id="200000048"></response>
+
+<- breakpoint_set -i 55 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 378
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="55" id="200000049"></response>
+
+<- breakpoint_set -i 56 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test_create_product.php -n 7
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="56" id="200000050"></response>
+
+<- breakpoint_set -i 57 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/create_product.php -n 25
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="57" id="200000051"></response>
+
+<- breakpoint_set -i 58 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 639
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="58" id="200000052"></response>
+
+<- breakpoint_set -i 59 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 158
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="59" id="200000053"></response>
+
+<- breakpoint_set -i 60 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 497
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="60" id="200000054"></response>
+
+<- breakpoint_set -i 61 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 481
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="61" id="200000055"></response>
+
+<- breakpoint_set -i 62 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 960
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="62" id="200000056"></response>
+
+<- breakpoint_set -i 63 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 985
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="63" id="200000057"></response>
+
+<- breakpoint_set -i 64 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 519
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="64" id="200000058"></response>
+
+<- breakpoint_set -i 65 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 197
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="65" id="200000059"></response>
+
+<- breakpoint_set -i 66 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/create_pproduct.php -n 22
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="66" id="200000060"></response>
+
+<- breakpoint_set -i 67 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/update_product.php -n 54
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="67" id="200000061"></response>
+
+<- breakpoint_set -i 68 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 720
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="68" id="200000062"></response>
+
+<- breakpoint_set -i 69 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/matrasrug.php -n 62
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="69" id="200000063"></response>
+
+<- breakpoint_set -i 70 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test2.php -n 20
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="70" id="200000064"></response>
+
+<- breakpoint_set -i 71 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 641
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="71" id="200000065"></response>
+
+<- breakpoint_set -i 72 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 312
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="72" id="200000066"></response>
+
+<- breakpoint_set -i 73 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test7.php -n 7
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="73" id="200000067"></response>
+
+<- breakpoint_set -i 74 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 433
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="74" id="200000068"></response>
+
+<- breakpoint_set -i 75 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 738
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="75" id="200000069"></response>
+
+<- breakpoint_set -i 76 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 489
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="76" id="200000070"></response>
+
+<- breakpoint_set -i 77 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/matrasrug.php -n 30
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="77" id="200000071"></response>
+
+<- breakpoint_set -i 78 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/load_data.php -n 34
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="78" id="200000072"></response>
+
+<- breakpoint_set -i 79 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 47
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="79" id="200000073"></response>
+
+<- breakpoint_set -i 80 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/create_pproduct.php -n 41
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="80" id="200000074"></response>
+
+<- breakpoint_set -i 81 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test5.php -n 7
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="81" id="200000075"></response>
+
+<- breakpoint_set -i 82 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 968
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="82" id="200000076"></response>
+
+<- breakpoint_set -i 83 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test4.php -n 10
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="83" id="200000077"></response>
+
+<- breakpoint_set -i 84 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 180
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="84" id="200000078"></response>
+
+<- breakpoint_set -i 85 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 451
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="85" id="200000079"></response>
+
+<- breakpoint_set -i 86 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 599
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="86" id="200000080"></response>
+
+<- breakpoint_set -i 87 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 310
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="87" id="200000081"></response>
+
+<- breakpoint_set -i 88 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 484
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="88" id="200000082"></response>
+
+<- breakpoint_set -i 89 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/classes/providers/omatrasru.php -n 60
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="89" id="200000083"></response>
+
+<- breakpoint_set -i 90 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/create_product.php -n 36
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="90" id="200000084"></response>
+
+<- breakpoint_set -i 91 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 601
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="91" id="200000085"></response>
+
+<- breakpoint_set -i 92 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test4.php -n 39
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="92" id="200000086"></response>
+
+<- breakpoint_set -i 93 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 81
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="93" id="200000087"></response>
+
+<- breakpoint_set -i 94 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 880
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="94" id="200000088"></response>
+
+<- breakpoint_set -i 95 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 553
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="95" id="200000089"></response>
+
+<- breakpoint_set -i 96 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test4.php -n 85
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="96" id="200000090"></response>
+
+<- breakpoint_set -i 97 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 64
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="97" id="200000091"></response>
+
+<- breakpoint_set -i 98 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 589
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="98" id="200000092"></response>
+
+<- breakpoint_set -i 99 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/test3.php -n 9
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="99" id="200000093"></response>
+
+<- breakpoint_set -i 100 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/create_pproduct.php -n 37
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="100" id="200000094"></response>
+
+<- breakpoint_set -i 101 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/matrasrug.php -n 25
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="101" id="200000095"></response>
+
+<- breakpoint_set -i 102 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 46
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="102" id="200000096"></response>
+
+<- breakpoint_set -i 103 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 345
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="103" id="200000097"></response>
+
+<- breakpoint_set -i 104 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php -n 266
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="104" id="200000098"></response>
+
+<- breakpoint_set -i 105 -t line -f file://C:/domains/newprojects/mega-son/www/core/components/ploader/cli/load_sitemaps.php -n 35
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="105" id="200000099"></response>
+
+<- stack_get -i 106
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="stack_get" transaction_id="106"><stack where="{main}" level="0" type="file" filename="file:///C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php" lineno="12"></stack></response>
+
+<- stack_get -i 107
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="stack_get" transaction_id="107"><stack where="{main}" level="0" type="file" filename="file:///C:/domains/newprojects/mega-son/www/core/components/ploader/model/ploader/loadmanager.php" lineno="12"></stack></response>
+
+<- context_names -i 108
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="context_names" transaction_id="108"><context name="Locals" id="0"></context><context name="Superglobals" id="1"></context><context name="User defined constants" id="2"></context></response>
+
+<- context_get -i 109 -d 0 -c 0
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="context_get" transaction_id="109" context="0"></response>
+
+<- context_get -i 110 -d 0 -c 1
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="context_get" transaction_id="110" context="1"><property name="$_COOKIE" fullname="$_COOKIE" type="array" children="0" numchildren="0" page="0" pagesize="100"></property><property name="$_ENV" fullname="$_ENV" type="array" children="0" numchildren="0" page="0" pagesize="100"></property><property name="$_FILES" fullname="$_FILES" type="array" children="0" numchildren="0" page="0" pagesize="100"></property><property name="$_GET" fullname="$_GET" type="array" children="0" numchildren="0" page="0" pagesize="100"></property><property name="$_POST" fullname="$_POST" type="array" children="0" numchildren="0" page="0" pagesize="100"></property><property name="$_REQUEST" fullname="$_REQUEST" type="array" children="0" numchildren="0" page="0" pagesize="100"></property><property name="$_SERVER" fullname="$_SERVER" type="array" children="1" numchildren="52" page="0" pagesize="100"><property name="ALLUSERSPROFILE" fullname="$_SERVER[&#39;ALLUSERSPROFILE&#39;]" type="string" size="14" encoding="base64"><![CDATA[QzpcUHJvZ3JhbURhdGE=]]></property><property name="APPDATA" fullname="$_SERVER[&#39;APPDATA&#39;]" type="string" size="31" encoding="base64"><![CDATA[QzpcVXNlcnNcRXZnZW55XEFwcERhdGFcUm9hbWluZw==]]></property><property name="CommonProgramFiles" fullname="$_SERVER[&#39;CommonProgramFiles&#39;]" type="string" size="29" encoding="base64"><![CDATA[QzpcUHJvZ3JhbSBGaWxlc1xDb21tb24gRmlsZXM=]]></property><property name="CommonProgramFiles(x86)" fullname="$_SERVER[&#39;CommonProgramFiles(x86)&#39;]" type="string" size="35" encoding="base64"><![CDATA[QzpcUHJvZ3JhbSBGaWxlcyAoeDg2KVxDb21tb24gRmlsZXM=]]></property><property name="CommonProgramW6432" fullname="$_SERVER[&#39;CommonProgramW6432&#39;]" type="string" size="29" encoding="base64"><![CDATA[QzpcUHJvZ3JhbSBGaWxlc1xDb21tb24gRmlsZXM=]]></property><property name="COMPUTERNAME" fullname="$_SERVER[&#39;COMPUTERNAME&#39;]" type="string" size="15" encoding="base64"><![CDATA[REVTS1RPUC1BRFVWRUZR]]></property><property name="ComSpec" fullname="$_SERVER[&#39;ComSpec&#39;]" type="string" size="27" encoding="base64"><![CDATA[QzpcV2luZG93c1xzeXN0ZW0zMlxjbWQuZXhl]]></property><property name="DriverData" fullname="$_SERVER[&#39;DriverData&#39;]" type="string" size="38" encoding="base64"><![CDATA[QzpcV2luZG93c1xTeXN0ZW0zMlxEcml2ZXJzXERyaXZlckRhdGE=]]></property><property name="FPS_BROWSER_APP_PROFILE_STRING" fullname="$_SERVER[&#39;FPS_BROWSER_APP_PROFILE_STRING&#39;]" type="string" size="17" encoding="base64"><![CDATA[SW50ZXJuZXQgRXhwbG9yZXI=]]></property><property name="FPS_BROWSER_USER_PROFILE_STRING" fullname="$_SERVER[&#39;FPS_BROWSER_USER_PROFILE_STRING&#39;]" type="string" size="7" encoding="base64"><![CDATA[RGVmYXVsdA==]]></property><property name="HOMEDRIVE" fullname="$_SERVER[&#39;HOMEDRIVE&#39;]" type="string" size="2" encoding="base64"><![CDATA[Qzo=]]></property><property name="HOMEPATH" fullname="$_SERVER[&#39;HOMEPATH&#39;]" type="string" size="13" encoding="base64"><![CDATA[XFVzZXJzXEV2Z2VueQ==]]></property><property name="LOCALAPPDATA" fullname="$_SERVER[&#39;LOCALAPPDATA&#39;]" type="string" size="29" encoding="base64"><![CDATA[QzpcVXNlcnNcRXZnZW55XEFwcERhdGFcTG9jYWw=]]></property><property name="LOGONSERVER" fullname="$_SERVER[&#39;LOGONSERVER&#39;]" type="string" size="17" encoding="base64"><![CDATA[XFxERVNLVE9QLUFEVVZFRlE=]]></property><property name="NUMBER_OF_PROCESSORS" fullname="$_SERVER[&#39;NUMBER_OF_PROCESSORS&#39;]" type="string" size="2" encoding="base64"><![CDATA[MTI=]]></property><property name="OneDrive" fullname="$_SERVER[&#39;OneDrive&#39;]" type="string" size="24" encoding="base64"><![CDATA[QzpcVXNlcnNcRXZnZW55XE9uZURyaXZl]]></property><property name="OneDriveConsumer" fullname="$_SERVER[&#39;OneDriveConsumer&#39;]" type="string" size="24" encoding="base64"><![CDATA[QzpcVXNlcnNcRXZnZW55XE9uZURyaXZl]]></property><property name="OS" fullname="$_SERVER[&#39;OS&#39;]" type="string" size="10" encoding="base64"><![CDATA[V2luZG93c19OVA==]]></property><property name="Path" fullname="$_SERVER[&#39;Path&#39;]" type="string" size="580" encoding="base64"><![CDATA[QzpcV2luZG93c1xzeXN0ZW0zMjtDOlxXaW5kb3dzO0M6XFdpbmRvd3NcU3lzdGVtMzJcV2JlbTtDOlxXaW5kb3dzXFN5c3RlbTMyXFdpbmRvd3NQb3dlclNoZWxsXHYxLjBcO0M6XFdpbmRvd3NcU3lzdGVtMzJcT3BlblNTSFw7QzpcUHJvZ3JhbSBGaWxlcyAoeDg2KVxOVklESUEgQ29ycG9yYXRpb25cUGh5c1hcQ29tbW9uO0M6XFByb2dyYW0gRmlsZXNcTlZJRElBIENvcnBvcmF0aW9uXE5WSURJQSBOdkRMSVNSO0M6XFByb2dyYW0gRmlsZXNcUHVUVFlcO0M6XFByb2dyYW0gRmlsZXNcR2l0XGNtZDtDOlxQcm9ncmFtRGF0YVxDb21wb3NlclNldHVwXGJpbjtDOlxQcm9ncmFtIEZpbGVzXG5vZGVqc1w7Yzpcb3BlbnNlcnZlclxvcGVuc2VydmVyXG1vZHVsZXNccGhwXFBIUC01LjYteDY0O0M6XFVzZXJzXEV2Z2VueVxBcHBEYXRhXExvY2FsXE1pY3Jvc29mdFxXaW5kb3dzQXBwcztjOlxvcGVuc2VydmVyXG9wZW5zZXJ2ZXJcbW9kdWxlc1xwaHBcUEhQLTUuNi14NjQ7QzpcVXNlcnNcRXZnZW55XEFwcERhdGFcUm9hbWluZ1xDb21wb3Nlclx2ZW5kb3JcYmluO0M6XFVzZXJzXEV2Z2VueVxBcHBEYXRhXFJvYW1pbmdcbnBtOw==]]></property><property name="PATHEXT" fullname="$_SERVER[&#39;PATHEXT&#39;]" type="string" size="53" encoding="base64"><![CDATA[LkNPTTsuRVhFOy5CQVQ7LkNNRDsuVkJTOy5WQkU7LkpTOy5KU0U7LldTRjsuV1NIOy5NU0M=]]></property><property name="PHP_COMMAND" fullname="$_SERVER[&#39;PHP_COMMAND&#39;]" type="string" size="56" encoding="base64"><![CDATA[Qzpcb3BlbnNlcnZlclxPcGVuU2VydmVyXG1vZHVsZXNccGhwXFBIUC01LjYteDY0XHBocC5leGU=]]></property><property name="PROCESSOR_ARCHITECTURE" fullname="$_SERVER[&#39;PROCESSOR_ARCHITECTURE&#39;]" type="string" size="5" encoding="base64"><![CDATA[QU1ENjQ=]]></property><property name="PROCESSOR_IDENTIFIER" fullname="$_SERVER[&#39;PROCESSOR_IDENTIFIER&#39;]" type="string" size="52" encoding="base64"><![CDATA[SW50ZWw2NCBGYW1pbHkgNiBNb2RlbCAxNTggU3RlcHBpbmcgMTAsIEdlbnVpbmVJbnRlbA==]]></property><property name="PROCESSOR_LEVEL" fullname="$_SERVER[&#39;PROCESSOR_LEVEL&#39;]" type="string" size="1" encoding="base64"><![CDATA[Ng==]]></property><property name="PROCESSOR_REVISION" fullname="$_SERVER[&#39;PROCESSOR_REVISION&#39;]" type="string" size="4" encoding="base64"><![CDATA[OWUwYQ==]]></property><property name="ProgramData" fullname="$_SERVER[&#39;ProgramData&#39;]" type="string" size="14" encoding="base64"><![CDATA[QzpcUHJvZ3JhbURhdGE=]]></property><property name="ProgramFiles" fullname="$_SERVER[&#39;ProgramFiles&#39;]" type="string" size="16" encoding="base64"><![CDATA[QzpcUHJvZ3JhbSBGaWxlcw==]]></property><property name="ProgramFiles(x86)" fullname="$_SERVER[&#39;ProgramFiles(x86)&#39;]" type="string" size="22" encoding="base64"><![CDATA[QzpcUHJvZ3JhbSBGaWxlcyAoeDg2KQ==]]></property><property name="ProgramW6432" fullname="$_SERVER[&#39;ProgramW6432&#39;]" type="string" size="16" encoding="base64"><![CDATA[QzpcUHJvZ3JhbSBGaWxlcw==]]></property><property name="PSModulePath" fullname="$_SERVER[&#39;PSModulePath&#39;]" type="string" size="93" encoding="base64"><![CDATA[QzpcUHJvZ3JhbSBGaWxlc1xXaW5kb3dzUG93ZXJTaGVsbFxNb2R1bGVzO0M6XFdpbmRvd3Ncc3lzdGVtMzJcV2luZG93c1Bvd2VyU2hlbGxcdjEuMFxNb2R1bGVz]]></property><property name="PUBLIC" fullname="$_SERVER[&#39;PUBLIC&#39;]" type="string" size="15" encoding="base64"><![CDATA[QzpcVXNlcnNcUHVibGlj]]></property><property name="SESSIONNAME" fullname="$_SERVER[&#39;SESSIONNAME&#39;]" type="string" size="7" encoding="base64"><![CDATA[Q29uc29sZQ==]]></property><property name="SystemDrive" fullname="$_SERVER[&#39;SystemDrive&#39;]" type="string" size="2" encoding="base64"><![CDATA[Qzo=]]></property><property name="SystemRoot" fullname="$_SERVER[&#39;SystemRoot&#39;]" type="string" size="10" encoding="base64"><![CDATA[QzpcV2luZG93cw==]]></property><property name="TEMP" fullname="$_SERVER[&#39;TEMP&#39;]" type="string" size="34" encoding="base64"><![CDATA[QzpcVXNlcnNcRXZnZW55XEFwcERhdGFcTG9jYWxcVGVtcA==]]></property><property name="TMP" fullname="$_SERVER[&#39;TMP&#39;]" type="string" size="34" encoding="base64"><![CDATA[QzpcVXNlcnNcRXZnZW55XEFwcERhdGFcTG9jYWxcVGVtcA==]]></property><property name="USERDOMAIN" fullname="$_SERVER[&#39;USERDOMAIN&#39;]" type="string" size="15" encoding="base64"><![CDATA[REVTS1RPUC1BRFVWRUZR]]></property><property name="USERDOMAIN_ROAMINGPROFILE" fullname="$_SERVER[&#39;USERDOMAIN_ROAMINGPROFILE&#39;]" type="string" size="15" encoding="base64"><![CDATA[REVTS1RPUC1BRFVWRUZR]]></property><property name="USERNAME" fullname="$_SERVER[&#39;USERNAME&#39;]" type="string" size="6" encoding="base64"><![CDATA[RXZnZW55]]></property><property name="USERPROFILE" fullname="$_SERVER[&#39;USERPROFILE&#39;]" type="string" size="15" encoding="base64"><![CDATA[QzpcVXNlcnNcRXZnZW55]]></property><property name="VBOX_MSI_INSTALL_PATH" fullname="$_SERVER[&#39;VBOX_MSI_INSTALL_PATH&#39;]" type="string" size="35" encoding="base64"><![CDATA[QzpcUHJvZ3JhbSBGaWxlc1xPcmFjbGVcVmlydHVhbEJveFw=]]></property><property name="windir" fullname="$_SERVER[&#39;windir&#39;]" type="string" size="10" encoding="base64"><![CDATA[QzpcV2luZG93cw==]]></property><property name="XDEBUG_CONFIG" fullname="$_SERVER[&#39;XDEBUG_CONFIG&#39;]" type="string" size="12" encoding="base64"><![CDATA[aWRla2V5PTE5NjI4]]></property><property name="PHP_SELF" fullname="$_SERVER[&#39;PHP_SELF&#39;]" type="string" size="89" encoding="base64"><![CDATA[QzpcZG9tYWluc1xuZXdwcm9qZWN0c1xtZWdhLXNvblx3d3dcY29yZVxjb21wb25lbnRzXHBsb2FkZXJcbW9kZWxccGxvYWRlclxsb2FkbWFuYWdlci5waHA=]]></property><property name="SCRIPT_NAME" fullname="$_SERVER[&#39;SCRIPT_NAME&#39;]" type="string" size="89" encoding="base64"><![CDATA[QzpcZG9tYWluc1xuZXdwcm9qZWN0c1xtZWdhLXNvblx3d3dcY29yZVxjb21wb25lbnRzXHBsb2FkZXJcbW9kZWxccGxvYWRlclxsb2FkbWFuYWdlci5waHA=]]></property><property name="SCRIPT_FILENAME" fullname="$_SERVER[&#39;SCRIPT_FILENAME&#39;]" type="string" size="89" encoding="base64"><![CDATA[QzpcZG9tYWluc1xuZXdwcm9qZWN0c1xtZWdhLXNvblx3d3dcY29yZVxjb21wb25lbnRzXHBsb2FkZXJcbW9kZWxccGxvYWRlclxsb2FkbWFuYWdlci5waHA=]]></property><property name="PATH_TRANSLATED" fullname="$_SERVER[&#39;PATH_TRANSLATED&#39;]" type="string" size="89" encoding="base64"><![CDATA[QzpcZG9tYWluc1xuZXdwcm9qZWN0c1xtZWdhLXNvblx3d3dcY29yZVxjb21wb25lbnRzXHBsb2FkZXJcbW9kZWxccGxvYWRlclxsb2FkbWFuYWdlci5waHA=]]></property><property name="DOCUMENT_ROOT" fullname="$_SERVER[&#39;DOCUMENT_ROOT&#39;]" type="string" size="0" encoding="base64"><![CDATA[]]></property><property name="REQUEST_TIME_FLOAT" fullname="$_SERVER[&#39;REQUEST_TIME_FLOAT&#39;]" type="float"><![CDATA[1582292720.9836]]></property><property name="REQUEST_TIME" fullname="$_SERVER[&#39;REQUEST_TIME&#39;]" type="int"><![CDATA[1582292720]]></property><property name="argv" fullname="$_SERVER[&#39;argv&#39;]" type="array" children="1" numchildren="1"></property><property name="argc" fullname="$_SERVER[&#39;argc&#39;]" type="int"><![CDATA[1]]></property></property></response>
+
+<- context_get -i 111 -d 0 -c 2
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="context_get" transaction_id="111" context="2"></response>
+
+<- step_over -i 112
+-> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="step_over" transaction_id="112" status="stopping" reason="ok"></response>
+
+<- run -i 113
+Log closed at 2020-02-21 13:45:22
+

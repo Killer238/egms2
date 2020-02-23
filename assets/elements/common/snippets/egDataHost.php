@@ -55,18 +55,18 @@ if(!$hostdata = $cacheManager->get($hash))
     }
 
     //заполняем массивы категорий каталога сайта и продуктового катлога
-
+    /*
     $my_categorys = $modx->getCollection("modResource", array(
         'context_key' => $my_region->get('context'),
         'class_key' => 'msCategory',
         'published' => 1,
         'deleted' => 0,
-    ));
+    ));*/
 
-    $product_categorys = array();
-    $site_categorys = array();
+    //$product_categorys = array();
+    //$site_categorys = array();
 
-    foreach ($my_categorys as $my_category) {
+    /*foreach ($my_categorys as $my_category) {
 
         $tv = $modx->getObject('modTemplateVar',array('name'=>'catalog_map'));
         $ct = $tv->getValue($my_category->get('id'));
@@ -90,24 +90,24 @@ if(!$hostdata = $cacheManager->get($hash))
                 $site_categorys[$my_category->get('id')] = $my_category->get('id');
         }
 
-    }
+    }*/
 
-    $hostdata['region']['site_categorys_exc'] = explode(",", $my_region->get('site_categorys_exc'));
-    $hostdata['region']['site_categorys_exc_all'] = ($my_region->get('site_categorys_exc')=='')?'':explode(",", "-".str_replace(",", ",-",$my_region->get('site_categorys_exc')));
+    //$hostdata['region']['site_categorys_exc'] = explode(",", $my_region->get('site_categorys_exc'));
+    //$hostdata['region']['site_categorys_exc_all'] = ($my_region->get('site_categorys_exc')=='')?'':explode(",", "-".str_replace(",", ",-",$my_region->get('site_categorys_exc')));
 
     //убираем  site_categorys_exc из site_categorys
-    foreach ($hostdata['region']['site_categorys_exc'] as $sc_exc)
-        unset($site_categorys[$sc_exc]);
+    //foreach ($hostdata['region']['site_categorys_exc'] as $sc_exc)
+    //    unset($site_categorys[$sc_exc]);
 
-    $hostdata['region']['site_categorys'] = $site_categorys;
+    //$hostdata['region']['site_categorys'] = $site_categorys;
 
-    $hostdata['region']['product_categorys_exc'] = explode(",", $my_region->get('product_categorys_exc'));
+    //$hostdata['region']['product_categorys_exc'] = explode(",", $my_region->get('product_categorys_exc'));
 
     //убираем  product_categorys_exc из product_categorys
-    foreach ($hostdata['region']['product_categorys_exc'] as $pc_exc)
-        unset($product_categorys[$pc_exc]);
+    //foreach ($hostdata['region']['product_categorys_exc'] as $pc_exc)
+    //    unset($product_categorys[$pc_exc]);
 
-    $hostdata['region']['product_categorys'] = empty($product_categorys)?'1':array_unique($product_categorys);
+    //$hostdata['region']['product_categorys'] = empty($product_categorys)?'1':array_unique($product_categorys);
 //    $product_categorys_exc_tmp = ($region->get('product_categorys_exc')=='')?'':explode(",", "-".str_replace(",", ",-",$region->get('product_categorys_exc')));
 //    $hostdata['region']['product_categorys_all'] = array_merge($hostdata['region']['product_categorys'], $product_categorys_exc_tmp);
 
