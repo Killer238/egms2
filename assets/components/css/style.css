@@ -71,14 +71,18 @@ fieldset label{
     margin-left: 1.2rem;
 }
 
-
-div.card__delivery span{
+div.card__delivery{
+    padding-top: 0.5rem;
+/*    background: ivory;
+    padding: 0.4rem;*/
+}
+div.card__deliverycost span{
     color: #4d9b0e;
     margin: 5px 0px 5px 0px;
     font-size: 1.1rem;
     border-bottom: 1px dotted #4d9b0e;
 }
-div.card__delivery span span{
+div.card__deliverycost span span{
     font-weight: bold;
 }
 button.by__button{
@@ -96,7 +100,7 @@ div.prod-price .price {
     color: #191919;
     padding: 5px;
     white-space: nowrap;
-    display: inline;
+    display: block;
 }
 
 .price-old{
@@ -212,5 +216,5 @@ div.art{
     font-size: 0.8rem;
     position: relative;
     margin-top: -20px;
-    margin-left: -20px;
+    float: right;
 }

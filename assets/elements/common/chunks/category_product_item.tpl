@@ -7,7 +7,7 @@
             <div class="col-md-{$view=='grid'?'12':'4'}">
                 <div class="art">Арт: 0003456</div>
                 <div class="img-wrap">
-                    <a class="url-{$id}" href="{$_pls['region.product_category_url']}{'region.product_category_url' | placeholder}/{$id | resource :'uri'}">
+                    <a class="url-{$id}" href="{$regioncatalog}/{$id | resource :'uri'}">
                         {if $thumb?}
                             <img src="{$thumb}" class="mw-100" alt="{$pagetitle}" title="{$pagetitle}"/>
                         {else}
@@ -24,7 +24,7 @@
                     <span></span><span></span><span></span><span></span><span></span><div class="reviews">отзывы(5)</div>
                 </div>
                 {*/if*}
-                <h4><a class="url-{$id}" href="{$_pls['region.product_category_url']}{'region.product_category_url' | placeholder}/{$id | resource :'uri'}">
+                <h4><a class="url-{$id}" href="{$regioncatalog}/{$id | resource :'uri'}">
                         {if $_modx->resource.longtitle && $_modx->resource.class_key=='msCategory'}
                             {if $longtitle == $pagetitle}
                                 {$longtitle}

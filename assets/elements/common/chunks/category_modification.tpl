@@ -19,6 +19,7 @@
             </select>
         </dd>
         </dl>
+        <div class="instock">{'eg_instock' | lexicon}</div>
         <button class="btn btn-success btn active w-100" type="submit" name="ms2_action" value="cart/add">
             <i class="fa fa-shopping-cart"></i>
             <span class="text">{'ms2_frontend_add_to_cart' | lexicon}</span>

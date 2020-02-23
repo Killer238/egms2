@@ -5,11 +5,14 @@
 }
 
 .instock{
-    font-size:14px;
-    margin:0px 0px 0px 5px;
+    width: fit-content;
+    font-size:0.9rem;
+    background-size: 0.9rem;
+    margin:0px 0px 1rem 5px;
     color:#717171;
-    padding-left: 30px;
+    padding-left: 1.5rem;
     background: url("/assets/img/ext/stock.svg") no-repeat;
+
 }
 .splash{
     background-color: #f3efe6;

@@ -7,6 +7,7 @@ $filter_result = array(
     'ajaxMode' => 'default',
     'pageLinkScheme' => '[[+pageVarKey]]-[[+page]]/',
     'suggestions' => true,
+    'prepareSnippet' => 'egPrepareFilter',
     'setMeta' => 0,
     //'showEmptyFilters' => false,
     //'suggestionsSliders' => true,
