@@ -41,8 +41,22 @@
                 'tpl' => '@FILE elements/common/chunks/tpl.categoryFeatures.tpl',
                 'product' => $id,
                 ]}
-                {'!egOptionPrice' | snippet : ['tpl' => '@FILE elements/common/chunks/category_product_item_delivery.tpl','product' => $id]}
+                {*'!egOptionPrice' | snippet : ['tpl' => '@FILE elements/common/chunks/category_product_item_delivery.tpl','product' => $id]*}
+                {print_r($delivery)}
+                <div class="card__delivery" data-minprice="5000" data-deliverycost="350" data-deliveryday="Сегодня">
+                    <div class="card__deliverycost">
+                        <span>Доставка по {$region.city_d} - </span>
+                        <span><b><nobr>{if ($product.price>$delivery.d_min)}
+                        Бесплатно
+                        {else}
+                            {$delivery.d_cost} {'ms2_frontend_currency' | lexicon}
+                        {/if}</nobr></b></span>
+                    </div>
+                    <div class="card__deliverytime"><span>Доставим:</span> <span>20.05.2020</span></div>
+                </div>
+
             </article>
+
             <div class="col-md-{$view=='grid'?'12':'3'} text-center border-left">
                 <div class="action-wrap">
                                 {'!egOptionPrice' | snippet : [
@@ -52,6 +66,7 @@
                                 ]}
                 </div>
             </div>
+
         </div>
     </div>
 </div>

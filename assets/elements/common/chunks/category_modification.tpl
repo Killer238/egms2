@@ -12,7 +12,7 @@
         <dl class="dlist-inline">
         <dt>{'ms2_take_size' | lexicon}: </dt>
         <dd>
-            <select class="form-control form-control-sm option_size" name="options[{$name}]" id="option_size_{$product.product_id}">
+            <select class="form-control form-control-sm option-select option_size" name="options[{$name}]" id="option_size_{$product.product_id}">
             {foreach $options as $option}
                 <option  value="{$option.value}" data-delivery-price="{($option.price<$delivery.d_min)?$delivery.d_cost:0}" data-delivery-date="{$delivery.d_time}" data-instock="{$delivery.d_instock}" data-product-name="{$option.product_name}" data-productid="{$product.product_id}" data-option="{$option.value}" data-url="{$base_category}/{$option.url}" data-price="{$option.price}" data-old-price="{$option.price_old}" {$option.selected}>{$option.value}</option>
             {/foreach}
