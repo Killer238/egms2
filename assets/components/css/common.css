@@ -112,7 +112,7 @@ div.full__dialog{
     display: inline-block;
     margin-right: 4.6px;
 
-    width: 14px;
+    width: 13px;
     height: 13px;
     background-image: url(/assets/img/ext/star.svg);
     background-repeat: no-repeat;
@@ -166,4 +166,29 @@ a div.catalog {
     font-size: 0.9rem;
     color: grey;
     padding-bottom: 1px;
+}
+
+.free__cost{
+    display: none;
+}
+
+.cost{
+    font-weight: bold ;
+    white-space: nowrap;
+}
+.header.th{
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    margin: 10px 0px 0px 10px;
+    color: #212529;
+    font-weight: bold;
+}
+.cart #msCart .alert-warning{
+    display: none;
+}
+#msCart .price{
+    font-size: 1rem;
+    display: inline-grid;
+    padding-right: 3rem;
 }

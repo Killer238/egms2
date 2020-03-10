@@ -61,6 +61,7 @@ if($modx->resource->class_key=="msProduct")
 }
 
 //die(print_r($ceo_datas));
+//die($host);
 
 foreach ($ceo_datas as $ceo_data){
     $new_ceo_data[$ceo_data['host']] = $ceo_data;
@@ -70,5 +71,6 @@ if($new_ceo_data[$host])
     $output = $new_ceo_data[$host];
 else
     $output = $new_ceo_data['*'];
+//die(print_r($output));
 
 return $output;

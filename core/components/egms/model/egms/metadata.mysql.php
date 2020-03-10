@@ -8,7 +8,12 @@ $xpdo_meta_map = array (
     2 => 'egmsDeliveryTherm',
     3 => 'egmsLog',
     4 => 'egmsPages',
-    5 => 'egmsRegions',
-    6 => 'egmsSites',
+    5 => 'egmsProducts',
+    6 => 'egmsRegions',
+    7 => 'egmsSites',
+  ),
+  'xPDOObject' => 
+  array (
+    0 => 'egmsVendors',
   ),
 );

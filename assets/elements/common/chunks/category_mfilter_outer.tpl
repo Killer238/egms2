@@ -16,13 +16,16 @@
         </div>
         <div class="col-md-9">
             <section>
-                <h1 class="sf_h1">{'egCeoData' | snippet | ceodata: 'meta_h1'}</h1>
+                <div class="row">
+                    <h1 class="sf_h1">{'!egCeoData' | snippet | ceodata: 'meta_h1'}</h1>
+                </div>
+
                 <!-- <h1 class="sf_h1">{$_modx->getPlaceholder('sf.h1')} </h1>-->
 
                 {var $mytags = $_modx->resource.catalog_tags | json_decode}
 
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                {*<nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <span class="" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">Популярые категории</span>
                     <!--button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"  aria-expanded="false" aria-label="Toggle navigation">
 
@@ -36,23 +39,44 @@
                             {/foreach}
                         </ul>
                     </div>
-                </nav>
+                </nav>*}
 
-                <div class="ctags">
+                {*<div class="ctags">
 
                     {foreach $mytags as $mytag}
                         <div class="ctag">
                             <a href="{$mytag.tag_url}" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">{$mytag.tag_name}</a>
                         </div>
                     {/foreach}
+                </div>*}
+                <div class="row">{'eg_found_goods' | lexicon}: <span id="mse2_total"> {$total ?: 0}</span></div>
+
+                <div class="row">
+                    <div id="mse2_sort" class="col-md-6">
+                        {'mse2_sort' | lexicon}
+                        <a href="#" data-sort="ms|price"
+                           data-dir="{if $sort == 'ms|price:desc'}desc{/if}" data-default="asc" class="sort">
+                            {'mse2_sort_price' | lexicon} <span></span>
+                        </a>
+                    </div>
+
+                    {** if $tpls}
+                        <div id="mse2_tpl" class="col-md-6">
+                            <a href="#" data-tpl="0" class="{$tpl0}">{'mse2_chunk_default' | lexicon}</a> /
+                            <a href="#" data-tpl="1" class="{$tpl1}">{'mse2_chunk_alternate' | lexicon}</a>
+                        </div>
+                    {/if *}
                 </div>
-                <div>{'eg_found_goods' | lexicon} - <span id="mse2_total">{$total ?: 0}</span></div>
+
                 <div class="row" id="mse2_results">
                     {$results}
                 </div>
                 <div class="row paging mse2_pagination">
                     {'page.nav' | placeholder}
                 </div>
+                {*<div class="row mb-4">
+                    <button class="btn btn-primary btn_more">Загрузить еще</button>
+                </div>*}
             </section>
         </div>
     </div>

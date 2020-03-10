@@ -1,4 +1,6 @@
 <?php
+return "ves,zhestk1,zhestk2,visota_matrasa";
+
 $category_id = $modx->getOption('category_id', $scriptProperties, $modx->resource->id);
 
 $select = array(
@@ -26,4 +28,5 @@ foreach ($rows as $row) {
     $output[] = $row['key'];
 }
 //die(print_r($output));
+
 return implode(",", $output);

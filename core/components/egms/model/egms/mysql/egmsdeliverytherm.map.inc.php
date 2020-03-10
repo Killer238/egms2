@@ -6,11 +6,19 @@ $xpdo_meta_map['egmsDeliveryTherm']= array (
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
+    'key_name' => NULL,
     'therm' => NULL,
     'public_name' => NULL,
   ),
   'fieldMeta' => 
   array (
+    'key_name' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '15',
+      'phptype' => 'string',
+      'null' => false,
+    ),
     'therm' => 
     array (
       'dbtype' => 'varchar',

@@ -4,10 +4,14 @@
 		<field key="id_region" dbtype="int" precision="11" phptype="integer" null="false" index="index" />
 		<field key="id_vendor" dbtype="int" precision="11" phptype="integer" null="true" />
 		<field key="id_therm" dbtype="int" precision="11" phptype="integer" null="true" />
+		<field key="context" dbtype="varchar" precision="15" phptype="string" null="false" />
+		<field key="delivery_name" dbtype="varchar" precision="100" phptype="string" null="false" />
 		<field key="d_payments" dbtype="varchar" precision="50" phptype="string" null="false" />
 		<field key="d_cost" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="d_min" dbtype="int" precision="11" phptype="integer" null="false" />
-		<field key="d_time" dbtype="varchar" precision="20" phptype="string" null="false" />
+		<field key="d_days" dbtype="varchar" precision="15" phptype="string" null="false" />
+		<field key="d_time" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="d_weekdays" dbtype="varchar" precision="7" phptype="string" null="false" />
 		<field key="d_instock" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="s_address" dbtype="varchar" precision="250" phptype="string" null="false" />
 		<field key="delivery_options" dbtype="text" phptype="string" null="false" />
@@ -29,6 +33,7 @@
 		<field key="published" dbtype="int" precision="11" phptype="integer" null="false" />
 	</object>
 	<object class="egmsDeliveryTherm" table="egms_delivery_therm" extends="xPDOSimpleObject">
+		<field key="key_name" dbtype="varchar" precision="15" phptype="string" null="false" />
 		<field key="therm" dbtype="varchar" precision="50" phptype="string" null="false" />
 		<field key="public_name" dbtype="varchar" precision="250" phptype="string" null="false" />
 	</object>
@@ -44,6 +49,12 @@
 		<field key="redirect_url" dbtype="varchar" precision="255" phptype="string" null="false" />
 		<field key="id_resource" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="published" dbtype="int" precision="11" phptype="integer" null="false" />
+	</object>
+	<object class="egmsProducts" table="egms_products" extends="xPDOSimpleObject">
+		<field key="context" dbtype="varchar" precision="15" phptype="string" null="false" />
+		<field key="id_resource" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="sdesc" dbtype="text" phptype="string" null="false" />
+		<field key="desc" dbtype="text" phptype="string" null="false" />
 	</object>
 	<object class="egmsRegions" table="egms_regions" extends="xPDOSimpleObject">
 		<field key="region_name" dbtype="varchar" precision="100" phptype="string" null="false" />
@@ -70,8 +81,8 @@
 		<field key="site_categorys_exc" dbtype="text" phptype="string" null="false" />
 		<field key="product_categorys_exc" dbtype="text" phptype="string" null="false" />
 		<field key="region_address" dbtype="varchar" precision="255" phptype="string" null="false" />
-		<field key="phone" dbtype="varchar" precision="15" phptype="string" null="false" />
-		<field key="phone_local" dbtype="varchar" precision="15" phptype="string" null="false" />
+		<field key="phone" dbtype="varchar" precision="20" phptype="string" null="false" />
+		<field key="phone_local" dbtype="varchar" precision="20" phptype="string" null="false" />
 		<field key="site_options" dbtype="text" phptype="string" null="false" />
 		<field key="deleted" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="published" dbtype="int" precision="11" phptype="integer" null="false" />
@@ -82,5 +93,17 @@
 		<index alias="region" name="region" primary="false" unique="false" type="BTREE" >
 			<column key="id_region" length="" collation="A" null="false" />
 		</index>
+	</object>
+	<object class="egmsVendors" table="egms_vendors" extends="xPDOObject">
+		<field key="id" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="ordermail" dbtype="varchar" precision="50" phptype="string" null="false" />
+		<field key="template" dbtype="varchar" precision="200" phptype="string" null="false" />
+		<field key="deliverymail" dbtype="varchar" precision="50" phptype="string" null="false" />
+		<field key="cancelmail" dbtype="varchar" precision="50" phptype="string" null="false" />
+		<field key="assistancemail" dbtype="varchar" precision="50" phptype="string" null="false" />
+		<field key="csurl" dbtype="varchar" precision="200" phptype="string" null="false" />
+		<field key="comment" dbtype="text" phptype="string" null="false" />
+		<field key="phone1" dbtype="varchar" precision="20" phptype="string" null="false" />
+		<field key="phone2" dbtype="varchar" precision="20" phptype="string" null="false" />
 	</object>
 </model>

@@ -9,10 +9,14 @@ $xpdo_meta_map['egmsDelivery']= array (
     'id_region' => NULL,
     'id_vendor' => NULL,
     'id_therm' => NULL,
+    'context' => NULL,
+    'delivery_name' => NULL,
     'd_payments' => NULL,
     'd_cost' => NULL,
     'd_min' => NULL,
+    'd_days' => NULL,
     'd_time' => NULL,
+    'd_weekdays' => NULL,
     'd_instock' => NULL,
     's_address' => NULL,
     'delivery_options' => NULL,
@@ -42,6 +46,20 @@ $xpdo_meta_map['egmsDelivery']= array (
       'phptype' => 'integer',
       'null' => true,
     ),
+    'context' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '15',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'delivery_name' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '100',
+      'phptype' => 'string',
+      'null' => false,
+    ),
     'd_payments' => 
     array (
       'dbtype' => 'varchar',
@@ -63,10 +81,24 @@ $xpdo_meta_map['egmsDelivery']= array (
       'phptype' => 'integer',
       'null' => false,
     ),
-    'd_time' => 
+    'd_days' => 
     array (
       'dbtype' => 'varchar',
-      'precision' => '20',
+      'precision' => '15',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'd_time' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '11',
+      'phptype' => 'integer',
+      'null' => false,
+    ),
+    'd_weekdays' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '7',
       'phptype' => 'string',
       'null' => false,
     ),

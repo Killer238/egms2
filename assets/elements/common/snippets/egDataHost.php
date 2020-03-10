@@ -2,6 +2,8 @@
 $modx->loadClass('egmsRegions', MODX_CORE_PATH.'components/egms/model/egms/');
 $modx->loadClass('egmsSites', MODX_CORE_PATH.'components/egms/model/egms/');
 $modx->loadClass('egmsDelivery', MODX_CORE_PATH.'components/egms/model/egms/');
+$modx->loadClass('egmsDeliveryOptions', MODX_CORE_PATH.'components/egms/model/egms/');
+
 //$where = $modx->getOption('where', $scriptProperties);
 $host = $_SERVER['HTTP_HOST'];
 
@@ -124,15 +126,38 @@ if(!$hostdata = $cacheManager->get($hash))
         ));
 
     foreach ($deliverys as $delivery) {
-        $hostdata['delivery'][$delivery->get('id_vendor')."-".$delivery->get('id_therm')] = array(
+        $key = $delivery->get('id_vendor')."-".$delivery->get('id_therm');
+        $hostdata['delivery'][$key] = array(
             'd_payments' => $delivery->get('d_payments'),
             'd_cost' => $delivery->get('d_cost'),
             'd_min'=> $delivery->get('d_min'),
+            'd_days' => $delivery->get('d_days'),
             'd_time' => $delivery->get('d_time'),
+            'd_weekdays' => $delivery->get('d_weekdays'),
+            'd_skeep' => explode(',', '28.02.2020,29.02.2020'),
             'd_instock' => $delivery->get('d_instock'),
             's_address' => $delivery->get('s_address'),
-            'delivery_options' => $delivery->get('delivery_options'),
+            //'delivery_options' => $delivery->get('delivery_options'),
             );
+/*
+        $doptions_t = $delivery->get('delivery_options');
+        $doptions = $modx->getCollection("egmsDeliveryOptions", array('id:IN' => explode('||', $doptions_t)));
+        foreach ($doptions as $option){
+            if($option->get("content")==1){
+                $id_option = $option->get("id");
+                $hostdata['delivery'][$key]['options'][$id_option]['id'] = $id_option;
+                $hostdata['delivery'][$key]['options'][$id_option]['type'] = $option->get("type");
+                $hostdata['delivery'][$key]['options'][$id_option]['typename'] = $option->get("typename");
+                $hostdata['delivery'][$key]['options'][$id_option]['oname'] = $option->get("oname");
+                $hostdata['delivery'][$key]['options'][$id_option]['option'] = $option->get("option");
+                $hostdata['delivery'][$key]['options'][$id_option]['val'] = $option->get("val");
+                $hostdata['delivery'][$key]['options'][$id_option]['fromcost'] = $option->get("fromcost");
+                $hostdata['delivery'][$key]['options'][$id_option]['tocost'] = $option->get("tocost");
+                $hostdata['delivery'][$key]['options'][$id_option]['params'] = $option->get("params");
+                $hostdata['delivery'][$key]['options'][$id_option]['content'] = $option->get("content");
+            }
+        }
+*/
     }
 
     $cacheManager->add($hash, $hostdata);

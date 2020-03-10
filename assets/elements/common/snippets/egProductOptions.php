@@ -15,7 +15,24 @@ if (!($product instanceof msProduct)) {
 }
 
 $ignoreOptions = array_map('trim', explode(',', $modx->getOption('ignoreOptions', $scriptProperties, '')));
-$onlyOptions = array_map('trim', explode(',', $modx->getOption('onlyOptions', $scriptProperties, '')));
+
+$onlyOptions_temp = $modx->getOption('onlyOptions', $scriptProperties, '');
+if($onlyOptions_temp=='')
+{
+    $onlyOptions_temp = $modx->resource->getTVValue('catalog_options');
+    if($onlyOptions_temp == '')
+    {
+        $onlyOptions_temp = $product->getTVValue('catalog_options');
+        if($onlyOptions_temp == '')
+        {
+            $onlyOptions_temp = $modx->getContext($modx->context->key)->getOption('options_default');
+        }
+    }
+}
+
+$onlyOptions = array_map('trim', explode(',', $onlyOptions_temp));
+
+
 $groups = !empty($groups)
     ? array_map('trim', explode(',', $groups))
     : array();

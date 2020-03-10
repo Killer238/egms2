@@ -36,7 +36,7 @@ switch ($event) {
                     $thed = array_shift($tmp);
 
                     if ($product_alias) {
-                        $resource = $modx->getObject('modResource', array('alias' => $product_alias));
+                        $resource = $modx->getObject('modResource', array('alias' => $product_alias, 'published'=>1));
                         if ($resource) {
 
                             if ($thed) {
@@ -50,12 +50,14 @@ switch ($event) {
                                 //TODO: ищим в цветах
 
                                 // страницы отзывов
-                                if ($thed == 'rewievs') {
+                                if ($thed == 'reviews') {
                                     $themplate = 1;
+                                    $_GET['reviews'] = 'reviews';
                                     $thed="ok";
                                 }
                                 // страницы доставок
                                 if ($thed == 'delivery') {
+                                    $_GET['delivery'] = 1;
                                     $themplate = 2;
                                     $thed="ok";
                                 }
@@ -116,7 +118,7 @@ switch ($event) {
     //$modx->setOption("http_host1", $host);
 
     //die($modx->config->site_url);
-    if($site = $modx->getObject("egmsSites", array('host'=> $host)))
+    if($site = $modx->getObject("egmsSites", array('host'=> $host, 'published' => 1)))
     {
         $modx->switchContext($site->get('context'));
     }

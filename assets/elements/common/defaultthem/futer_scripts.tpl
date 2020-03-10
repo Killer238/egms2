@@ -27,6 +27,6 @@
 
 <script src="assets/components/js/jquery-3.4.1.min.js?fg3347523544335335" type="text/javascript"></script>
 <script src="assets/components/js/popper.min.js?fg3347523544335335" type="text/javascript"></script>
-<script src="assets/components/js/bootstrap.min.js?fg3347523544335335" type="text/javascript"></script>
-<script src="assets/components/js/common.js?fg3347523544335335" type="text/javascript"></script>
+<script src="assets/components/js/bootstrap.min.js?fg33475233544335335" type="text/javascript"></script>
+<script src="assets/components/js/common.js?fg33434344356764552343535653444453358d34435644545454534335335" type="text/javascript"></script>
 

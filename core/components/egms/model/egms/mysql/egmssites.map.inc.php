@@ -128,14 +128,14 @@ $xpdo_meta_map['egmsSites']= array (
     'phone' => 
     array (
       'dbtype' => 'varchar',
-      'precision' => '15',
+      'precision' => '20',
       'phptype' => 'string',
       'null' => false,
     ),
     'phone_local' => 
     array (
       'dbtype' => 'varchar',
-      'precision' => '15',
+      'precision' => '20',
       'phptype' => 'string',
       'null' => false,
     ),

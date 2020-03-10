@@ -16,15 +16,17 @@ $(document).ready(function () {
         }
     });
 
+    $(".option-select").on("change", chacgeProductPrice)
 
     $('#filter_reset').click(function(){
         //console.log("reset");
         mSearch2.reset();
     });
 
-    $(document).on('mse2_load', chacgePrice);
+    $("body").on("change", ".option_size", chacgePrice);
+    //$(document).on('#mse2_filters', chacgePrice);
 
-    $(".option_size").on("change", chacgePrice);
+    //$(".option_size").on("change", chacgePrice);
 
     /*megamenu*/
 
@@ -53,22 +55,46 @@ $(document).ready(function () {
         $('#category_filter').append($("#mse2_filters").detach());
     });
 
+    $('.btn_more').click(function() {
+        var href= $('.mse2_pagination .page-item.active').next('.page-item').find('.page-link').attr('href');
+        $.get(href, function(data) {
+            var
+                mse2_results = $('#mse2_results', data),
+                mse2_pagination = $('.mse2_pagination', data);
+            $('#mse2_results').append(mse2_results);
+            $('.mse2_pagination').html(mse2_pagination);
+        });
+    });
+
 });
 
+function chacgeProductPrice(e){
+
+    var size = $(this).find('option:selected').attr('data-size');
+    var unit = $('#product_data').attr('data-unit');
+    $('h1 span').text(" - " + size + " "  + unit);
+}
+
 function chacgePrice(e){
-    $(".option_size").on("change",function(){
+  //  $(".option_size").on("change",function(){
+    //$('#msoption|size_0').
+   // $("#msoption|size_0 > option[value=140x200]").prop("selected",true);
         var t = $(this).val();
+        console.log(t);
+        //$("#msoption").val(t);
+        $('select[id*=size_]').val(t);
+
         $(".option_size").each(function( index ) {
             if ($(this).find('option[value=' + t + ']').length) {
                 $(this).val(t);
                 var id = $(this).find('option:selected').attr('data-productid');
                 // update h3
                 var h3 = $(this).find('option:selected').attr('data-product-name');
-                $('.product-'+id + ' h4 a.url-' + id).text(h3);
+              //  console.log(h3);
+                $('.product-'+id + ' h4 a.url-' + id + " span").text(h3);
                 // update urls, h3, image, more
                 var url = $(this).find('option:selected').attr('data-url');
                 $('.url-'+id ).each(function(index){
-                    //console.log($(this));
                     $(this)[0].href = url;
                 });
                 // update price
@@ -77,15 +103,23 @@ function chacgePrice(e){
                 // update old price
                 var old_price = $(this).find('option:selected').attr('data-old-price');
                 $('.price-wrap-'+id+' del.price-old span').text(moneyFormat(old_price));
-
                 // update diff price
-                // delivery
-                var old_price = $(this).find('option:selected').attr('data-old-price');
-                $('.price-wrap-'+id+' del.price-old span').text(moneyFormat(old_price));
-                //console.log($(this));
+
+                //delivery
+                var delivery_price = $(this).find('option:selected').attr('data-delivery-price');
+                if(delivery_price>0){
+                  //  console.log(delivery_price);
+                    $('.card__delivery_'+id+' span.cost').text(moneyFormat(delivery_price)+'₽');
+                }
+                else{
+                    $('.card__delivery_'+id+' span.cost').text($('.card__delivery_'+id+' span.free__cost').text());
+                 //   console.log($('.card__delivery_'+id+' span.free__cost').text());
+                }
+
+                //console.log(delivery_price);
             }
         });
-    })
+   // })
 }
 
 function moneyFormat(n) {
