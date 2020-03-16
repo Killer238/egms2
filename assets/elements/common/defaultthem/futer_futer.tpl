@@ -64,9 +64,16 @@
 <section class="section-copy">
     <div class="container">
         <div class="row">
-            <div class="col-sd-12">
-                <div class="">Принимаем к оплате:</div>
-                <div class="">
+            <div class="col-12">Принимаем к оплате:</div>
+            <div class="col"><img src="/assets/img/payments/payment1.png" /></div>
+            <div class="col"><img src="/assets/img/payments/payment2.png" /></div>
+            <div class="col"><img src="/assets/img/payments/payment3.png" /></div>
+            <div class="col"><img src="/assets/img/payments/payment4.png" /></div>
+            <div class="col"><img src="/assets/img/payments/payment5.png" /></div>
+            <div class="col"><img src="/assets/img/payments/payment6.png" /></div>
+            <div class="col"><img src="/assets/img/payments/payment7.png" /></div>
+            <div class="col"><img src="/assets/img/payments/payment8.png" /></div>
+{*
                     <img src="/assets/img/payments/payment1.png" >
                     <img src="/assets/img/payments/payment2.png" >
                     <img src="/assets/img/payments/payment3.png" >
@@ -74,9 +81,7 @@
                     <img src="/assets/img/payments/payment5.png" >
                     <img src="/assets/img/payments/payment6.png" >
                     <img src="/assets/img/payments/payment7.png" >
-                    <img src="/assets/img/payments/payment8.png" >
-                </div>
-            </div>
+                    <img src="/assets/img/payments/payment8.png" >*}
         </div>
         <div class="row">
             <div class="col-3">

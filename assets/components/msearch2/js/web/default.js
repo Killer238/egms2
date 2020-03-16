@@ -118,7 +118,7 @@ var mSearch2 = {
             selectors = [
                 'input[type="checkbox"]:checked',
                 'input[type="radio"]:checked',
-                'select'
+                //'select'
             ];
             this.filters.find(selectors.join(', ')).each(function () {
                 mSearch2.handleSelected($(this));

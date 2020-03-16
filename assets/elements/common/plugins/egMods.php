@@ -37,7 +37,7 @@ switch ($modx->event->name) {
             return implode(',',$tmp);
         });
 
-        $fenom->addModifier('addurl', function ($input, $key) {
+        $fenom->addModifier('addurl', function ($input) {
             if($input=='product') {
                 $result="";
                 $result .= $_GET['msoption|size'] ? $_GET['msoption|size'] . '/' : "";
@@ -46,8 +46,9 @@ switch ($modx->event->name) {
             }
         });
 
-        $fenom->addModifier('size', function ($input, $key) {
+        $fenom->addModifier('size', function ($input) {
             //die($key);
+            $key = 'size';
             if($key=='url') {
                 $result = $_GET['msoption|size'] ? $_GET['msoption|size'] . '/' : "";
                 return $result;
@@ -62,7 +63,7 @@ switch ($modx->event->name) {
             return $result;
         });
 
-        $fenom->addModifier('deliverydate', function ($input, $key) {
+        $fenom->addModifier('deliverydate', function ($input) {
             //если число, то выводим дату доставки
             if (trim($input['d_days'])=='')
                 $input['d_days']=0;

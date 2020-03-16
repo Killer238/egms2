@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand p-0 bg-secondary d-none d-md-block" style="width:100%;padding:10px 0px 10px 0px;background:#49505f;">
     <div class="container">
-            {*<li class="nav-item"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Время работы: Пн.-Вс. с 9:00 до 22:00 (Мск)*}{*'eg_time' | lexicon : ['namespase' => 'core']*} {*</font></font></li>*}
             {$_modx->runSnippet("pdoMenu", [
             'context' => $modx->context->key,
             'parents' => 412,

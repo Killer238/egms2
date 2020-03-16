@@ -4,12 +4,12 @@
  */
 $database_type = 'mysql';
 $database_server = 'localhost';
-$database_user = 'root';
-$database_password = '';
+$database_user = 'mh';
+$database_password = 'mh23Atdhfkz';
 $database_connection_charset = 'utf8';
-$dbase = 'site_mega-son';
+$dbase = 'egms_mh';
 $table_prefix = 'modx_';
-$database_dsn = 'mysql:host=localhost;dbname=site_mega-son;charset=utf8';
+$database_dsn = 'mysql:host=localhost;dbname=egms_mh;charset=utf8';
 $config_options = array (
   'override_table' => 'MyISAM',
 );
@@ -24,27 +24,27 @@ $https_port = '443';
 $uuid = 'efb8d515-8ff5-480e-beb2-b5ef147ea628';
 
 if (!defined('MODX_CORE_PATH')) {
-    $modx_core_path= 'C:/domains/newprojects/mega-son/www/core/';
+    $modx_core_path= '/home/mh/mh/www/core/';
     define('MODX_CORE_PATH', $modx_core_path);
 }
 if (!defined('MODX_PROCESSORS_PATH')) {
-    $modx_processors_path= 'C:/domains/newprojects/mega-son/www/core/model/modx/processors/';
+    $modx_processors_path= '/home/mh/mh/www/core/model/modx/processors/';
     define('MODX_PROCESSORS_PATH', $modx_processors_path);
 }
 if (!defined('MODX_CONNECTORS_PATH')) {
-    $modx_connectors_path= 'C:/domains/newprojects/mega-son/www/connectors/';
+    $modx_connectors_path= '/home/mh/mh/www/connectors/';
     $modx_connectors_url= '/connectors/';
     define('MODX_CONNECTORS_PATH', $modx_connectors_path);
     define('MODX_CONNECTORS_URL', $modx_connectors_url);
 }
 if (!defined('MODX_MANAGER_PATH')) {
-    $modx_manager_path= 'C:/domains/newprojects/mega-son/www/manager/';
+    $modx_manager_path= '/home/mh/mh/www/manager/';
     $modx_manager_url= '/manager/';
     define('MODX_MANAGER_PATH', $modx_manager_path);
     define('MODX_MANAGER_URL', $modx_manager_url);
 }
 if (!defined('MODX_BASE_PATH')) {
-    $modx_base_path= 'C:/domains/newprojects/mega-son/www/';
+    $modx_base_path= '/home/mh/mh/www/';
     $modx_base_url= '/';
     define('MODX_BASE_PATH', $modx_base_path);
     define('MODX_BASE_URL', $modx_base_url);
@@ -76,7 +76,7 @@ if (!defined('MODX_SITE_URL')) {
     define('MODX_SITE_URL', $site_url);
 }
 if (!defined('MODX_ASSETS_PATH')) {
-    $modx_assets_path= 'C:/domains/newprojects/mega-son/www/assets/';
+    $modx_assets_path= '/home/mh/mh/www/assets/';
     $modx_assets_url= '/assets/';
     define('MODX_ASSETS_PATH', $modx_assets_path);
     define('MODX_ASSETS_URL', $modx_assets_url);

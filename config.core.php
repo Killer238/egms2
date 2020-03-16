@@ -4,6 +4,6 @@
  * Add customizations to the $config_options array in `core/config/config.inc.php`.
  *
  */
-define('MODX_CORE_PATH', 'C:/domains/newprojects/mega-son/www/core/');
+define('MODX_CORE_PATH', '/home/mh/mh/www/core/');
 define('MODX_CONFIG_KEY', 'config');
 ?>

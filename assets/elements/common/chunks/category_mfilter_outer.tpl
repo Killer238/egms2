@@ -17,7 +17,9 @@
         <div class="col-md-9">
             <section>
                 <div class="row">
+                    <div class="col">
                     <h1 class="sf_h1">{'!egCeoData' | snippet | ceodata: 'meta_h1'}</h1>
+                    </div>
                 </div>
 
                 <!-- <h1 class="sf_h1">{$_modx->getPlaceholder('sf.h1')} </h1>-->
@@ -49,7 +51,11 @@
                         </div>
                     {/foreach}
                 </div>*}
-                <div class="row">{'eg_found_goods' | lexicon}: <span id="mse2_total"> {$total ?: 0}</span></div>
+                <div class="row">
+                    <div class="col">
+                        {'eg_found_goods' | lexicon}: <span id="mse2_total"> {$total ?: 0}</span></div>
+                    </div>
+
 
                 <div class="row">
                     <div id="mse2_sort" class="col-md-6">

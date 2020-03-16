@@ -121,8 +121,10 @@ div.full__dialog{
 }
 
 .headcart, .headclock, .headmap, .headphone{
+    margin: 0.5em;
     height: 30px;
     padding-left: 35px;
+    float: left;
 }
 
 .headcart{
@@ -131,6 +133,7 @@ div.full__dialog{
     background-position: 0 0;
 }
 .headclock{
+
     background: url(/assets/img/ext/clock.svg) no-repeat;
     background-size: 30px;
     background-position: 0 0;
@@ -191,4 +194,17 @@ a div.catalog {
     font-size: 1rem;
     display: inline-grid;
     padding-right: 3rem;
+}
+
+div.burger-menu{
+    background: url(/assets/img/ext/burger.svg) no-repeat;
+    background-size: 30px;
+    background-position: 0 0;
+    width: 30px;
+    height: 30px;
+}
+
+.mainmenu div span {
+    display: block;
+    text-align: center;
 }

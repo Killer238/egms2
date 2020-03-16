@@ -226,3 +226,11 @@ div.art{
     text-decoration: underline !important;
     cursor: pointer !important;
 }
+
+.logo_head{
+    height: 28px;
+    width:100%;
+    background: url(/assets/img/ext/mslogo_min.svg) no-repeat;
+    background-position: 0 0;
+    background-size: contain;
+}

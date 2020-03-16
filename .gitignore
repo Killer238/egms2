@@ -3,6 +3,7 @@
 /core/logs/*
 /assets/node_modules
 /assets/images/products/*/
+/assets/images/products/*
 /assets/hayson
 /assets/matras-stock
 /assets/mega-son
