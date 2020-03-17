@@ -234,3 +234,13 @@ div.art{
     background-position: 0 0;
     background-size: contain;
 }
+
+.mainmenu div span {
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .mainmenu div{
+        border: solid 1px lightgrey;
+    }
+}

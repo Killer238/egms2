@@ -5,29 +5,77 @@
         <div class="row d-none d-md-block">
             {include 'file:elements/common/defaultthem/index_carusel.tpl'}
         </div>
-        <div class="row d-none d-md-block">
-            <div class="col">
+        <div class="row">
+            <div class="col-12">
+                <h1>Интеренет Магазин Матрас-сток.ру</h1>
+            </div>
+            <div class="col-12 d-none d-md-block">
                 [[*content]]
             </div>
         </div>
-        <div class="row mainmenu">
-            <div class="col-4 col-md-1">
-                <a href="#">
-                <img src="/assets/img/def/main-m.svg" />
-                <span">Матрасы</span>
+
+        {var $menus = [136,135,140,137,138,139,2525]}
+        <div class="row no-gutters justify-content-center m-2 mainmenu ">
+        {foreach $menus as $menu}
+            <div class="col-4 col-md-2">
+                <a href="{$_modx->makeUrl($menu)}">
+                    <img src="/assets/img/def/main-{$menu| resource : 'alias'}.svg" />
+                    <span>{$menu| resource : 'menutitle'}</span>
                 </a>
             </div>
-            <div class="col-4 col-md-1">
-                <img src="/assets/img/def/main-n.svg" />
-                <span>Наматрасники</span>
-            </div>
-            <div class="col-4 col-md-1">
-                <img src="/assets/img/def/main-o.svg" />
-            </div>
-            <div class="col-4 col-md-1">
-                <img src="/assets/img/def/main-p.svg" />
-            </div>
+        {/foreach}
         </div>
+{*
+            <div class="col-4 col-md-2">
+                <a href="#">
+                    <img src="/assets/img/def/main-md.svg" />
+                    <span>Детские матрасы</span>
+                </a>
+            </div>
+            <div class="col-4 col-md-2">
+                <a href="#">
+                    <img src="/assets/img/def/main-n.svg" />
+                    <span>Наматрасники</span>
+                </a>
+            </div>
+            <div class="col-4 col-md-2">
+                <a href="#">
+                    <img src="/assets/img/def/main-o.svg" />
+                    <span>Основания</span>
+                </a>
+            </div>
+            <div class="col-4 col-md-2">
+                <a href="">
+                    <img src="/assets/img/def/main-p.svg" />
+                    <span>Подушки</span>
+                </a>
+            </div>
+            <div class="col-4 col-md-2">
+                <a href="">
+                    <img src="/assets/img/def/main-pb.svg" />
+                    <span>Постельное белье</span>
+                </a>
+            </div>
+            <div class="col-4 col-md-2">
+                <a href="">
+                    <img src="/assets/img/def/main-od.svg" />
+                    <span>Одеяла</span>
+                </a>
+            </div>
+            <div class="col-4 col-md-2">
+                <a href="">
+                    <img src="/assets/img/def/main-d.svg" />
+                    <span>Диваны</span>
+                </a>
+            </div>
+            <div class="col-4 col-md-2">
+                <a href="">
+                    <img src="/assets/img/def/main-b.svg" />
+                    <span>Кровати</span>
+                </a>
+            </div>
+    *}
+
         <div class="row">
             <div class="col">
                 <h3>Популяные товары</h3>
