@@ -8,9 +8,21 @@ $xpdo_meta_map['egmsSites']= array (
   array (
     'id_region' => NULL,
     'host' => NULL,
+    'template' => NULL,
+    'alias' => NULL,
+    'context' => NULL,
+    'hide' => NULL,
     'code_yandex' => NULL,
     'code_google' => NULL,
     'vendors' => NULL,
+    'cache' => NULL,
+    'product_category_url' => NULL,
+    'site_categorys_exc' => NULL,
+    'product_categorys_exc' => NULL,
+    'region_address' => NULL,
+    'phone' => NULL,
+    'phone_local' => NULL,
+    'site_options' => NULL,
     'deleted' => NULL,
     'published' => NULL,
   ),
@@ -29,6 +41,35 @@ $xpdo_meta_map['egmsSites']= array (
       'dbtype' => 'varchar',
       'precision' => '50',
       'phptype' => 'string',
+      'null' => false,
+      'index' => 'unique',
+    ),
+    'template' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '15',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'alias' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '25',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'context' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '15',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'hide' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '11',
+      'phptype' => 'integer',
       'null' => false,
     ),
     'code_yandex' => 
@@ -52,6 +93,58 @@ $xpdo_meta_map['egmsSites']= array (
       'phptype' => 'string',
       'null' => false,
     ),
+    'cache' => 
+    array (
+      'dbtype' => 'text',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'product_category_url' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '50',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'site_categorys_exc' => 
+    array (
+      'dbtype' => 'text',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'product_categorys_exc' => 
+    array (
+      'dbtype' => 'text',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'region_address' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '255',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'phone' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '20',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'phone_local' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '20',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'site_options' => 
+    array (
+      'dbtype' => 'text',
+      'phptype' => 'string',
+      'null' => false,
+    ),
     'deleted' => 
     array (
       'dbtype' => 'int',
@@ -69,6 +162,22 @@ $xpdo_meta_map['egmsSites']= array (
   ),
   'indexes' => 
   array (
+    'u_host' => 
+    array (
+      'alias' => 'u_host',
+      'primary' => false,
+      'unique' => true,
+      'type' => 'BTREE',
+      'columns' => 
+      array (
+        'host' => 
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
     'region' => 
     array (
       'alias' => 'region',

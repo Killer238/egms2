@@ -32,6 +32,8 @@ if(!$hostdata = $cacheManager->get($hash))
     $hostdata['region']['city']['city_v'] = $city->get('city_v');
     $hostdata['region']['city']['city_t'] = $city->get('city_t');
     $hostdata['region']['city']['city_p'] = $city->get('city_p');
+    $hostdata['region']['city']['city_in'] = $city->get('city_in');
+    $hostdata['region']['city']['city_on'] = $city->get('city_on');
     // system
     $hostdata['region']['context'] = $my_region->get('context');
     $hostdata['region']['product_category_url'] = ($my_region->get('product_category_url')=='')?'catalog':$my_region->get('product_category_url');
@@ -128,17 +130,45 @@ if(!$hostdata = $cacheManager->get($hash))
     foreach ($deliverys as $delivery) {
         $key = $delivery->get('id_vendor')."-".$delivery->get('id_therm');
         $hostdata['delivery'][$key] = array(
+            'id_delivery' => $delivery->get('id'),
+            'd_content' => $delivery->get('content'),
             'd_payments' => $delivery->get('d_payments'),
             'd_cost' => $delivery->get('d_cost'),
             'd_min'=> $delivery->get('d_min'),
+
+            'd_dayscount'=> $delivery->get('d_dayscount'),
+            'd_datehide'=> $delivery->get('d_datehide'),
             'd_days' => $delivery->get('d_days'),
             'd_time' => $delivery->get('d_time'),
             'd_weekdays' => $delivery->get('d_weekdays'),
-            'd_skeep' => explode(',', '28.02.2020,29.02.2020'),
+            'd_skeep' => '', //explode(',', '28.02.2020,29.02.2020'),
+
             'd_instock' => $delivery->get('d_instock'),
             's_address' => $delivery->get('s_address'),
-            //'delivery_options' => $delivery->get('delivery_options'),
+            'delivery_options' => $delivery->get('delivery_options'),
             );
+        $payments = $modx->getCollection('msPayment');
+        foreach ($payments as $payment)
+        {
+            $id = $payment->get('id');
+            $hostdata['payments'][$id] = array(
+                'id' => $id,
+                'name' =>  $payment->get('name'),
+                'desc' =>  $payment->get('description'),
+            );
+        }
+
+        $options = $modx->getCollection('egmsDeliveryOptions');
+        foreach ($options as $option)
+        {
+            $id = $option->get('id');
+            $hostdata['options'][$id] = array(
+                'id' => $id,
+                'option' =>  $option->get('option'),
+                'val' =>  $option->get('val'),
+            );
+        }
+
 /*
         $doptions_t = $delivery->get('delivery_options');
         $doptions = $modx->getCollection("egmsDeliveryOptions", array('id:IN' => explode('||', $doptions_t)));

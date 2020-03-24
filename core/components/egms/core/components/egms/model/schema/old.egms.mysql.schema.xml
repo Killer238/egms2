@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="egms" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.1">
+	<object class="egmsDelivery" table="egms_delivery" extends="xPDOSimpleObject">
+		<field key="id_region" dbtype="int" precision="11" phptype="integer" null="false" index="index" />
+		<field key="id_vendor" dbtype="int" precision="11" phptype="integer" null="true" />
+		<field key="id_category" dbtype="int" precision="11" phptype="integer" null="true" />
+		<field key="d_cost" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="d_min" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="d_time" dbtype="varchar" precision="20" phptype="string" null="false" />
+		<field key="d_instock" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="s_address" dbtype="varchar" precision="250" phptype="string" null="false" />
+		<field key="delivery_options" dbtype="text" phptype="string" null="false" />
+		<field key="published" dbtype="int" precision="11" phptype="integer" null="false" />
+
+		<aggregate alias="dregions" class="egmsRegions" local="id_region" foreign="id" cardinality="one" owner="foreign" />
+		<aggregate alias="vendors" class="msVendor" local="id_vendor" foreign="id" cardinality="one" owner="foreign" />
+		<aggregate alias="categorys" class="msCategory" local="id_category" foreign="id" cardinality="one" owner="foreign" />
+		<index alias="d" name="d" primary="false" unique="true" type="BTREE" >
+			<column key="id_region" length="" collation="A" null="false" />
+			<column key="id_category" length="" collation="A" null="true" />
+		</index>
+	</object>
+	<object class="egmsRegions" table="egms_regions" extends="xPDOSimpleObject">
+		<field key="region_name" dbtype="varchar" precision="100" phptype="string" null="false" />
+		<field key="city" dbtype="varchar" precision="100" phptype="string" null="false" />
+		<field key="city_i" dbtype="varchar" precision="100" phptype="string" null="false" />
+		<field key="city_r" dbtype="varchar" precision="100" phptype="string" null="false" />
+		<field key="city_d" dbtype="varchar" precision="100" phptype="string" null="false" />
+		<field key="city_v" dbtype="varchar" precision="100" phptype="string" null="false" />
+		<field key="city_t" dbtype="varchar" precision="100" phptype="string" null="false" />
+		<field key="city_p" dbtype="varchar" precision="100" phptype="string" null="false" />
+	</object>
+	<object class="egmsSites" table="egms_sites" extends="xPDOSimpleObject">
+		<field key="id_region" dbtype="int" precision="11" phptype="integer" null="false" index="index" />
+		<field key="host" dbtype="varchar" precision="50" phptype="string" null="false" index="unique" />
+		<field key="context" dbtype="varchar" precision="15" phptype="string" null="false" />
+		<field key="code_yandex" dbtype="varchar" precision="50" phptype="string" null="false" />
+		<field key="code_google" dbtype="varchar" precision="50" phptype="string" null="false" />
+		<field key="vendors" dbtype="varchar" precision="100" phptype="string" null="false" />
+		<field key="cache" dbtype="text" phptype="string" null="false" />
+		<field key="product_category_url" dbtype="varchar" precision="50" phptype="string" null="false" />
+		<field key="site_categorys_exc" dbtype="text" phptype="string" null="false" />
+		<field key="product_categorys_exc" dbtype="text" phptype="string" null="false" />
+		<field key="region_address" dbtype="varchar" precision="255" phptype="string" null="false" />
+		<field key="site_options" dbtype="text" phptype="string" null="false" />
+		<field key="deleted" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="published" dbtype="int" precision="11" phptype="integer" null="false" />
+
+		<aggregate alias="regions" class="egmsRegions" local="id_region" foreign="id" cardinality="one" owner="foreign" />
+		
+		<index alias="u_host" name="u_host" primary="false" unique="true" type="BTREE" >
+			<column key="host" length="" collation="A" null="false" />
+		</index>
+		<index alias="region" name="region" primary="false" unique="false" type="BTREE" >
+			<column key="id_region" length="" collation="A" null="false" />
+		</index>
+	</object>
+</model>

@@ -18,7 +18,7 @@
                 </div>
                 <div class="art">{'eg_art' | lexicon} {$product_cache.article}</div>
                 <div class="img-wrap">
-                    <a class="url-{$id}" href="{$regioncatalog}/{$id | resource :'uri'}">
+                    <a class="url-{$id}" href="{$regioncatalog}/{$id | resource :'uri'}{'url' | size : 'url'}">
                         {if $thumb?}
                             <img src="{$thumb}" class="mw-100" alt="{$pagetitle}" title="{$pagetitle}"/>
                         {else}
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <article class="col-md-{$view=='grid'?'12':'5'}">
-                <h4><a class="url-{$id}" href="{$regioncatalog}/{$id | resource :'uri'}{'size' | size : 'url'}">
+                <h4><a class="url-{$id}" href="{$regioncatalog}/{$id | resource :'uri'}{'url' | size : 'url'}">
                         {if $_modx->resource.longtitle && $_modx->resource.class_key=='msCategory'}
                             {if $longtitle == $pagetitle}
                                 {$longtitle}
@@ -47,14 +47,28 @@
                 'product' => $id,
                 ]}
                 <div class="card__delivery_{$id}" data-minprice="{$deliverytherm.d_min}" data-deliverycost="{$deliverytherm.d_cost}">
-                    <div class="card__deliverycost">
-                        <span>{'eg_delivery_in' | lexicon} {$region.city_d}: </span>
+                    <div>{'eg_delivery_in' | lexicon} {$region.city_d}</div>
+                    <div>Стоимость:<span class="delivery_cost">
+
+                        </span>
                         <span class="free__cost">{'eg_free' | lexicon}</span>
-                        <span class="cost">{if ($product.price>$deliverytherm.d_min)}{'eg_free' | lexicon}
+                    </div>
+                    {if ($deliverytherm.d_datehide==1)}
+                        <div class="d-none">Ближайшая доставка:<span></span></div>
+                        <div>Срок доставки: {$deliverytherm.d_days}</div>
+                        {else}
+                        <div>Ближайшая доставка: <span>{$deliverytherm | deliverydate}</span></div>
+                        <div class="d-none">Срок доставки: <span>{$deliverytherm.d_days}</span></div>
+                    {/if}
+                    {*<div class="card__deliverycost">
+                        <span>{'eg_delivery_in' | lexicon} {$region.city_d}: </span>
+
+                        <span class="cost">{if ($product_cache.price>$deliverytherm.d_min)}{'eg_free' | lexicon}
                         {else}{$deliverytherm.d_cost} {'ms2_frontend_currency' | lexicon}{/if}
                         </span>
                     </div>
                     <div class="card__deliverytime"><span>{'delivery_to' | lexicon} </span><span>{$deliverytherm | deliverydate}</span></div>
+                    *}
                 </div>
 
             </article>
@@ -64,7 +78,7 @@
                 <div class="action-wrap">
                     <div class="price-wrap-{$id} prod-price">
                         {if $product_cache.price_old != $product_cache.price && $product_cache.price_old > 0}
-                            <del class="price-old"><span>{number_format($product_cache.price, 0, ',', ' ')}</span> {'ms2_frontend_currency' | lexicon}</del><span class="badge-new">{$product_cache.price_pr}%</span>
+                            <del class="price-old"><span>{number_format($product_cache.price, 0, ',', ' ')}</span> {'ms2_frontend_currency' | lexicon}</del><span class="badge-discount">{$product_cache.price_pr}%</span>
                         {/if}
                         <div class="price h4"><span>{number_format($product_cache.price, 0, ',', ' ')}</span> {'ms2_frontend_currency' | lexicon}</div>
                         {*<span class="m-2 p-2" style="padding: 2px 7px;font-size: 12px;background-color: #ef5f5f;color: #fff;border-radius: 4px;">-40%</span>*}
@@ -78,7 +92,7 @@
                                 <dd>
                                     <select class="form-control form-control-sm option-select option_size" name="options[size]"">
                                     {foreach $product_cache.options as $option}
-                                        <option  value="{$option.value}" data-delivery-price="{($option.price<$deliverytherm.d_min)?$deliverytherm.d_cost:0}" data-delivery-date="{$deliverytherm.d_time}" data-instock="{$deliverytherm.d_instock}" data-product-name="{$option.product_name}" data-productid="{$id}" data-option="{$option.value}" data-url="{$regioncatalog}/{$id | resource :'uri'}{$option.url}" data-price="{$option.price}" data-old-price="{$option.price_old}" {$option.selected}>{$option.value}</option>
+                                        <option  value="{$option.value}" data-size="{$option.value}" data-delivery-price="{($option.price<$deliverytherm.d_min)?$deliverytherm.d_cost:0}" data-delivery-date="{$deliverytherm.d_time}" data-instock="{$deliverytherm.d_instock}" data-product-name="{$option.product_name}" data-productid="{$id}" data-option="{$option.value}" data-url="{$regioncatalog}/{$id | resource :'uri'}{$option.url}" data-price="{$option.price}" data-old-price="{$option.price_old}" {$option.selected}>{$option.value}</option>
                                     {/foreach}
                                     </select>
                                 </dd>
@@ -91,7 +105,7 @@
                         </form>
                     </div>
                     <div class="p-2">
-                        <a href="{'region.product_category_url' | placeholder}/{$id | resource :'uri'}{'size' | size : 'url'}" class="btn btn-secondary url-{$id} btn w-100">{'eg_more' | lexicon}</a>
+                        <a href="{'region.product_category_url' | placeholder}/{$id | resource :'uri'}{'url' | size : 'url'}" class="btn btn-secondary url-{$id} btn w-100">{'eg_more' | lexicon}</a>
                     </div>
 
                     {*<a href="#"><i class="fa fa-heart"></i>{'eg_i' | lexicon}</a>*}

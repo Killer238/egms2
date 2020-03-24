@@ -8,6 +8,9 @@ $where = $modx->getOption('where', $scriptProperties);
 $id = $modx->getOption('id', $scriptProperties);
 $result = array();
 
+
+
+
 /*
 $collections = explode(",", $where);
 

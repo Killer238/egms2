@@ -55,4 +55,15 @@ $xpdo_meta_map['plManufacturer']= array (
       ),
     ),
   ),
+  'aggregates' => 
+  array (
+    'vendors' => 
+    array (
+      'class' => 'msVendor',
+      'local' => 'id_manufacturer',
+      'foreign' => 'id',
+      'cardinality' => 'one',
+      'owner' => 'foreign',
+    ),
+  ),
 );

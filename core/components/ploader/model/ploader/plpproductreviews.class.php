@@ -1,7 +1,7 @@
 <?php
 /**
  * @package ploader
- * @property integer $id_product
+ * @property integer $resource_id
  * @property integer $id_pproduct
  * @property string $context
  * @property string $name

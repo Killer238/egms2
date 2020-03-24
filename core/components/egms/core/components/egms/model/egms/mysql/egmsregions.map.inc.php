@@ -14,6 +14,8 @@ $xpdo_meta_map['egmsRegions']= array (
     'city_v' => NULL,
     'city_t' => NULL,
     'city_p' => NULL,
+    'city_in' => NULL,
+    'city_on' => NULL,
   ),
   'fieldMeta' => 
   array (
@@ -67,6 +69,20 @@ $xpdo_meta_map['egmsRegions']= array (
       'null' => false,
     ),
     'city_p' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '100',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'city_in' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '100',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'city_on' => 
     array (
       'dbtype' => 'varchar',
       'precision' => '100',

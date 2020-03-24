@@ -3,26 +3,17 @@ $xpdo_meta_map['plPproductConsists']= array (
   'package' => 'ploader',
   'version' => '1.1',
   'table' => 'pl_pproduct_consists',
-  'extends' => 'xPDOObject',
+  'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
-    'id_consists' => NULL,
     'id_load' => NULL,
-    'id_product' => NULL,
+    'resource_id' => NULL,
     'position' => 0,
     'id_consists_item' => NULL,
+    'published' => NULL,
   ),
   'fieldMeta' => 
   array (
-    'id_consists' => 
-    array (
-      'dbtype' => 'int',
-      'precision' => '11',
-      'phptype' => 'integer',
-      'null' => false,
-      'index' => 'pk',
-      'generated' => 'native',
-    ),
     'id_load' => 
     array (
       'dbtype' => 'int',
@@ -30,7 +21,7 @@ $xpdo_meta_map['plPproductConsists']= array (
       'phptype' => 'integer',
       'null' => false,
     ),
-    'id_product' => 
+    'resource_id' => 
     array (
       'dbtype' => 'int',
       'precision' => '11',
@@ -52,24 +43,12 @@ $xpdo_meta_map['plPproductConsists']= array (
       'phptype' => 'integer',
       'null' => false,
     ),
-  ),
-  'indexes' => 
-  array (
-    'PRIMARY' => 
+    'published' => 
     array (
-      'alias' => 'PRIMARY',
-      'primary' => true,
-      'unique' => true,
-      'type' => 'BTREE',
-      'columns' => 
-      array (
-        'id_consists' => 
-        array (
-          'length' => '',
-          'collation' => 'A',
-          'null' => false,
-        ),
-      ),
+      'dbtype' => 'int',
+      'precision' => '11',
+      'phptype' => 'integer',
+      'null' => false,
     ),
   ),
 );

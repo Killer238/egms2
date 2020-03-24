@@ -54,7 +54,7 @@
 		<field key="id_manufacturer" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
 		<field key="name_manufacturer" dbtype="varchar" precision="255" phptype="string" null="false" />
 		<field key="id_vendor" dbtype="int" precision="11" phptype="integer" null="false" />
-
+		<aggregate alias="vendors" class="msVendor" local="id_manufacturer" foreign="id" cardinality="one" owner="foreign" />
 		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
 			<column key="id_manufacturer" length="" collation="A" null="false" />
 		</index>
@@ -86,16 +86,12 @@
 		<aggregate alias="cvendors" class="msVendor" local="id_manufacturer" foreign="id" cardinality="one" owner="foreign" />
 		<aggregate alias="ccategorys" class="msCategory" local="id_category" foreign="id" cardinality="one" owner="foreign" />
 	</object>
-	<object class="plPproductConsists" table="pl_pproduct_consists" extends="xPDOObject">
-		<field key="id_consists" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" />
+	<object class="plPproductConsists" table="pl_pproduct_consists" extends="xPDOSimpleObject">
 		<field key="id_load" dbtype="int" precision="11" phptype="integer" null="false" />
-		<field key="id_product" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="resource_id" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="position" dbtype="int" precision="11" phptype="integer" null="false" default="0" />
 		<field key="id_consists_item" dbtype="int" precision="11" phptype="integer" null="false" />
-
-		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
-			<column key="id_consists" length="" collation="A" null="false" />
-		</index>
+		<field key="published" dbtype="int" precision="11" phptype="integer" null="false" />
 	</object>
 	<object class="plPproductConsistsItem" table="pl_pproduct_consists_item" extends="xPDOSimpleObject">
 		<field key="provider" dbtype="varchar" precision="20" phptype="string" null="false" />
@@ -139,7 +135,7 @@
 		<field key="image" dbtype="varchar" precision="250" phptype="string" null="false" />
 	</object>
 	<object class="plPproductReviews" table="pl_pproduct_reviews" extends="xPDOSimpleObject">
-		<field key="id_product" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="resource_id" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="id_pproduct" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="context" dbtype="varchar" precision="15" phptype="string" null="false" />
 		<field key="name" dbtype="varchar" precision="255" phptype="string" null="false" />

@@ -14,6 +14,11 @@ switch ($modx->event->name) {
         $accessAllow = true;
         $datahost = $modx->runSnippet("egDataHost", []);
 
+        // редирект на основной хост если нет ни одного вэндора
+        if (!$datahost['region']['vendors']){
+            $modx->sendRedirect('//'.$datahost['region']['mainhost'], array('responseCode' => 'HTTP/1.1 301 Moved Permanently'));
+        }
+
         // проверка на товар
         if ($modx->resource->class_key == 'msProduct')
         {
@@ -25,6 +30,7 @@ switch ($modx->event->name) {
             }
         }
 
+
         // доступность прочих страниц на принадлежность к вэндору
         if($vendors = (int)$modx->resource->getTVValue('access_vendor'))
         {
@@ -33,7 +39,7 @@ switch ($modx->event->name) {
                 $accessAllow = false;
             }
         }
-       // die("-".$accessAllow);
+        //die("-".$accessAllow);
         if(!$accessAllow){
             $modx->sendRedirect('//'.$_SERVER['HTTP_HOST'], array('responseCode' => 'HTTP/1.1 301 Moved Permanently'));
             //$modx->sendErrorPage();

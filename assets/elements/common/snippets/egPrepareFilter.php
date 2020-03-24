@@ -115,7 +115,7 @@ if(isset($product_cache['options'][$_GET[$get_val]]))
     $product_cache['options'][$_GET[$get_val]]['selected'] = ' selected';
     //$product_default = $product_cache['options'][$_GET[$get_val]];
     $product_cache['price'] = $product_cache['options'][$_GET[$get_val]]['price'];
-    $product_cache['price_old'] = $product_cache['options'][$_GET[$get_val]]['old_price'];
+    $product_cache['price_old'] = $product_cache['options'][$_GET[$get_val]]['price_old'];
     $product_cache['price_diff'] = $product_cache['options'][$_GET[$get_val]]['price_diff'];
     $product_cache['price_pr'] = $product_cache['options'][$_GET[$get_val]]['price_pr'];
 }else{
@@ -135,6 +135,8 @@ $row['product_cache'] = $product_cache;
 $dh = $modx->runSnippet("egDataHost", []);
 $row['regioncatalog'] = $dh['region']['product_category_url'];
 $row['delivery'] = $dh['delivery'];
+$row['payments'] = $dh['payments'];
+$row['options'] = $dh['options'];
 $row['region'] = $dh['region']['city'];
 
 //echo '<pre>';print_r($row);die;
@@ -150,6 +152,7 @@ $output = $pdoTools->getChunk($tpl, [
     'product'     => $product_cache,
     'options'     => $product_cache['options'],
     'delivery'    => $delivery,
+
     'row'         => $row,
 ]);
 

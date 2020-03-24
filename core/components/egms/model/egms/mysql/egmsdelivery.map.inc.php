@@ -14,10 +14,13 @@ $xpdo_meta_map['egmsDelivery']= array (
     'd_payments' => NULL,
     'd_cost' => NULL,
     'd_min' => NULL,
-    'd_days' => NULL,
+    'd_dayscount' => NULL,
     'd_time' => NULL,
+    'd_days' => NULL,
+    'd_datehide' => NULL,
     'd_weekdays' => NULL,
     'd_instock' => NULL,
+    'content' => NULL,
     's_address' => NULL,
     'delivery_options' => NULL,
     'published' => NULL,
@@ -81,6 +84,20 @@ $xpdo_meta_map['egmsDelivery']= array (
       'phptype' => 'integer',
       'null' => false,
     ),
+    'd_dayscount' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '11',
+      'phptype' => 'integer',
+      'null' => false,
+    ),
+    'd_time' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '11',
+      'phptype' => 'integer',
+      'null' => false,
+    ),
     'd_days' => 
     array (
       'dbtype' => 'varchar',
@@ -88,7 +105,7 @@ $xpdo_meta_map['egmsDelivery']= array (
       'phptype' => 'string',
       'null' => false,
     ),
-    'd_time' => 
+    'd_datehide' => 
     array (
       'dbtype' => 'int',
       'precision' => '11',
@@ -107,6 +124,12 @@ $xpdo_meta_map['egmsDelivery']= array (
       'dbtype' => 'int',
       'precision' => '11',
       'phptype' => 'integer',
+      'null' => false,
+    ),
+    'content' => 
+    array (
+      'dbtype' => 'text',
+      'phptype' => 'string',
       'null' => false,
     ),
     's_address' => 

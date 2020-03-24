@@ -29,6 +29,8 @@ switch ($modx->event->name) {
             if ($region) {
                 $dh = $modx->runSnippet("egDataHost", []);
                 $modx->setPlaceholder('region.host', $dh['region']['host']);
+                $sitename = $modx->getContext($dh['region']['context'])->getOption('shopname');
+                $modx->setPlaceholder('region.sitename', $sitename);
                 $modx->setPlaceholder('region.mainhost', $dh['region']['mainhost']);
                 $modx->setPlaceholder('region.alias', $dh['region']['alias']);
                 $modx->setPlaceholder('region.product_category_url', $dh['region']['product_category_url']);
@@ -52,6 +54,8 @@ switch ($modx->event->name) {
                 $modx->setPlaceholder('region.city_v', $dh['region']['city']['city_v']);
                 $modx->setPlaceholder('region.city_t', $dh['region']['city']['city_t']);
                 $modx->setPlaceholder('region.city_p', $dh['region']['city']['city_p']);
+                $modx->setPlaceholder('region.city_on', $dh['region']['city']['city_on']);
+                $modx->setPlaceholder('region.city_in', $dh['region']['city']['city_in']);
 
                 $modx->setPlaceholder('region.vendors', $dh['region']['vendors']);
                // $t = $modx->toJSON($dh['region']['vendors']);

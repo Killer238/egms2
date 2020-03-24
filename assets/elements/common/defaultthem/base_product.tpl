@@ -3,10 +3,41 @@
 <section>
     {*var $pd = $_modx->runSnippet("egPrepareFilter", ['product' => $_modx->resource.id])*}
     {var $pd = $_modx->runSnippet("egPrepareFilter", ['product' => $_modx->resource.id, 'options' => 'msoption|size'])}
+    {var $therm = $_modx->runSnippet('pdoField', ['id' => $id, 'field' => 'product_delivery_therm', 'output' => '0'])}
     {var $pc = $pd['product_cache']}
-    {var $deliverytherm = $pd['delivery']}
+    {var $deliverytherm = $pd['delivery'][$vendor~'-'~$therm]}
+    {if (!$deliverytherm)}
+        {set $deliverytherm = $pd['delivery'][$vendor~'-0']}
+    {/if}
     {'!msOptionsPrice.initialize' | snippet}
-    {*<pre>{print_r($pd['options'])}</pre>*}
+    {*<pre>{print_r($pd['delivery'])}</pre>*}
+    {*<script type="application/ld+json">{
+            "@context" : "http://schema.org",
+            "@type": "Product",
+            "brand": "Promtex-Orient EcoRest",
+            "name": "Promtex-Orient EcoRest Струтто Сайд",
+            "image": "https://nizhniy-novgorod.anatomiyasna.ru/uploads/images/product/matras-promtex-orient-ecorest-strutto-sajd.jpg",
+            "offers": {
+                "@type": "Offer",
+                "url": "https://nizhniy-novgorod.anatomiyasna.ru/tovary/matras-promtex-orient-ecorest-strutto-sajd/70-186/",
+                "priceCurrency": "RUB",
+                "price": 4456.00,
+                "availability": "http://schema.org/InStock",
+                "itemCondition": "http://schema.org/UsedCondition",
+                "seller": {
+                    "@type": "Organization",
+                    "name": "AnatomiyaSna"
+                }
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 0,
+                "ratingCount": 0,
+                "reviewCount": 0
+            }
+        }
+
+    </script>*}
  <div class="container product__main">
      <div id="msProduct" class="row">
         <div class="col-sm-12 product__h1">
@@ -18,7 +49,7 @@
                 {if ($.get.delivery)}
                     {'eg_product_delivery_in'| lexicon}{'region.city_p' | placeholder}
                 {/if}
-                <span>{'size_sm' | size}</span>
+                <span class="option_zip">{'size_sm' | size}</span>
             </h1>
             {if !$.get.reviews}
             <div class="prod-grid-stars">
@@ -65,8 +96,8 @@
                      <div class="article">{'eg_art' | lexicon} {$pc.article}</div>
                      <div class="col-md-10 form-control-static price mb-2">
                          <span class='msoptionsprice-cost msoptionsprice-{$_modx->resource.id}'>{number_format($pc.price, 0, ',', ' ')} </span> {'ms2_frontend_currency' | lexicon}
-                         {if ($pc.old_price > 0)}
-                             <span class="old_price"><span class='msoptionsprice-old-cost msoptionsprice-{$_modx->resource.id}'>{number_format($pc.price_old, 0, ',', ' ')} </span> {'ms2_frontend_currency' | lexicon} (Экономия: {(number_format($product.price_diff, 0, ',', ' ')) |number}  {'ms2_frontend_currency' | lexicon})</span>
+                         {if ($pc.price_old > 0)}
+                             <span class="old_price"><span class='msoptionsprice-old-cost msoptionsprice-{$_modx->resource.id}'>{number_format($pc.price_old, 0, ',', ' ')} </span> {'ms2_frontend_currency' | lexicon} (Экономия: <span class="price_diff">{(number_format($pc.price_diff, 0, ',', ' '))}</span>  {'ms2_frontend_currency' | lexicon})</span>
                          {/if}
                      </div>
                      <div style="border-top: 1px solid #e6e6e6;">
@@ -76,9 +107,9 @@
                          <dl class="dlist-block p-2">
                              <dt>{'eg_size' | lexicon} </dt>
                              <dd>
-                                 <select class="option-select mt-2" name="options[size]">
+                                 <select class="option-select mt-2 option_size" name="options[size]">
                                      {foreach $pc.options as $option}
-                                         <option value="{$option.value}" data-productid="{$_modx->resource.id}" data-size="{$option.value}" data-url="{$option.value}/" data-price="{$option.price}" data-old-price="{$option.old_price}"{$option.selected}>{$option.value}</option>
+                                         <option value="{$option.value}" data-delivery-price="{($option.price<$deliverytherm.d_min)?$deliverytherm.d_cost:0}" data-productid="{$_modx->resource.id}" data-size="{$option.value}" data-url="{$option.value}/" data-price="{$option.price}" data-old-price="{$option.price_old}" data-diff-price="{$option.price_diff}"{$option.selected}>{$option.value}</option>
                                      {/foreach}
                                  </select>
                              </dd>
@@ -86,7 +117,7 @@
                          </dl>
                          <div class="card__delivery_{$_modx->resource.id}" data-minprice="{$deliverytherm.d_min}" data-deliverycost="{$deliverytherm.d_cost}">
                              <div class="card__deliverycost">
-                                 <span>{'eg_delivery_in' | lexicon} {$region.city_d}: </span>
+                                 <span>{'eg_delivery' | lexicon} {'region.city_on' | placeholder}: </span>
                                  <span class="free__cost">{'eg_free' | lexicon}</span>
                                  <span class="cost">{if ($pc.price>$deliverytherm.d_min)}{'eg_free' | lexicon}
                                      {else}{$deliverytherm.d_cost} {'ms2_frontend_currency' | lexicon}{/if}
@@ -136,21 +167,69 @@
                                 {* выводим описание для определенного контекста*}
                             {$_modx->resource.id | resource: 'product_description'| cdesc :$_modx->context.key | htmlspecialchars}
                             </p>
+
                         </div>
                         <div class="col-sm-12 col-md-8">
+                            <h2>Характеристики</h2>
                             {'msProductOptions' | snippet : ['hideEmpty'=> 1]}
                         </div>
                     </div>
 
                 </div>
                 {*<div role="tabpanel" class="tab-pane fade" id="chars">{'msProductOptions' | snippet : ['hideEmpty'=> 1]}</div>*}
-                <div role="tabpanel" class="tab-pane fade" id="delivery">Доставка {'region.city' | placeholder}
-                {'egDelivery' | snippet :[]}
+                <div role="tabpanel" class="tab-pane fade" id="delivery">
+                    <h2 class="delivery-{$deliverytherm.id_delivery}">Доставка {$id |resource:'longtitle'} <span class="option_zip">{'size_sm' | size}</span> {'region.city_on' | placeholder}</h2>
+                    <p><strong>Сроки и стоимость:</strong></p>
+                    <ul>
+                        <li>срок доставки: {if (trim($deliverytherm.d_days)=='')}
+                                    {if ($deliverytherm.d_dayscount==0)}
+                                        1 день
+                                    {else}
+                                        {$deliverytherm.d_dayscount} дн.
+                                    {/if}
+                               {else}
+                                {$deliverytherm.d_days}
+                        {/if}</li>
+                        <li>ближайшая дата: {$deliverytherm | deliverydate:'dateonly'}</li>
+                        <li><span class="delivery_free_info_{$_modx->resource.id}" {($deliverytherm.d_min < $pc.price)?'style="display:none"':''}>при сумме заказа более {$deliverytherm.d_min} {'ms2_frontend_currency' | lexicon} - </span>доставка {'eg_free' | lexicon} {'region.city_on' | placeholder}</li>
+                        <li class="delivery_free_info_{$_modx->resource.id}" {($deliverytherm.d_min < $pc.price)?'style="display:none"':''}>при сумме заказа до {$deliverytherm.d_min} {'ms2_frontend_currency' | lexicon} - {$deliverytherm.d_cost}{'ms2_frontend_currency' | lexicon}</li>
+
+                    </ul>
+                    {if (trim($deliverytherm.delivery_options)!='')}
+                        <p><strong>Дополнительные опции доставки:</strong></p>
+                        {var $options = explode("||", $deliverytherm.delivery_options)}
+                        {if (count($options)>0)}
+                            <ul>
+                                {foreach $options as $option}
+                                    <li>{$pd['options'][$option]['option']} - {$pd['options'][$option]['val']}</li>
+                                {/foreach}
+                            </ul>
+                        {/if}
+                    {/if}
+                    <p>{$deliverytherm.d_content}</p>
+                    {if (trim($deliverytherm.s_address)!='')}
+                        <p><strong>Адрес самовывоза:</strong></p>
+                        <ul>
+                            <li>{$deliverytherm.s_address}<div>самовывоз возможен только по предварительному заказу</div></li>
+                        </ul>
+                    {/if}
+                    {if (trim($deliverytherm.d_payments)!='')}
+                        {var $payments = explode("||", $deliverytherm.d_payments)}
+                        {if (count($payments)>0)}
+                            <h2>Способы оплаты:</h2>
+                            <ul>
+                                {foreach $payments as $payment}
+                                    <li>{$pd['payments'][$payment]['name']}</li>
+                                {/foreach}
+                            </ul>
+                        {/if}
+                    {/if}
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="reviews">
                     <h3>{'eg_reviews' | lexicon}:</h3>
                     {'egReviews' | snippet :['id_product' =>  $_modx->resource.id, 'tpl' => '@FILE elements/common/chunks/product/product_reviews.tpl']}</div>
             </div>
+            {if count($pc.options)>0}
             <h3>{'eg_size' | lexicon}:</h3>
             <ul class="atrs">
                 {foreach $pc.options as $option}
@@ -160,8 +239,7 @@
                         <li>{$option.value}</li>
                     {/if}
                 {/foreach}
-            </ul>
-
+            {/if}
             {*
             смотрите еще
             *}

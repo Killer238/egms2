@@ -1,10 +1,10 @@
 <?php
 /**
  * @package ploader
- * @property integer $id_consists
  * @property integer $id_load
- * @property integer $id_product
+ * @property integer $resource_id
  * @property integer $position
  * @property integer $id_consists_item
+ * @property integer $published
  */
-class plPproductConsists extends xPDOObject {}
+class plPproductConsists extends xPDOSimpleObject {}

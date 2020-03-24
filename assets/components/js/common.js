@@ -72,7 +72,7 @@ function chacgeProductPrice(e){
 
     var size = $(this).find('option:selected').attr('data-size');
     var unit = $('#product_data').attr('data-unit');
-    $('h1 span').text(" - " + size + " "  + unit);
+    $('span.option_zip').text(" - " + size + " "  + unit);
 }
 
 function chacgePrice(e){
@@ -107,13 +107,14 @@ function chacgePrice(e){
 
                 //delivery
                 var delivery_price = $(this).find('option:selected').attr('data-delivery-price');
-                if(delivery_price>0){
-                  //  console.log(delivery_price);
-                    $('.card__delivery_'+id+' span.cost').text(moneyFormat(delivery_price)+'₽');
+               // console.log(delivery_price);
+                if(delivery_price==0){
+                    $('.card__delivery_'+id+' span.cost').text($('.card__delivery_'+id+' span.free__cost').text());
+                    $('.delivery_free_info_'+id).hide();
                 }
                 else{
-                    $('.card__delivery_'+id+' span.cost').text($('.card__delivery_'+id+' span.free__cost').text());
-                 //   console.log($('.card__delivery_'+id+' span.free__cost').text());
+                    $('.card__delivery_'+id+' span.cost').text(moneyFormat(delivery_price)+'₽');
+                    $('.delivery_free_info_'+id).show();
                 }
 
                 //console.log(delivery_price);

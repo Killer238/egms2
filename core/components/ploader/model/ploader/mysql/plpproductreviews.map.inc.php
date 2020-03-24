@@ -6,7 +6,7 @@ $xpdo_meta_map['plPproductReviews']= array (
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
-    'id_product' => NULL,
+    'resource_id' => NULL,
     'id_pproduct' => NULL,
     'context' => NULL,
     'name' => NULL,
@@ -18,7 +18,7 @@ $xpdo_meta_map['plPproductReviews']= array (
   ),
   'fieldMeta' => 
   array (
-    'id_product' => 
+    'resource_id' => 
     array (
       'dbtype' => 'int',
       'precision' => '11',
@@ -84,7 +84,7 @@ $xpdo_meta_map['plPproductReviews']= array (
     'msproduct' => 
     array (
       'class' => 'msProduct',
-      'local' => 'id_product',
+      'local' => 'resource_id',
       'foreign' => 'id',
       'cardinality' => 'one',
       'owner' => 'foreign',

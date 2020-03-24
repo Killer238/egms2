@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{$_modx->config.cultureKey}">
 <head>
-{include 'file:elements/common/defaultthem/head_meta.tpl'}
+{include 'file:elements/common/chunks/common/meta.tpl'}
 {include 'file:elements/common/defaultthem/head_scripts.tpl'}
 </head>
 <body>

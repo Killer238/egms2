@@ -9,11 +9,13 @@ $xpdo_meta_map = array (
     3 => 'egmsLog',
     4 => 'egmsPages',
     5 => 'egmsProducts',
-    6 => 'egmsRegions',
-    7 => 'egmsSites',
+    6 => 'egmsRd',
+    7 => 'egmsRegions',
+    8 => 'egmsSites',
   ),
   'xPDOObject' => 
   array (
-    0 => 'egmsVendors',
+    0 => 'egmsStock',
+    1 => 'egmsVendors',
   ),
 );
