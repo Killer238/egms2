@@ -4,16 +4,7 @@
     font: 1.2 rem;
 }
 
-.instock{
-    width: fit-content;
-    font-size:0.9rem;
-    background-size: 0.9rem;
-    margin:0px 0px 1rem 5px;
-    color:#717171;
-    padding-left: 1.5rem;
-    background: url("/assets/img/ext/stock.svg") no-repeat;
 
-}
 .splash{
     background-color: #f3efe6;
 }
@@ -96,15 +87,7 @@ div.full__dialog{
     text-decoration: line-through;
     display:block;
 }
-.option-select{
-    width: 100%;
-    height: 3rem;
-    text-indent: 2rem;
-}
-.option-select option{
-    text-indent: 2rem;
-    text-align : center;
-}
+
 .prod-grid-stars{
     margin: 1rem;
 }

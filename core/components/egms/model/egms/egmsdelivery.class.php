@@ -14,6 +14,7 @@
  * @property string $d_days
  * @property integer $d_datehide
  * @property string $d_weekdays
+ * @property integer $priority
  * @property integer $d_instock
  * @property string $content
  * @property string $s_address

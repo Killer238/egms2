@@ -28,6 +28,7 @@ switch ($modx->event->name) {
 
             if ($region) {
                 $dh = $modx->runSnippet("egDataHost", []);
+                $modx->setPlaceholder('region.id_region', $dh['region']['id_region']);
                 $modx->setPlaceholder('region.host', $dh['region']['host']);
                 $sitename = $modx->getContext($dh['region']['context'])->getOption('shopname');
                 $modx->setPlaceholder('region.sitename', $sitename);

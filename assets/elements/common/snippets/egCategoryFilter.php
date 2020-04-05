@@ -15,7 +15,25 @@ $filter_result = array(
     //'showLog' => '1',
     //'cache_key' => 'dsfsd',
 );
-//TODO: проверить работу из ТВ
+
+$catalog_full = $modx->getContext($modx->context->key)->getOption('catalog_full');
+if($catalog_full==1){
+    $region_id = $modx->getPlaceholder('region.id_region');
+    $filter_result['loadModels']='egmsDelivery';
+
+    $filter_result['leftJoin']='{
+        "egmsDelivery": {
+            "class": "egmsDelivery",
+            "on": "egmsDelivery.id_region = '.$region_id.' and egmsDelivery.published=1 and Data.vendor = egmsDelivery.id_vendor"
+        }
+    }';
+    $filter_result['where']='{"Data.price:>":"100"}';
+}else{
+// '' => '',
+    $vendors = $modx->getPlaceholder('region.vendors_arr');
+    //die($vendors);
+    $filter_result['where']='{"Data.vendor:IN":'.$vendors.',"AND:Data.price:>":"100"}';
+}
 
 if($modx->resource->getTVValue('catalog_filter'))
 {
@@ -39,7 +57,7 @@ if($filter_result['aliases']=='')
 if($modx->resource->getTVValue('catalog_order'))
     $filter_result['sort'] = $modx->resource->getTVValue('catalog_order');
 else
-    $filter_result['sort'] = 'ms|price:asc';
+    $filter_result['sort'] = 'ms|price:asc'; //:egmsDelivery|id_vendor:desc,ms|price:asc
 
 if($modx->resource->getTVValue('catalog_map'))
     $filter_result['parents'] = $modx->resource->getTVValue('catalog_map');

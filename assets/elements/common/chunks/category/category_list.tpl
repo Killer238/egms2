@@ -1,0 +1,1 @@
+<a href="{$id|url}" title="" class="" role="button" aria-pressed="true">{$id |resource : 'menutitle'}</a>

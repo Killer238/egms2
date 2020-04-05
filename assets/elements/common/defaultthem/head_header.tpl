@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 my-auto">
                     {*<h4>fgfdgdfgdfgdfg</h4>*}
-                    <a href="{98 | url}">
+                    <a href="//{'region.host' | placeholder}">
                         <div class="logo_head"></div>
                     </a>
                 </div>
@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="col-1 col-md-3 align-self-center">
-            <a href="#">
+            <a href="tel:{'region.phone' | placeholder}">
                 <div class="headphone "></div>
                 <div class="my-3 d-none d-lg-block">{'region.phone' | placeholder}</div>
             </a>

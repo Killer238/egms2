@@ -79,15 +79,4 @@ $xpdo_meta_map['plPproductReviews']= array (
       'null' => false,
     ),
   ),
-  'aggregates' => 
-  array (
-    'msproduct' => 
-    array (
-      'class' => 'msProduct',
-      'local' => 'resource_id',
-      'foreign' => 'id',
-      'cardinality' => 'one',
-      'owner' => 'foreign',
-    ),
-  ),
 );

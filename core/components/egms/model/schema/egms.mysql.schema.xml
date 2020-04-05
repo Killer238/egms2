@@ -14,6 +14,7 @@
 		<field key="d_days" dbtype="varchar" precision="15" phptype="string" null="false" />
 		<field key="d_datehide" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="d_weekdays" dbtype="varchar" precision="7" phptype="string" null="false" />
+		<field key="priority" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="d_instock" dbtype="int" precision="11" phptype="integer" null="false" />
 		<field key="content" dbtype="text" phptype="string" null="false" />
 		<field key="s_address" dbtype="varchar" precision="250" phptype="string" null="false" />
@@ -73,6 +74,7 @@
 		<field key="meta_description" dbtype="varchar" precision="255" phptype="string" null="false" />
 		<field key="meta_keywords" dbtype="varchar" precision="255" phptype="string" null="false" />
 		<field key="h1" dbtype="varchar" precision="255" phptype="string" null="false" />
+		<field key="product_prefix" dbtype="varchar" precision="45" phptype="string" null="false" />
 		<field key="description_intro" dbtype="text" phptype="string" null="false" />
 		<field key="description" dbtype="text" phptype="string" null="false" />
 		<field key="description2" dbtype="text" phptype="string" null="false" />

@@ -2,9 +2,11 @@
 {block 'content'}
     <div class="container">
         <div class="row">
-            <div>
+            <div class="col-12">
                 <h1>{$_modx->resource.longtitle}</h1>
-                {$_modx->resource.content}
+            </div>
+            <div class="col-12">
+                Страница не йдена!
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 $modx->loadClass('egmsRd', MODX_CORE_PATH.'components/egms/model/egms/');
 
 $type = $modx->getOption('type', $scriptProperties);
+$field = $modx->getOption('field', $scriptProperties);
 $host = $_SERVER['HTTP_HOST'];
 
 if($modx->resource->searchable){
@@ -26,9 +27,13 @@ if($modx->resource->class_key=="msProduct"){
 
     $vendor = $modx->getPlaceholder('vendor');
     $vendors = $modx->getPlaceholder('region.vendors');
-    if (!in_array($vendor, $vendors))
-    {
-        $robots = "noindex, nofollow";
+
+    $catalog_full = $modx->getContext($modx->context->key)->getOption('catalog_full');
+    if($catalog_full!=1) {
+        if (!in_array($vendor, $vendors))
+        {
+            $robots = "noindex, nofollow";
+        }
     }
     
     if($rd){
@@ -37,6 +42,7 @@ if($modx->resource->class_key=="msProduct"){
             $new_ceo_data[$r->get('host')]['meta_description'] = $r->get('meta_description');
             $new_ceo_data[$r->get('host')]['meta_keywords'] = $r->get('meta_keywords');
             $new_ceo_data[$r->get('host')]['h1'] = $r->get('h1');
+            $new_ceo_data[$r->get('host')]['product_prefix'] = $r->get('product_prefix');
             $new_ceo_data[$r->get('host')]['description_intro'] = $r->get('description_intro');
             $new_ceo_data[$r->get('host')]['description'] = $r->get('description');
             $new_ceo_data[$r->get('host')]['description2'] = $r->get('description2');
@@ -49,6 +55,7 @@ if($modx->resource->class_key=="msProduct"){
         $new_ceo_data['*']['meta_description'] = $modx->getContext($modx->context->key)->getOption('template_product_description');
         $new_ceo_data['*']['meta_keywords'] = '';
         $new_ceo_data['*']['h1'] = $modx->getContext($modx->context->key)->getOption('template_product_h1');
+        $new_ceo_data['*']['product_prefix'] = '';
         $new_ceo_data['*']['description_intro'] = '';
         $new_ceo_data['*']['meta_keywords'] = '';
         $new_ceo_data['*']['description2'] = '';
@@ -67,6 +74,7 @@ if($modx->resource->class_key=="msProduct"){
             $new_ceo_data[$r->get('host')]['meta_description'] = $r->get('meta_description');
             $new_ceo_data[$r->get('host')]['meta_keywords'] = $r->get('meta_keywords');
             $new_ceo_data[$r->get('host')]['h1'] = $r->get('h1');
+            $new_ceo_data[$r->get('host')]['product_prefix'] = $r->get('product_prefix');
             $new_ceo_data[$r->get('host')]['description_intro'] = $r->get('description_intro');
             $new_ceo_data[$r->get('host')]['description'] = $r->get('description');
             $new_ceo_data[$r->get('host')]['description2'] = $r->get('description2');
@@ -80,6 +88,7 @@ if($modx->resource->class_key=="msProduct"){
         $new_ceo_data['*']['meta_description'] = $modx->resource->introtext;
         $new_ceo_data['*']['meta_keywords'] = $modx->resource->longtitle;
         $new_ceo_data['*']['h1'] = $modx->resource->longtitle;
+        $new_ceo_data['*']['product_prefix'] = '';
         $new_ceo_data['*']['description_intro'] = '';
         $new_ceo_data['*']['description'] = $modx->resource->description;
         $new_ceo_data['*']['description2'] = '';
@@ -96,5 +105,7 @@ if($new_ceo_data[$host])
 else
     $output = $new_ceo_data['*'];
 //die(print_r($output));
+if($field)
+    return $output[$field];
 
 return $output;

@@ -1,0 +1,10 @@
+cd /home/mh/mh/assets/egms/build/
+php build.schema.php
+
+php /home/mh/mh/assets/egms/build/build.schema.php
+php /home/mh/mh/assets/egms/build/build.models.php
+
+sudo rm -rf /home/mh/mh/www/core/cache/*
+
+
+mysqldump -u root -p test_mh < /home/mh/mh/www/core/_data/db/backup.sql

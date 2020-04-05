@@ -19,6 +19,7 @@ $xpdo_meta_map['egmsDelivery']= array (
     'd_days' => NULL,
     'd_datehide' => NULL,
     'd_weekdays' => NULL,
+    'priority' => NULL,
     'd_instock' => NULL,
     'content' => NULL,
     's_address' => NULL,
@@ -117,6 +118,13 @@ $xpdo_meta_map['egmsDelivery']= array (
       'dbtype' => 'varchar',
       'precision' => '7',
       'phptype' => 'string',
+      'null' => false,
+    ),
+    'priority' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '11',
+      'phptype' => 'integer',
       'null' => false,
     ),
     'd_instock' => 

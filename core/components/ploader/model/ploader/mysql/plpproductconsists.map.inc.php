@@ -51,4 +51,23 @@ $xpdo_meta_map['plPproductConsists']= array (
       'null' => false,
     ),
   ),
+  'aggregates' => 
+  array (
+    'res' => 
+    array (
+      'class' => 'modResource',
+      'local' => 'resource_id',
+      'foreign' => 'id',
+      'cardinality' => 'one',
+      'owner' => 'foreign',
+    ),
+    'cit' => 
+    array (
+      'class' => 'plPproductConsistsItem',
+      'local' => 'id_consists_item',
+      'foreign' => 'id',
+      'cardinality' => 'one',
+      'owner' => 'foreign',
+    ),
+  ),
 );

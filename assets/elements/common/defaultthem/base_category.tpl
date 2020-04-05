@@ -15,10 +15,11 @@
 
     'tplFilter.outer.price' => '@FILE elements/common/chunks/category/tpl.mFilter2.filter.slider.tpl',
     'tplFilter.row.price' => 'tpl.mFilter2.filter.number',
+
     'ajaxMode' => 'default',
     'paginator' => 'pdoPage',
     'showLog' => '0',
-    'where' => '{"Data.vendor:IN":'~ $_modx->getPlaceholder('region.vendors_arr') ~',"AND:Data.price:>":"2"}',
+
     ]
     ])}
 

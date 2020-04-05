@@ -41,7 +41,7 @@ if (!function_exists('egGetModificationOptions')) {
         $q->sortby("rank");
 
         $rcq = array(
-            'id_product' => $product['id'],
+            'resource_id' => $product['id'],
             'context' => $modx->context->key,
             'published' => 1,
         );
@@ -57,9 +57,11 @@ if (!function_exists('egGetModificationOptions')) {
         $product_cache['product_fullname'] = $product['longtitle'];
         $product_cache['price'] = str_replace(' ', '',  $product['price']);
         $product_cache['price_old'] = str_replace(' ', '', $product['old_price']);//$product['old_price'];
-        $product_cache['price_diff'] = ($product_cache['default']['price_old']>0)?$product_cache['default']['price']-$product_cache['default']['price_old']:0;
-        $product_cache['price_pr'] = ($product_cache['default']['price_old']>0)?round (100*($product_cache['default']['price'] - $product_cache['default']['price_old'])/$product_cache['default']['price_old']):0;
+        $product_cache['price_diff'] = ($product_cache['price_old']>0)?$product_cache['price']-$product_cache['price_old']:0;
+        $product_cache['price_pr'] = ($product_cache['price_old']>0)?round (100*($product_cache['price'] - $product_cache['price_old'])/$product_cache['price_old']):0;
         $product_cache['url'] = $product['uri'];
+        //$product_cache['reviews'] = $reviews;
+        $product_cache['reviews_count'] = $rc;
         $product_cache['rating'] = $rc;
 
         if ($q->prepare() AND $q->stmt->execute()) {
@@ -138,6 +140,7 @@ $row['delivery'] = $dh['delivery'];
 $row['payments'] = $dh['payments'];
 $row['options'] = $dh['options'];
 $row['region'] = $dh['region']['city'];
+$row['product_prefix'] = $modx->runSnippet("egCeoData", ['field' => 'product_prefix']);
 
 //echo '<pre>';print_r($row);die;
 

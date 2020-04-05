@@ -78,15 +78,4 @@ $xpdo_meta_map['plPproductFeatureMap']= array (
       ),
     ),
   ),
-  'aggregates' => 
-  array (
-    'moptions' => 
-    array (
-      'class' => 'msOption',
-      'local' => 'key',
-      'foreign' => 'key',
-      'cardinality' => 'one',
-      'owner' => 'foreign',
-    ),
-  ),
 );

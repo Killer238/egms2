@@ -18,7 +18,5 @@
  * @property integer $published
  * @property integer $action
  * @property string $log
- * @property msVendor $cvendors
- * @property msCategory $ccategorys
  */
 class plPproduct extends xPDOSimpleObject {}

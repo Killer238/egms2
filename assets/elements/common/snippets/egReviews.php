@@ -5,7 +5,7 @@ $tpl = $modx->getOption('tpl', $scriptProperties, '@FILE elements/common/chunks/
 $id_product = $modx->getOption('id_product', $scriptProperties);
 
 $select = array(
-    'id_product' => $id_product,
+    'resource_id' => $id_product,
 );
 $reviews = $modx->getCollection('plPproductReviews', $select);
 $reviews_arr = array();

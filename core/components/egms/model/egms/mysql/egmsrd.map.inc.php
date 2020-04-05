@@ -14,6 +14,7 @@ $xpdo_meta_map['egmsRd']= array (
     'meta_description' => NULL,
     'meta_keywords' => NULL,
     'h1' => NULL,
+    'product_prefix' => NULL,
     'description_intro' => NULL,
     'description' => NULL,
     'description2' => NULL,
@@ -75,6 +76,13 @@ $xpdo_meta_map['egmsRd']= array (
     array (
       'dbtype' => 'varchar',
       'precision' => '255',
+      'phptype' => 'string',
+      'null' => false,
+    ),
+    'product_prefix' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '45',
       'phptype' => 'string',
       'null' => false,
     ),

@@ -143,23 +143,4 @@ $xpdo_meta_map['plPproduct']= array (
       'null' => false,
     ),
   ),
-  'aggregates' => 
-  array (
-    'cvendors' => 
-    array (
-      'class' => 'msVendor',
-      'local' => 'id_manufacturer',
-      'foreign' => 'id',
-      'cardinality' => 'one',
-      'owner' => 'foreign',
-    ),
-    'ccategorys' => 
-    array (
-      'class' => 'msCategory',
-      'local' => 'id_category',
-      'foreign' => 'id',
-      'cardinality' => 'one',
-      'owner' => 'foreign',
-    ),
-  ),
 );

@@ -7,6 +7,5 @@
  * @property string $key
  * @property string $feature_value
  * @property integer $published
- * @property msOption $moptions
  */
 class plPproductFeatureMap extends xPDOSimpleObject {}

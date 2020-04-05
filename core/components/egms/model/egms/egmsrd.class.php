@@ -9,6 +9,7 @@
  * @property string $meta_description
  * @property string $meta_keywords
  * @property string $h1
+ * @property string $product_prefix
  * @property string $description_intro
  * @property string $description
  * @property string $description2

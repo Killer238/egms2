@@ -1,10 +1,15 @@
 {*var $view = ''*}
 {var $view = $modx->getPlaceholder('product_view')}
+
 {var $therm = $_modx->runSnippet('pdoField', ['id' => $id, 'field' => 'product_delivery_therm', 'output' => '0'])}
 {if $delivery[$vendor~'-'~$therm] }
     {var $deliverytherm = $delivery[$vendor~'-'~$therm]}
 {else}
-    {var $deliverytherm = $delivery[$vendor~'-0']}
+    {if $delivery[$vendor~'-0'] }
+        {var $deliverytherm = $delivery[$vendor~'-0']}
+    {else}
+        {var $deliverytherm = $delivery['0-0']}
+    {/if}
 {/if}
 <pre></pre>
 <div class="col-md-{$view=='grid'?'4':'12'}">
@@ -31,12 +36,12 @@
             </div>
             <article class="col-md-{$view=='grid'?'12':'5'}">
                 <h4><a class="url-{$id}" href="{$regioncatalog}/{$id | resource :'uri'}{'url' | size : 'url'}">
-                        {if $_modx->resource.longtitle && $_modx->resource.class_key=='msCategory'}
+                        {if $product_prefix!='' && $_modx->resource.class_key=='msCategory'}
                             {if $longtitle == $pagetitle}
                                 {$longtitle}
                             {else}
-                            <div class="catalog">{$_modx->resource.longtitle}</div>
-                            {$_pls['vendor.name']} {$pagetitle}
+                            <div class="catalog">{$product_prefix}</div>
+                                {$_pls['vendor.name']} {$pagetitle}
                             {/if}
                         {else}
                             {$longtitle}
@@ -46,29 +51,20 @@
                 'tpl' => '@FILE elements/common/chunks/tpl.categoryFeatures.tpl',
                 'product' => $id,
                 ]}
-                <div class="card__delivery_{$id}" data-minprice="{$deliverytherm.d_min}" data-deliverycost="{$deliverytherm.d_cost}">
-                    <div>{'eg_delivery_in' | lexicon} {$region.city_d}</div>
-                    <div>Стоимость:<span class="delivery_cost">
-
-                        </span>
+                <div class="card__delivery card__delivery_{$id}" data-minprice="{$deliverytherm.d_min}" data-deliverycost="{$deliverytherm.d_cost}">
+                    <div>{'eg_delivery' | lexicon} <span class="delivery_city">{$region.city_on}</span></div>
+                    <div>Стоимость доставки:<span class="delivery_cost">
+                            {if ($product_cache.price>$deliverytherm.d_min)}{'eg_free' | lexicon}
+                        {else}{$deliverytherm.d_cost} {'ms2_frontend_currency' | lexicon}{/if}</span>
                         <span class="free__cost">{'eg_free' | lexicon}</span>
                     </div>
                     {if ($deliverytherm.d_datehide==1)}
-                        <div class="d-none">Ближайшая доставка:<span></span></div>
-                        <div>Срок доставки: {$deliverytherm.d_days}</div>
+                        <div class="d-none">Доставим:<span class="delivery_date">{$deliverytherm | deliverydate}</span></div>
+                        <div>Срок: <span class="delivery_range">{$deliverytherm.d_days}</span></div>
                         {else}
-                        <div>Ближайшая доставка: <span>{$deliverytherm | deliverydate}</span></div>
-                        <div class="d-none">Срок доставки: <span>{$deliverytherm.d_days}</span></div>
+                        <div>Доставим: <span class="delivery_date">{$deliverytherm | deliverydate}</span></div>
+                        <div class="d-none">Срок: <span class="delivery_range">{$deliverytherm.d_days}</span></div>
                     {/if}
-                    {*<div class="card__deliverycost">
-                        <span>{'eg_delivery_in' | lexicon} {$region.city_d}: </span>
-
-                        <span class="cost">{if ($product_cache.price>$deliverytherm.d_min)}{'eg_free' | lexicon}
-                        {else}{$deliverytherm.d_cost} {'ms2_frontend_currency' | lexicon}{/if}
-                        </span>
-                    </div>
-                    <div class="card__deliverytime"><span>{'delivery_to' | lexicon} </span><span>{$deliverytherm | deliverydate}</span></div>
-                    *}
                 </div>
 
             </article>
@@ -78,7 +74,7 @@
                 <div class="action-wrap">
                     <div class="price-wrap-{$id} prod-price">
                         {if $product_cache.price_old != $product_cache.price && $product_cache.price_old > 0}
-                            <del class="price-old"><span>{number_format($product_cache.price, 0, ',', ' ')}</span> {'ms2_frontend_currency' | lexicon}</del><span class="badge-discount">{$product_cache.price_pr}%</span>
+                            <del class="price-old"><span>{number_format($product_cache.price_old, 0, ',', ' ')}</span> {'ms2_frontend_currency' | lexicon}</del><span class="badge-discount">{$product_cache.price_pr}%</span>
                         {/if}
                         <div class="price h4"><span>{number_format($product_cache.price, 0, ',', ' ')}</span> {'ms2_frontend_currency' | lexicon}</div>
                         {*<span class="m-2 p-2" style="padding: 2px 7px;font-size: 12px;background-color: #ef5f5f;color: #fff;border-radius: 4px;">-40%</span>*}
@@ -87,6 +83,7 @@
                         <form class="form-horizontal ms2_form  msoptionsprice-product" method="post">
                             <input type="hidden" name="id" value="{$id}"/>
                             <input type="hidden" name="count" class="form-control col-md-6" value="1"/>
+                            {if $product_cache.options}
                             <dl class="dlist-inline">
                                 <dt>{'ms2_take_size' | lexicon}: </dt>
                                 <dd>
@@ -97,6 +94,7 @@
                                     </select>
                                 </dd>
                             </dl>
+                            {/if}
                             <div class="instock">{'eg_instock' | lexicon}</div>
                             <button class="btn btn-success btn active w-100" type="submit" name="ms2_action" value="cart/add">
                                 <i class="fa fa-shopping-cart"></i>

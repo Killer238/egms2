@@ -46,17 +46,25 @@
             </div>
             <div class="col-md-3">
                 <h4>НАМАТРАСНИКИ</h4>
+                <div><a href="tel:{'region.phone' | placeholder}">{'region.phone' | placeholder}</a></div>
+                <div style="font-size: 0.8rem">ежедневно с 8:00 до 22:00</div>
+                <div><strong>Адрес офиса:</strong> <span style="display: block">{'region.region_address' | placeholder}</span></div>
+                <div>Не является магазином.</div>
+               {* <h4>НАМАТРАСНИКИ</h4>
                 {$_modx->runSnippet("pdoMenu", [
                     'context' => $modx->context->key,
                     'parents' => 137,
+                    'level' => 1,
                     'hereClass' => 'active',
                 ])}
-                <h4>ОСНОВАНИЯ</h4>
+                *}
+               {* <h4>ОСНОВАНИЯ</h4>
                 {$_modx->runSnippet("pdoMenu", [
                     'context' => $modx->context->key,
                     'parents' => 138,
+                    'level' => 1,
                     'hereClass' => 'active',
-                ])}
+                ])}*}
             </div>
         </div>
     </div>
@@ -82,12 +90,6 @@
                     <img src="/assets/img/payments/payment6.png" >
                     <img src="/assets/img/payments/payment7.png" >
                     <img src="/assets/img/payments/payment8.png" >*}
-        </div>
-        <div class="row">
-            <div class="col-3">
-                {'region.region_address' | placeholder}
-            </div>
-
         </div>
     </div>
 </section>

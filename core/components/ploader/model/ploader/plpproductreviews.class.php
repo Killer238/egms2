@@ -10,6 +10,5 @@
  * @property string $text
  * @property string $text_rewrite
  * @property integer $published
- * @property msProduct $msproduct
  */
 class plPproductReviews extends xPDOSimpleObject {}

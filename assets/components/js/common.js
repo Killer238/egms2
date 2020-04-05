@@ -109,11 +109,11 @@ function chacgePrice(e){
                 var delivery_price = $(this).find('option:selected').attr('data-delivery-price');
                // console.log(delivery_price);
                 if(delivery_price==0){
-                    $('.card__delivery_'+id+' span.cost').text($('.card__delivery_'+id+' span.free__cost').text());
+                    $('.card__delivery_'+id+' span.delivery_cost').text($('.card__delivery_'+id+' span.free__cost').text());
                     $('.delivery_free_info_'+id).hide();
                 }
                 else{
-                    $('.card__delivery_'+id+' span.cost').text(moneyFormat(delivery_price)+'₽');
+                    $('.card__delivery_'+id+' span.delivery_cost').text(moneyFormat(delivery_price)+'₽');
                     $('.delivery_free_info_'+id).show();
                 }
 

@@ -1,14 +1,15 @@
-<title>{'!egCeoData' | snippet | ceodata: 'meta_title'}</title>
 <meta charset="utf-8">
 <meta name="language" content="ru" />
 <base href="//{'region.host' | placeholder}" />
 <meta name="viewport" content="width=device-width, minimum-scale=0.25, maximum-scale=1.0, initial-scale=1.0" />
+<title>{'!egCeoData' | snippet | ceodata: 'meta_title'}</title>
 <meta name="description" content="{'!egCeoData' | snippet | ceodata: 'meta_description'}">
+<!-- {'!egCeoData' | snippet | ceodata: 'h1'} -->
 <meta name="keywords" content="{'!egCeoData' | snippet | ceodata: 'meta_keywords'}">
-<meta name="yandex-verification" content="{'region.code_yandex' | placeholder}" />
-<meta name="google-site-verification" content="{'region.code_google' | placeholder}" />
 <link rel="canonical" href="{'!egCeoData' | snippet | ceodata: 'canonical'}" />
 <meta name="robots" content="{'!egCeoData' | snippet | ceodata: 'robots'}" />
+<meta name="yandex-verification" content="{'region.code_yandex' | placeholder}" />
+<meta name="google-site-verification" content="{'region.code_google' | placeholder}" />
 <script type="application/ld+json">
     {
         "@context" : "http://schema.org",

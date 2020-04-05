@@ -6,38 +6,46 @@
     {var $therm = $_modx->runSnippet('pdoField', ['id' => $id, 'field' => 'product_delivery_therm', 'output' => '0'])}
     {var $pc = $pd['product_cache']}
     {var $deliverytherm = $pd['delivery'][$vendor~'-'~$therm]}
-    {if (!$deliverytherm)}
-        {set $deliverytherm = $pd['delivery'][$vendor~'-0']}
+
+    {if $pd['delivery'][$vendor~'-'~$therm] }
+        {var $deliverytherm = $pd['delivery'][$vendor~'-'~$therm]}
+    {else}
+        {if $pd['delivery'][$vendor~'-0'] }
+            {var $deliverytherm = $pd['delivery'][$vendor~'-0']}
+        {else}
+            {var $deliverytherm = $pd['delivery']['0-0']}
+        {/if}
     {/if}
     {'!msOptionsPrice.initialize' | snippet}
-    {*<pre>{print_r($pd['delivery'])}</pre>*}
-    {*<script type="application/ld+json">{
+
+    {if (!$.get.reviews && !$.get.delivery)}
+    <script type="application/ld+json">{
             "@context" : "http://schema.org",
             "@type": "Product",
-            "brand": "Promtex-Orient EcoRest",
-            "name": "Promtex-Orient EcoRest Струтто Сайд",
-            "image": "https://nizhniy-novgorod.anatomiyasna.ru/uploads/images/product/matras-promtex-orient-ecorest-strutto-sajd.jpg",
+            "brand": "{$_pls['vendor.name']}",
+            "name": "{$_modx->resource.longtitle} {'region.city_in' | placeholder}{'size_sm' | size}",
+            "image": "https://{$.server['HTTP_HOST']}{$image}",
             "offers": {
                 "@type": "Offer",
-                "url": "https://nizhniy-novgorod.anatomiyasna.ru/tovary/matras-promtex-orient-ecorest-strutto-sajd/70-186/",
+                "url": "https://{$.server['HTTP_HOST']}{$.server['REQUEST_URI']}",
                 "priceCurrency": "RUB",
-                "price": 4456.00,
+                "price": {$pc.price}.00,
                 "availability": "http://schema.org/InStock",
                 "itemCondition": "http://schema.org/UsedCondition",
                 "seller": {
                     "@type": "Organization",
-                    "name": "AnatomiyaSna"
+                    "name": "{'region.sitename' | placeholder}"
                 }
             },
             "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": 0,
-                "ratingCount": 0,
-                "reviewCount": 0
+                "ratingValue": {$pc.rating},
+                "ratingCount": {$pc.reviews_count},
+                "reviewCount": {$pc.reviews_count}
             }
         }
-
-    </script>*}
+    {/if}
+    </script>
  <div class="container product__main">
      <div id="msProduct" class="row">
         <div class="col-sm-12 product__h1">
@@ -100,11 +108,11 @@
                              <span class="old_price"><span class='msoptionsprice-old-cost msoptionsprice-{$_modx->resource.id}'>{number_format($pc.price_old, 0, ',', ' ')} </span> {'ms2_frontend_currency' | lexicon} (Экономия: <span class="price_diff">{(number_format($pc.price_diff, 0, ',', ' '))}</span>  {'ms2_frontend_currency' | lexicon})</span>
                          {/if}
                      </div>
-                     <div style="border-top: 1px solid #e6e6e6;">
+                     <div class="p-2" style="border-top: 1px solid #e6e6e6;">
                          <input type="hidden" name="id" value="{$_modx->resource.id}"/>
                          <input type="hidden" name="count" value="1"/>
                          <input type="hidden" name="product_data" id="product_data" data-unit="{'eg_sm'| lexicon}" />
-                         <dl class="dlist-block p-2">
+                         <div class="dlist-block">
                              <dt>{'eg_size' | lexicon} </dt>
                              <dd>
                                  <select class="option-select mt-2 option_size" name="options[size]">
@@ -114,8 +122,23 @@
                                  </select>
                              </dd>
                              <div class="instock">{'eg_instock' | lexicon}</div>
-                         </dl>
-                         <div class="card__delivery_{$_modx->resource.id}" data-minprice="{$deliverytherm.d_min}" data-deliverycost="{$deliverytherm.d_cost}">
+                         </div>
+                         <div class="card__delivery card__delivery_{$_modx->resource.id}" data-minprice="{$deliverytherm.d_min}" data-deliverycost="{$deliverytherm.d_cost}">
+                             <div>{'eg_delivery' | lexicon} <span class="delivery_city">{'region.city_on' | placeholder}</span></div>
+                             <div>Стоимость доставки:<span class="delivery_cost">
+                            {if ($pc.price>$deliverytherm.d_min)}{'eg_free' | lexicon}
+                            {else}{$deliverytherm.d_cost} {'ms2_frontend_currency' | lexicon}{/if}</span>
+                                 <span class="free__cost">{'eg_free' | lexicon}</span>
+                             </div>
+                             {if ($deliverytherm.d_datehide==1)}
+                                 <div class="d-none">Доставим:<span class="delivery_date">{$deliverytherm | deliverydate}</span></div>
+                                 <div>Срок: <span class="delivery_range">{$deliverytherm.d_days}</span></div>
+                             {else}
+                                 <div>Доставим: <span class="delivery_date">{$deliverytherm | deliverydate}</span></div>
+                                 <div class="d-none">Срок: <span class="delivery_range">{$deliverytherm.d_days}</span></div>
+                             {/if}
+                         </div>
+                         {*<div class="card__delivery_{$_modx->resource.id}" data-minprice="{$deliverytherm.d_min}" data-deliverycost="{$deliverytherm.d_cost}">
                              <div class="card__deliverycost">
                                  <span>{'eg_delivery' | lexicon} {'region.city_on' | placeholder}: </span>
                                  <span class="free__cost">{'eg_free' | lexicon}</span>
@@ -124,12 +147,12 @@
                                  </span>
                              </div>
                              <div class="card__deliverytime"><span>{'delivery_to' | lexicon} </span><span>{$deliverytherm | deliverydate}</span></div>
-                         </div>
-                         <button class="btn btn-primary btn m-2 w-100" type="submit" name="ms2_action" value="cart/add">
+                         </div>*}
+                         <button class="btn btn-primary btn mt-2 w-100" type="submit" name="ms2_action" value="cart/add">
                              <i class="fa fa-shopping-cart"></i>
                              <span class="text">{'ms2_frontend_add_to_cart' | lexicon}</span>
                          </button>
-                         <button class="btn btn-success btn m-2 active w-100" type="submit" name="ms2_action" value="cart/add">
+                         <button class="btn btn-success btn mt-2 active w-100" type="submit" name="ms2_action" value="cart/add">
                              <i class="fa fa-shopping-cart"></i>
                              <span class="text">{'eg_oneclick' | lexicon}</span>
                          </button>
@@ -161,17 +184,30 @@
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="desc">
                     <div class="row">
-                        <div class="col-sm-12 col-md-4">
-                            {'egConsistens' | snippet :['tpl' => '@FILE elements/common/chunks/product/product_consists.tpl']}
+                        <div class="col-sm-12 col-md-6">
+                            {'!egConsistens' | snippet :['tpl' => '@FILE elements/common/chunks/product/product_consists.tpl']}
                             <p>
-                                {* выводим описание для определенного контекста*}
-                            {$_modx->resource.id | resource: 'product_description'| cdesc :$_modx->context.key | htmlspecialchars}
-                            </p>
 
+                                {* выводим описание для определенного контекста*}
+                            {*$_modx->resource.des | resource: 'product_description'| cdesc :$_modx->context.key | htmlspecialchars*}
+                                {*$_modx->resource.content*}
+                            </p>
+                            {*'!egCeoData' | snippet | ceodata: 'description3'*}
+                            <p>Магазин {'region.sitename'|placeholder} является официальным дилером фабрики {$_pls['vendor.name']} {'region.city_in'|placeholder}. Мы работаем напрямую от производителя и можем гаранитровать лучшую цену.
+                                Только у нас вы можете купить {$_modx->resource.longtitle} с доставкой {'region.city_on'|placeholder} в любом нестандартном размере без дополнительной наценки.</p>
+                            {if ($pc.price_old > 0)}
+                            <p>Акция действует в период с  {'sw'| daterange} по {'ew'| daterange}. Кол-во товаров ограничено.
+                                Цена со скидкой на <strong>{$_modx->resource.longtitle} составит <span class='msoptionsprice-cost msoptionsprice-{$_modx->resource.id}'>{number_format($pc.price, 0, ',', ' ')} </span> {'ms2_frontend_currency' | lexicon}</strong>.
+                                Телефон для заказа {'region.city_in'|placeholder}: <a href="tel:{'region.phone' | placeholder}">{'region.phone' | placeholder}</a>
+                            </p>
+                            {else}
+                            <p>Телефон для заказа {'region.city_in'|placeholder}: <a href="tel:{'region.phone' | placeholder}">{'region.phone' | placeholder}</a></p>
+                            <p>Цена за размер <span class="option_zip">{'size_sm' | size}</span> — <span class='msoptionsprice-cost msoptionsprice-{$_modx->resource.id}'>{number_format($pc.price, 0, ',', ' ')} </span> {'ms2_frontend_currency' | lexicon}</strong></p>
+                            {/if}
                         </div>
-                        <div class="col-sm-12 col-md-8">
+                        <div class="col-sm-12 col-md-6">
                             <h2>Характеристики</h2>
-                            {'msProductOptions' | snippet : ['hideEmpty'=> 1]}
+                            {'msProductOptions' | snippet : ['hideEmpty'=> 1, 'tpl' => '@FILE elements/common/chunks/product/product_options.tpl']}
                         </div>
                     </div>
 
@@ -190,9 +226,9 @@
                                {else}
                                 {$deliverytherm.d_days}
                         {/if}</li>
-                        <li>ближайшая дата: {$deliverytherm | deliverydate:'dateonly'}</li>
-                        <li><span class="delivery_free_info_{$_modx->resource.id}" {($deliverytherm.d_min < $pc.price)?'style="display:none"':''}>при сумме заказа более {$deliverytherm.d_min} {'ms2_frontend_currency' | lexicon} - </span>доставка {'eg_free' | lexicon} {'region.city_on' | placeholder}</li>
-                        <li class="delivery_free_info_{$_modx->resource.id}" {($deliverytherm.d_min < $pc.price)?'style="display:none"':''}>при сумме заказа до {$deliverytherm.d_min} {'ms2_frontend_currency' | lexicon} - {$deliverytherm.d_cost}{'ms2_frontend_currency' | lexicon}</li>
+                        <li>ближайшая дата: <span class="delivery_date">{$deliverytherm | deliverydate:'dateonly'}</span></li>
+                        <li><span class="delivery_free_info_{$_modx->resource.id}" {($deliverytherm.d_min < $pc.price)?'style="display:none"':''}>при сумме заказа более {$deliverytherm.d_min} {'ms2_frontend_currency' | lexicon} - </span>доставка <span class="delivery_cost">{'eg_free' | lexicon}</span> {'region.city_on' | placeholder}</li>
+                        <li class="delivery_free_info_{$_modx->resource.id}" {($deliverytherm.d_min < $pc.price)?'style="display:none"':''}>при сумме заказа до {$deliverytherm.d_min} {'ms2_frontend_currency' | lexicon} - <span class="delivery_cost">{$deliverytherm.d_cost}{'ms2_frontend_currency' | lexicon}</span></li>
 
                     </ul>
                     {if (trim($deliverytherm.delivery_options)!='')}
@@ -254,7 +290,7 @@
 
         </div>
     </div>
-     <div class="row mb-3">
+     <div class="row pb-3">
          <div class="col-12"><h3>С этим товаром покупают</h3></div>
          {*с этим товаром покупают*}
          {$_modx->setPlaceholder('product_view', 'grid')}
